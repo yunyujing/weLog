@@ -1,0 +1,37 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.zzia.graduation.welog.MainActivity">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_userinfo"
+            android:icon="@android:drawable/ic_menu_info_details"
+            android:title="账号信息" />
+        <item
+            android:id="@+id/nav_usertask"
+            android:icon="@android:drawable/ic_menu_edit"
+            android:title="我的任务" />
+        <item
+            android:id="@+id/nav_userproject"
+            android:icon="@android:drawable/ic_menu_agenda"
+            android:title="我的项目" />
+        <item
+            android:id="@+id/nav_usercompany"
+            android:icon="@android:drawable/ic_menu_sort_by_size"
+            android:title="我的企业" />
+
+    </group>
+
+    <item android:title="About">
+        <menu>
+
+            <item
+                android:id="@+id/nav_manage"
+                android:icon="@android:drawable/ic_menu_manage"
+                android:title="设置" />
+            <item
+                android:id="@+id/nav_help"
+                android:icon="@android:drawable/ic_menu_help"
+                android:title="帮助" />
+        </menu>
+    </item>
+</menu>

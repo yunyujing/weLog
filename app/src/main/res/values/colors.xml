@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--系统自带色-->
+    <color name="pink">#FF4081</color>
+    <color name="light_green">#81C784</color>
+    <color name="green">#4CAF50</color>
+    <color name="drak_green">#2E7D32</color>
+    <!--主题色-->
+    <color name="colorPrimaryLight">#5BB85B</color>
+    <!--#0f709f-->
+    <color name="colorPrimary">#009A61</color>
+    <!--#3F51B5-->
+    <color name="colorPrimaryDark">#00975F</color>
+    <!--#303F9F-->
+    <color name="colorAccent">#008E59</color>
+    <!--#303F9F-->
+    <color name="homepage_floating_bg">#99ffffff</color>
+    <color name="dark_text_gray">#333333</color>
+    <color name="light_text_gray">#a5a5a5</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+
+    <!--字体的颜色-->
+    <color name="text_fff">#ffffff</color>
+    <color name="text_ooo">#000000</color>
+    <color name="text_999">#999999</color>
+    <color name="text_666">#666666</color>
+    <color name="text_333">#333333</color>
+    <color name="text_dimiss">#d2d2d2</color>
+    <color name="text_hint">#c9c9c9</color>
+    <color name="text_detail">#a0a0a0</color>
+
+    <!--背景色-->
+    <color name="bg_default">#eaeaea</color>
+    <color name="bg_list_driver">#d9d9d9</color>
+
+    <!--actionBar的颜色-->
+    <color name="titlebar_title">#FFFFFFFF</color>
+    <color name="titlebar_text_normal">#FFFFFFFF</color>
+    <color name="titlebar_text_press">#FFFFFFFF</color>
+    <color name="titlebar_background">#2079da</color>
+    <color name="titlebar_item_background">#00000000</color>
+    
+    <!--loadmorelistview的颜色-->
+    <color name="loadmore_divider">#d6dfed</color>
+
+</resources>

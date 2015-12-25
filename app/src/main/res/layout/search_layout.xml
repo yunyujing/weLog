@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/search_layout_edit_rl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_seventy"
+        android:background="@color/bg_list_driver">
+
+        <EditText
+            android:id="@+id/search_layout_edit"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/space_three"
+            android:paddingLeft="@dimen/space_ten"
+            android:background="@drawable/search_edit_input_selected"
+            android:focusable="true"
+            android:imeOptions="actionSearch"
+            android:textColorHint="@color/text_hint"
+            android:hint="@string/search_hint"/>
+
+        <ImageView
+            android:id="@+id/search_edt_clean_img"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignRight="@id/search_layout_edit"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/space_fifteen"
+            android:paddingRight="@dimen/space_fifteen"
+            android:scaleType="center"
+            android:src="@drawable/search_edt_clean_img"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+    <com.zzia.graduation.views.TipsLayout
+        android:id="@+id/tips"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/search_layout_edit_rl">
+    </com.zzia.graduation.views.TipsLayout>
+
+
+</RelativeLayout>

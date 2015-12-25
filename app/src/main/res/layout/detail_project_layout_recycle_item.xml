@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/detail_project_layout_content_recycle_item_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="@dimen/space_twelve"
+    android:layout_marginRight="@dimen/space_twelve">
+
+    <TextView
+        android:id="@+id/detail_project_layout_content_recycle_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_middle"
+        android:text="依依修改了任务" />
+    <TextView
+        android:id="@+id/detail_project_layout_content_recycle_item_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="23878293847"/>
+    <TextView
+        android:id="@+id/detail_project_layout_content_recycle_item_detail"
+        android:layout_below="@+id/detail_project_layout_content_recycle_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_big"
+        android:textColor="@color/text_ooo"
+        android:layout_marginTop="@dimen/space_eight"
+        android:text="djkfalkdgahkfdhlkhlakdjfaskdfjakdjfask;"/>
+
+</RelativeLayout>

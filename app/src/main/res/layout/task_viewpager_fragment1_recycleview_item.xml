@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/task_viewpager_fragment1_recycleview_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/space_eight"
+    android:orientation="horizontal"
+    android:background="@color/bg_list_driver">
+
+    <ImageView
+        android:id="@+id/task_layout_fragment1_recycleview_item_img"
+        android:layout_width="@dimen/space_forty_eight"
+        android:layout_height="@dimen/space_forty_eight"
+        android:layout_margin="@dimen/space_twelve"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/default_project_photo" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/task_layout_fragment1_recycleview_item_text_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="12-17 17:18"
+            android:textColor="@color/text_333"
+            android:textSize="@dimen/text_middle"/>
+
+        <TextView
+            android:id="@+id/task_layout_fragment1_recycleview_item_text_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="依依完成了任务"
+            android:textColor="@color/text_333"
+            android:textSize="@dimen/text_middle" />
+
+
+        <TextView
+            android:id="@+id/task_layout_fragment1_recycleview_item_text_detail"
+            android:layout_below="@+id/task_layout_fragment1_recycleview_item_text_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_five"
+            android:layout_marginBottom="@dimen/space_five"
+            android:text="完成UI"
+            android:textColor="@color/text_detail"
+            android:textSize="@dimen/text_middle" />
+
+        <TextView
+            android:id="@+id/task_layout_fragment1_recycleview_item_text_project"
+            android:layout_below="@+id/task_layout_fragment1_recycleview_item_text_detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="#答辩#"
+            android:textColor="@color/text_dimiss"
+            android:textSize="@dimen/text_middle" />
+    </RelativeLayout>
+
+
+</LinearLayout>

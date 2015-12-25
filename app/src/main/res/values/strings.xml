@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">weLog</string>
+    <!--搜索默认提示-->
+    <string name="search_hint">请输入搜索内容</string>
+    <!--tipsLayout的提示语-->
+    <string name="tips_loading">加载中，请稍候...</string>
+    <string name="tips_error_load">加载失败，请点击重试！</string>
+    <string name="tips_error_network">网络连接失败，请检查网络！</string>
+    <string name="tips_error_empty">很抱歉，没有相关数据！</string>
+
+</resources>

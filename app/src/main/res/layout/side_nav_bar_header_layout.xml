@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawerlayout_main"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/drawer_height"
+    android:background="@drawable/side_nav_bar">
+    <ImageView
+        android:id="@+id/drawerlayout_main_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@mipmap/homepage_header_user"/>
+    <TextView
+        android:id="@+id/drawerlayout_main_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/space_ten"
+        android:layout_below="@+id/drawerlayout_main_icon"
+        android:text="依依"/>
+</RelativeLayout>

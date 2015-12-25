@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/detail_project_layout_appbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/drawer_height"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/detail_project_layout_collapsing"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginEnd="48dp"
+            app:expandedTitleMarginStart="20dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ImageView
+                android:id="@+id/detail_project_layout_collapsing_bg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/yanfa"
+                app:layout_collapseMode="parallax" />
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/detail_project_layout_collapsing_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/detail_project_layout_content_title"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="@dimen/space_sixteen"-->
+                <!--android:layout_marginRight="@dimen/space_sixteen"-->
+                <!--android:layout_marginTop="@dimen/space_twelve"-->
+                <!--android:ellipsize="end"-->
+                <!--android:lines="1"-->
+                <!--android:text="项目名称"-->
+                <!--android:textColor="@color/text_ooo"-->
+                <!--android:textSize="@dimen/text_big" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/detail_project_layout_content_about"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginBottom="@dimen/space_ten"-->
+                <!--android:layout_marginLeft="@dimen/space_eighteen"-->
+                <!--android:layout_marginRight="@dimen/space_eighteen"-->
+                <!--android:layout_marginTop="@dimen/space_five"-->
+                <!--android:ellipsize="end"-->
+                <!--android:lines="1"-->
+                <!--android:text="毕业生为毕业设计准备的答辩文档项目简介asdjfhassdafas"-->
+                <!--android:textColor="@color/text_detail"-->
+                <!--android:textSize="@dimen/text_middle" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/detail_project_layout_content_users_count"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="10个成员"-->
+                <!--android:textColor="@color/dark_text_gray"-->
+                <!--android:textSize="@dimen/text_middle" />-->
+        <!--</LinearLayout>-->
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/detail_project_layout_content_recycle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none" />
+
+    </LinearLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>

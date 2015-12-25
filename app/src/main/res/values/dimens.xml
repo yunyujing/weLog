@@ -1,0 +1,56 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <!--首页的间距设置-->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">32dp</dimen>
+    <dimen name="fab_press_shadow">64dp</dimen>
+    <dimen name="homepage_above_view_spacing">32dp</dimen>
+    <dimen name="homepage_above_view_bottom">112dp</dimen>
+    <dimen name="actionbar_height">52dp</dimen>
+    <dimen name="drawer_height">160dp</dimen>
+
+    <!--常用的间距-->
+    <dimen name="space_one">1dp</dimen>
+    <dimen name="space_two">2dp</dimen>
+    <dimen name="space_three">3dp</dimen>
+    <dimen name="space_four">4dp</dimen>
+    <dimen name="space_five">5dp</dimen>
+    <dimen name="space_six">6dp</dimen>
+    <dimen name="space_seven">7dp</dimen>
+    <dimen name="space_eight">8dp</dimen>
+    <dimen name="space_nine">9dp</dimen>
+    <dimen name="space_ten">10dp</dimen>
+    <dimen name="space_twelve">12dp</dimen>
+    <dimen name="space_fourteen">14dp</dimen>
+    <dimen name="space_fifteen">15dp</dimen>
+    <dimen name="space_sixteen">16dp</dimen>
+    <dimen name="space_eighteen">18dp</dimen>
+    <dimen name="space_twenty">20dp</dimen>
+    <dimen name="space_twenty_two">22dp</dimen>
+    <dimen name="space_twenty_four">24dp</dimen>
+    <dimen name="space_twenty_five">25dp</dimen>
+    <dimen name="space_twenty_six">26dp</dimen>
+    <dimen name="space_twenty_eight">28dp</dimen>
+    <dimen name="space_thirty">30dp</dimen>
+    <dimen name="space_thirty_two">32dp</dimen>
+    <dimen name="space_thirty_six">36dp</dimen>
+    <dimen name="space_thirty_eight">38dp</dimen>
+    <dimen name="space_forty">40dp</dimen>
+    <dimen name="space_forty_two">42dp</dimen>
+    <dimen name="space_forty_four">44dp</dimen>
+    <dimen name="space_forty_five">45dp</dimen>
+    <dimen name="space_forty_six">46dp</dimen>
+    <dimen name="space_forty_eight">48dp</dimen>
+    <dimen name="space_seventy">70dp</dimen>
+
+    <!--字体大小设置-->
+    <dimen name="text_micro">10sp</dimen>
+    <dimen name="text_small">12sp</dimen>
+    <dimen name="text_default">14sp</dimen>
+    <dimen name="text_middle">16sp</dimen>
+    <dimen name="text_big">18sp</dimen>
+    <dimen name="text_bigest">20sp</dimen>
+    <dimen name="text_super_big">22sp</dimen>
+
+</resources>
