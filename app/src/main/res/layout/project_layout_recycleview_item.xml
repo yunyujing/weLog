@@ -3,7 +3,7 @@
     android:id="@+id/project_layout_recycleview_item"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/bg_list_driver"
+    android:background="@color/bg_default"
     android:gravity="center"
     android:orientation="vertical">
     <ImageView
@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
-        android:src="@mipmap/yanfa"
+        android:src="@mipmap/project_yanfa"
         android:scaleType="centerCrop"/>
     <TextView
         android:id="@+id/project_layout_recycleview_item_text"

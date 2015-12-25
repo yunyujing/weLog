@@ -6,19 +6,19 @@
     <RelativeLayout
         android:id="@+id/search_layout_edit_rl"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/space_seventy"
-        android:background="@color/bg_list_driver">
+        android:layout_height="60dp"
+        android:background="@color/bg_default">
 
         <EditText
             android:id="@+id/search_layout_edit"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="40dp"
             android:layout_centerVertical="true"
             android:layout_margin="@dimen/space_three"
             android:paddingLeft="@dimen/space_ten"
-            android:background="@drawable/search_edit_input_selected"
             android:focusable="true"
             android:imeOptions="actionSearch"
+            android:background="@drawable/search_edit_input_normal"
             android:textColorHint="@color/text_hint"
             android:hint="@string/search_hint"/>
 

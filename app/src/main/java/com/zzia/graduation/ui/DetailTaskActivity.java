@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.zzia.graduation.views.MyActionBar;
 import com.zzia.graduation.welog.R;
 
 /**
@@ -12,6 +13,7 @@ import com.zzia.graduation.welog.R;
  * Date: 2015/12/21
  */
 public class DetailTaskActivity extends Activity {
+    private MyActionBar actionBar;
 
     public static void startDetailTaskActivity(Context context){
         Intent intent=new Intent(context,DetailTaskActivity.class);
@@ -26,7 +28,9 @@ public class DetailTaskActivity extends Activity {
     }
 
     private void initView() {
-
+        actionBar= (MyActionBar) findViewById(R.id.detail_task_layout_actionbar);
+        actionBar.setTitle("任务详情");
+        actionBar.setBackAction(new MyActionBar.BackAction(this));
     }
 
 }

@@ -62,25 +62,6 @@ public class TipsLayout extends RelativeLayout {
         return tipslayout_error_layout;
     }
 
-    /**
-     * 显示错误提示,默认显示如下： 加载失败，点击重新加载 R.drawable.tips_error
-     *
-     * @param clickListener 可为空
-     */
-    public void showErrorTips(View.OnClickListener clickListener) {
-        this.setVisibility(VISIBLE);
-        showErrorTips(getContext().getString(R.string.tips_error_load), R.mipmap.tips_error, clickListener);
-    }
-
-    /**
-     * 显示没有网络,默认显示如下： 网络未连接，请检查网络设置后，点击刷新 R.drawable.tips_error_need_network （无网络）
-     *
-     * @param clickListener 可为空
-     */
-    public void showErrorNoConnTips(View.OnClickListener clickListener) {
-        this.setVisibility(VISIBLE);
-        showErrorTips(getContext().getString(R.string.tips_error_network), R.mipmap.tips_error, clickListener);
-    }
 
     /**
      * 显示错误提示

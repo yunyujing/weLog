@@ -31,8 +31,7 @@
     <color name="text_detail">#a0a0a0</color>
 
     <!--背景色-->
-    <color name="bg_default">#eaeaea</color>
-    <color name="bg_list_driver">#d9d9d9</color>
+    <color name="bg_default">#f0f2f2</color>
 
     <!--actionBar的颜色-->
     <color name="titlebar_title">#FFFFFFFF</color>

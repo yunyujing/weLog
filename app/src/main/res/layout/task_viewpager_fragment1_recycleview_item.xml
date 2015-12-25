@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:padding="@dimen/space_eight"
     android:orientation="horizontal"
-    android:background="@color/bg_list_driver">
+    android:background="@color/bg_default">
 
     <ImageView
         android:id="@+id/task_layout_fragment1_recycleview_item_img"
