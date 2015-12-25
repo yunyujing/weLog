@@ -2,9 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/detail_project_layout_content_recycle_item_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginLeft="@dimen/space_twelve"
-    android:layout_marginRight="@dimen/space_twelve">
+    android:layout_height="wrap_content"
+    android:padding="@dimen/space_eight"
+    android:background="@color/bg_default">
 
     <TextView
         android:id="@+id/detail_project_layout_content_recycle_item_title"
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:textSize="@dimen/text_big"
         android:textColor="@color/text_ooo"
-        android:layout_marginTop="@dimen/space_eight"
-        android:text="djkfalkdgahkfdhlkhlakdjfaskdfjakdjfask;"/>
+        android:layout_marginTop="@dimen/space_four"
+        android:text="终于完成了界面的框架"/>
 
 </RelativeLayout>
