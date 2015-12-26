@@ -73,7 +73,7 @@ public class DetailProjectActivity extends AppCompatActivity {
         mRecyceView.setHasFixedSize(false);//没有固定大小的recycleView
         LinearLayoutManager layoutManager=new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         mRecyceView.setLayoutManager(layoutManager);
-        MyListItemDecoration myListItemDirector=new MyListItemDecoration(30);
+        MyListItemDecoration myListItemDirector=new MyListItemDecoration(40);
         mRecyceView.addItemDecoration(myListItemDirector);
         detailProjectAdapter=new DetailProjectAdapter(this,list);
         mRecyceView.setAdapter(detailProjectAdapter);
@@ -98,7 +98,6 @@ public class DetailProjectActivity extends AppCompatActivity {
          public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
              super.getItemOffsets(outRect, view, parent, state);
              outRect.bottom = space;
-             outRect.top = space;
          }
      }
 

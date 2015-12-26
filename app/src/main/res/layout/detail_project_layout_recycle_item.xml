@@ -3,29 +3,46 @@
     android:id="@+id/detail_project_layout_content_recycle_item_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/space_eight"
-    android:background="@color/bg_default">
+    android:background="@color/bg_default"
+    android:padding="@dimen/space_twelve">
 
-    <TextView
-        android:id="@+id/detail_project_layout_content_recycle_item_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/text_middle"
-        android:text="依依修改了任务" />
-    <TextView
-        android:id="@+id/detail_project_layout_content_recycle_item_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:text="23878293847"/>
-    <TextView
-        android:id="@+id/detail_project_layout_content_recycle_item_detail"
-        android:layout_below="@+id/detail_project_layout_content_recycle_item_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/text_big"
-        android:textColor="@color/text_ooo"
-        android:layout_marginTop="@dimen/space_four"
-        android:text="终于完成了界面的框架"/>
+    <ImageView
+        android:id="@+id/detail_project_layout_recycle_item_img"
+        android:layout_width="@dimen/space_forty_eight"
+        android:layout_height="@dimen/space_forty_eight"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/space_twelve"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/default_project_photo" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/detail_project_layout_recycle_item_img">
+
+
+        <TextView
+            android:id="@+id/detail_project_layout_content_recycle_item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="依依修改了任务"
+            android:textSize="@dimen/text_default" />
+
+        <TextView
+            android:id="@+id/detail_project_layout_content_recycle_item_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="2015-12-25" />
+
+        <TextView
+            android:id="@+id/detail_project_layout_content_recycle_item_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/detail_project_layout_content_recycle_item_title"
+            android:layout_marginTop="@dimen/space_four"
+            android:text="终于完成了界面的框架"
+            android:textColor="@color/text_ooo"
+            android:textSize="@dimen/text_middle" />
+    </RelativeLayout>
 </RelativeLayout>

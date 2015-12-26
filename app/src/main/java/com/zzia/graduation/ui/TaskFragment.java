@@ -92,13 +92,13 @@ public class TaskFragment extends Fragment implements View.OnClickListener{
     private void setAllTaskTextSelected() {
         allTaskText.setTextColor(getResources().getColor(R.color.colorPrimary));
         allTaskTextLine.setBackgroundResource(R.color.colorPrimary);
-        mineTaskText.setTextColor(getResources().getColor(R.color.light_text_gray));
-        mineTaskTextLine.setBackgroundResource(R.color.light_text_gray);
+        mineTaskText.setTextColor(getResources().getColor(R.color.dark_text_gray));
+        mineTaskTextLine.setBackgroundResource(R.color.line_gray);
     }
 
     private void setMineTaskTextSelected(){
-        allTaskText.setTextColor(getResources().getColor(R.color.light_text_gray));
-        allTaskTextLine.setBackgroundResource(R.color.light_text_gray);
+        allTaskText.setTextColor(getResources().getColor(R.color.dark_text_gray));
+        allTaskTextLine.setBackgroundResource(R.color.line_gray);
         mineTaskText.setTextColor(getResources().getColor(R.color.colorPrimary));
         mineTaskTextLine.setBackgroundResource(R.color.colorPrimary);
     }

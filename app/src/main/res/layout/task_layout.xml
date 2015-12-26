@@ -41,7 +41,7 @@
             android:layout_width="@dimen/space_two"
             android:layout_height="@dimen/space_forty"
             android:layout_gravity="center"
-            android:background="@color/light_text_gray" />
+            android:background="@color/line_gray" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -63,7 +63,7 @@
                 android:id="@+id/task_layout_minetask_line"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/space_two"
-                android:background="@color/light_text_gray" />
+                android:background="@color/line_gray" />
         </LinearLayout>
 
     </LinearLayout>

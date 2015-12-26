@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.zzia.graduation.ui.DetailTaskActivity;
 import com.zzia.graduation.welog.R;
 
 import java.util.ArrayList;
@@ -62,6 +63,7 @@ public class DetailProjectAdapter extends RecyclerView.Adapter{
         @Override
         public void onClick(View v) {
             Log.e("click","DetailProject click");
+            DetailTaskActivity.startDetailTaskActivity(context);
         }
     }
 }
