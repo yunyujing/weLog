@@ -27,6 +27,26 @@
         <activity android:name="com.zzia.graduation.ui.DetailTaskActivity"
             android:screenOrientation="portrait">
         </activity>
+
+        <activity android:name="com.zzia.graduation.ui.AddProjectActivtiy"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name="com.zzia.graduation.ui.AddTaskActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name="com.zzia.graduation.ui.AddOverTimeActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name="com.zzia.graduation.ui.AddHolidayActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name="com.zzia.graduation.ui.EditActivity"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
+import com.zzia.graduation.utils.Common;
 import com.zzia.graduation.views.MyActionBar;
 import com.zzia.graduation.welog.R;
 
@@ -31,6 +33,13 @@ public class DetailTaskActivity extends Activity {
         actionBar= (MyActionBar) findViewById(R.id.detail_task_layout_actionbar);
         actionBar.setTitle("任务详情");
         actionBar.setBackAction(new MyActionBar.BackAction(this));
+        //编辑任务
+        actionBar.setRightAction(new MyActionBar.AbsAction(R.mipmap.toolbar_edit) {
+            @Override
+            public void performAction(View view) {
+                EditActivity.startEditActivity(DetailTaskActivity.this, Common.DETAIL_TASK);
+            }
+        });
     }
 
 }

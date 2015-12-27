@@ -243,7 +243,7 @@
                         android:minWidth="@dimen/space_forty_eight"
                         android:text="无子任务"
                         android:textColor="@color/dark_text_gray"
-                        android:textSize="@dimen/text_default" />
+                        android:textSize="@dimen/text_middle" />
 
                     <LinearLayout
                         android:id="@+id/detail_task_layout_taskson_ll"
