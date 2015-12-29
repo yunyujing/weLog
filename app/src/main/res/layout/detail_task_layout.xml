@@ -9,7 +9,7 @@
         android:id="@+id/detail_task_layout_actionbar"
         style="@style/MyActionBar"
         app:titleColor="@color/text_fff"
-        app:titleName="标题" />
+        app:titleName="任务详情" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -22,17 +22,31 @@
             android:paddingLeft="@dimen/space_twenty_four"
             android:paddingRight="@dimen/space_twenty_four">
 
-            <TextView
-                android:id="@+id/detail_task_layout_taskname"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_twenty_four"
-                android:drawableLeft="@mipmap/task_chuli"
-                android:drawablePadding="@dimen/space_twelve"
-                android:minWidth="@dimen/space_forty_eight"
-                android:text="更新协议内容和SDk"
-                android:textColor="@color/dark_text_gray"
-                android:textSize="@dimen/text_big" />
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/detail_task_layout_taskimg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/space_twelve"
+                    android:src="@mipmap/task_chuli"/>
+
+                <TextView
+                    android:id="@+id/detail_task_layout_task_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minWidth="@dimen/space_forty_eight"
+                    android:lines="1"
+                    android:ellipsize="end"
+                    android:text="更新协议内容和SDk"
+                    android:textColor="@color/dark_text_gray"
+                    android:textSize="@dimen/text_big" />
+            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -41,6 +55,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:id="@+id/detail_task_layout_execute_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -61,7 +76,7 @@
                         android:textSize="@dimen/text_middle" />
 
                     <TextView
-                        android:id="@+id/detail_task_layout_taskexecute"
+                        android:id="@+id/detail_task_layout_execute_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:minWidth="@dimen/space_forty_eight"
@@ -99,10 +114,12 @@
                         android:textSize="@dimen/text_middle" />
 
                     <TextView
-                        android:id="@+id/detail_task_layout_taskpartner"
+                        android:id="@+id/detail_task_layout_partner"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:minWidth="@dimen/space_forty_eight"
+                        android:lines="2"
+                        android:ellipsize="end"
                         android:text="依依，小胖，大黑，大师，老罗，健宝，小强，小潘，董老师"
                         android:textColor="@color/text_detail"
                         android:textSize="@dimen/text_default" />
@@ -116,6 +133,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:id="@+id/detail_task_layout_endtime_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -136,7 +154,7 @@
                         android:textSize="@dimen/text_middle" />
 
                     <TextView
-                        android:id="@+id/detail_task_layout_tasktime"
+                        android:id="@+id/detail_task_layout_endtime"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:minWidth="@dimen/space_forty_eight"
@@ -153,6 +171,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:id="@+id/detail_task_layout_stage_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -173,7 +192,7 @@
                         android:textSize="@dimen/text_middle" />
 
                     <TextView
-                        android:id="@+id/detail_task_layout_taskstage"
+                        android:id="@+id/detail_task_layout_stage_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:minWidth="@dimen/space_forty_eight"
@@ -190,6 +209,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:id="@+id/detail_task_layout_priority_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -210,7 +230,7 @@
                         android:textSize="@dimen/text_middle" />
 
                     <TextView
-                        android:id="@+id/detail_task_layout_taskpriority"
+                        android:id="@+id/detail_task_layout_priority_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:minWidth="@dimen/space_forty_eight"
@@ -227,6 +247,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:id="@+id/detail_task_layout_son_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -237,6 +258,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -246,7 +268,7 @@
                         android:textSize="@dimen/text_middle" />
 
                     <LinearLayout
-                        android:id="@+id/detail_task_layout_taskson_ll"
+                        android:id="@+id/detail_task_layout_son_ll"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"

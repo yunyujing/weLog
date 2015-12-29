@@ -28,7 +28,15 @@
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name="com.zzia.graduation.ui.AddProjectActivtiy"
+        <activity android:name="com.zzia.graduation.ui.EditProjectActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name="com.zzia.graduation.ui.EditTaskActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name="com.zzia.graduation.ui.AddProjectActivity"
             android:screenOrientation="portrait">
         </activity>
 
@@ -41,10 +49,6 @@
         </activity>
 
         <activity android:name="com.zzia.graduation.ui.AddHolidayActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
-        <activity android:name="com.zzia.graduation.ui.EditActivity"
             android:screenOrientation="portrait">
         </activity>
     </application>

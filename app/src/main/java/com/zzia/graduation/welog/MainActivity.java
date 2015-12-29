@@ -8,19 +8,22 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.zzia.graduation.ui.AllTaskFragment;
-import com.zzia.graduation.ui.MineTaskFragment;
+import com.zzia.graduation.ui.AddHolidayActivity;
+import com.zzia.graduation.ui.AddOverTimeActivity;
+import com.zzia.graduation.ui.AddProjectActivity;
+import com.zzia.graduation.ui.AddTaskActivity;
+import com.zzia.graduation.ui.EditProjectActivity;
 import com.zzia.graduation.ui.SearchFragment;
 import com.zzia.graduation.ui.ProjectFragment;
 import com.zzia.graduation.ui.TaskFragment;
 import com.zzia.graduation.utils.ActivityUtils;
+import com.zzia.graduation.utils.Common;
 
 public class MainActivity extends FragmentActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
@@ -130,6 +133,7 @@ public class MainActivity extends FragmentActivity
         } else {
             aboveView.setVisibility(View.VISIBLE);
         }
+        AddHolidayActivity.startAddHolidayActivity(this, "main");
     }
 
     private void addOvertime() {
@@ -138,6 +142,7 @@ public class MainActivity extends FragmentActivity
         } else {
             aboveView.setVisibility(View.VISIBLE);
         }
+        AddOverTimeActivity.startAddOverTimeActivity(this, "main");
     }
 
     private void addProject() {
@@ -146,6 +151,7 @@ public class MainActivity extends FragmentActivity
         } else {
             aboveView.setVisibility(View.VISIBLE);
         }
+        AddProjectActivity.startAddProjectActivity(this, "main");
     }
 
     private void addTask() {
@@ -154,6 +160,7 @@ public class MainActivity extends FragmentActivity
         } else {
             aboveView.setVisibility(View.VISIBLE);
         }
+        AddTaskActivity.startAddTaskActivity(this, "main");
     }
 
     private void clickProject() {

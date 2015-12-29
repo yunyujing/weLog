@@ -1,15 +1,20 @@
 package com.zzia.graduation.views;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.zzia.graduation.utils.ClickUtils;
 import com.zzia.graduation.welog.R;
 
 /**
@@ -21,7 +26,7 @@ public class MyActionBar extends RelativeLayout implements View.OnClickListener 
     private LayoutInflater inflater;
     private ImageView back;
     private TextView title;
-    private View right;
+    private LinearLayout right, right2;
 
     public MyActionBar(Context context) {
         this(context, null);
@@ -53,7 +58,8 @@ public class MyActionBar extends RelativeLayout implements View.OnClickListener 
         View view = inflater.inflate(R.layout.myactionbar_layout, null);
         back = (ImageView) view.findViewById(R.id.myactionbar_back_img);
         title = (TextView) view.findViewById(R.id.myactionbar_title);
-        right = view.findViewById(R.id.myactionbar_right_ll);
+        right = (LinearLayout) view.findViewById(R.id.myactionbar_right_ll);
+        right2 = (LinearLayout) view.findViewById(R.id.myactionbar_right_ll2);
         addView(view);
     }
 
@@ -74,10 +80,12 @@ public class MyActionBar extends RelativeLayout implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
-        final Object tag = v.getTag();
-        if (tag instanceof Action) {
-            final Action action = (Action) tag;
-            action.performAction(v);
+        if (!ClickUtils.isFastClick()) {// 防点击过快
+            final Object tag = v.getTag();
+            if (tag instanceof Action) {
+                final Action action = (Action) tag;
+                action.performAction(v);
+            }
         }
     }
 
@@ -108,13 +116,72 @@ public class MyActionBar extends RelativeLayout implements View.OnClickListener 
         }
     }
 
-    //点击右侧的按键跳转到相应的页面或显示相应的布局
-    public void setRightAction(AbsAction action) {
 
+    //为actioBar右侧添加一个布局和事件
+    public View setRightAction(Action action) {
+        right.removeAllViews();
+        View view = inflateView(action);
+        right.addView(view);
+        right.setTag(action);
+        right.setOnClickListener(this);
+        return view;
+    }
+
+    //为actionBar右侧添加第二个布局和事件
+    public View setRight2Action(Action action) {
+        right2.removeAllViews();
+        View view = inflateView(action);
+        right2.addView(view);
+        right2.setTag(action);
+        right2.setOnClickListener(this);
+        return view;
     }
 
     /**
-     * 对于右侧的布局中控件进行填充，子类实现该动作
+     * 为myActionBar右侧添加布局
+     *
+     * @return
+     */
+    public View inflateView(Action action) {
+        View view = null;
+        if (action.getText() > 0) {
+            view = inflater.inflate(R.layout.myactionbar_layout_text, null);
+            TextView textView = (TextView) view.findViewById(R.id.myactionbar_layout_text);
+            textView.setText(action.getText());
+        } else if (action.getDrawable() > 0) {
+            view = inflater.inflate(R.layout.myactionbar_layout_img, null);
+            ImageView img = (ImageView) view.findViewById(R.id.myactionbar_layout_img);
+            img.setBackgroundResource(action.getDrawable());
+        }
+        return view;
+    }
+
+    public static abstract class IntentAction extends AbsAction {
+        private Context context;
+        private Intent intent;
+
+        public IntentAction(Context context, Intent intent,int imgId) {
+            super(imgId);
+            this.context = context;
+            this.intent = intent;
+        }
+
+        public IntentAction(Context context ,Intent intent,int imgId,int  textId){
+            super(imgId,textId);
+
+        }
+        @Override
+        public void performAction(View view) {
+            try {
+                context.startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * 左侧事件不同，右侧的布局和事件都不同，分别继承改抽象类的响应方法，便捷有效
      */
     public static abstract class AbsAction implements Action {
 
@@ -136,13 +203,14 @@ public class MyActionBar extends RelativeLayout implements View.OnClickListener 
             return mDrawable;
         }
 
+        @Override
         public int getText() {
             return mText;
         }
     }
 
     /**
-     * 对于TitleBar的控件和动作的定义
+     * 对于MyActionBar的控件和动作的定义接口
      */
     public interface Action {
 
@@ -153,4 +221,6 @@ public class MyActionBar extends RelativeLayout implements View.OnClickListener 
         public void performAction(View view);//动作
 
     }
+
+
 }

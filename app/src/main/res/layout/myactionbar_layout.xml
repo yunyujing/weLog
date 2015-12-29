@@ -8,30 +8,40 @@
     <ImageView
         android:id="@+id/myactionbar_back_img"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
+        android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
         android:minWidth="@dimen/space_forty_eight"
-        android:src="@mipmap/actionbar_back_arrow" />
+        android:src="@mipmap/actionbar_back_arrow"
+        android:scaleType="center"/>
 
     <TextView
         android:id="@+id/myactionbar_title"
-        android:layout_toRightOf="@+id/myactionbar_back_img"
-        android:layout_toLeftOf="@+id/myactionbar_right_ll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_toLeftOf="@+id/myactionbar_right_ll"
+        android:layout_toRightOf="@+id/myactionbar_back_img"
         android:gravity="center_vertical"
         android:textColor="@color/text_fff"
-        android:textSize="@dimen/text_bigest"
-        android:text="标题"/>
+        android:textSize="@dimen/text_bigest" />
+
 
     <LinearLayout
         android:id="@+id/myactionbar_right_ll"
-        android:layout_alignParentRight="true"
+        android:layout_toLeftOf="@+id/myactionbar_right_ll2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:minWidth="@dimen/space_forty_eight"
-        android:orientation="horizontal">
-        </LinearLayout>
+        android:gravity="center"
+        android:orientation="horizontal"/>
+
+    <LinearLayout
+        android:id="@+id/myactionbar_right_ll2"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:minWidth="@dimen/space_forty_eight"
+        android:gravity="center"
+        android:layout_alignParentRight="true"
+        android:orientation="horizontal"/>
 
 </RelativeLayout>

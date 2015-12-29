@@ -1,6 +1,6 @@
+
 package com.zzia.graduation.ui;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Canvas;
@@ -12,13 +12,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
 
 import com.zzia.graduation.adapters.DetailProjectAdapter;
+import com.zzia.graduation.utils.Common;
 import com.zzia.graduation.welog.R;
 
 import java.util.ArrayList;
@@ -76,9 +75,10 @@ public class DetailProjectActivity extends AppCompatActivity {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 if(item.getItemId()==R.id.menu_toolbar_edit){
-                    Log.e("click","Item1 Click");
+                    //编辑项目
+                    EditProjectActivity.startEditProjectActivity(DetailProjectActivity.this, Common.DETAIL_PROJECT);
                 }else if(item.getItemId()==R.id.menu_toolbar_delete){
-                    Log.e("click","Item2 Click");
+                    //删除项目
                 }
                 return true;
             }
