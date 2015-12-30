@@ -4,24 +4,28 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_userinfo"
-            android:icon="@android:drawable/ic_menu_info_details"
+            android:icon="@mipmap/iconfont_zhanghao"
             android:title="账号信息" />
         <item
-            android:id="@+id/nav_usertask"
-            android:icon="@android:drawable/ic_menu_edit"
-            android:title="我的任务" />
+            android:id="@+id/nav_collect"
+            android:icon="@mipmap/iconfont_shoucang"
+            android:title="收藏列表" />
         <item
-            android:id="@+id/nav_userproject"
-            android:icon="@android:drawable/ic_menu_agenda"
-            android:title="我的项目" />
+            android:id="@+id/nav_overtime"
+            android:icon="@mipmap/iconfont_gongzuo"
+            android:title="加班列表" />
         <item
-            android:id="@+id/nav_usercompany"
-            android:icon="@android:drawable/ic_menu_sort_by_size"
-            android:title="我的企业" />
+            android:id="@+id/nav_holiday"
+            android:icon="@mipmap/iconfont_xiujia"
+            android:title="休假列表" />
+        <item
+            android:id="@+id/nav_claim"
+            android:icon="@mipmap/icomfont_claim"
+            android:title="差旅报销" />
 
     </group>
 
-    <item android:title="About">
+    <item android:title="关于应用">
         <menu>
 
             <item

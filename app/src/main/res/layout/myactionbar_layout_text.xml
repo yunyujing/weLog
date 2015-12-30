@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/myactionbar_layout_text"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@color/colorPrimary"
+    android:text="标题"
+    android:textColor="@color/text_fff"
+    android:textSize="@dimen/text_bigest" /><!--android:contentDescription可以为有某些生理障碍的人群使用，当该用户的手机中安装了辅助浏览工具比如TalkBack，就会按照提示内容提示用户-->

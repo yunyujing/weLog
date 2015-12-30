@@ -11,8 +11,8 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,37 +20,41 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.zzia.graduation.ui.DetailProjectActivity"
-            android:screenOrientation="portrait">
-        </activity>
+        <activity
+            android:name="com.zzia.graduation.ui.DetailProjectActivity"
+            android:screenOrientation="portrait"></activity>
 
-        <activity android:name="com.zzia.graduation.ui.DetailTaskActivity"
-            android:screenOrientation="portrait">
-        </activity>
+        <activity
+            android:name="com.zzia.graduation.ui.DetailTaskActivity"
+            android:screenOrientation="portrait"></activity>
 
-        <activity android:name="com.zzia.graduation.ui.EditProjectActivity"
-            android:screenOrientation="portrait">
-        </activity>
+        <activity
+            android:name="com.zzia.graduation.ui.EditProjectActivity"
+            android:screenOrientation="portrait"></activity>
 
-        <activity android:name="com.zzia.graduation.ui.EditTaskActivity"
-            android:screenOrientation="portrait">
-        </activity>
+        <activity
+            android:name="com.zzia.graduation.ui.EditTaskActivity"
+            android:screenOrientation="portrait"></activity>
 
-        <activity android:name="com.zzia.graduation.ui.AddProjectActivity"
-            android:screenOrientation="portrait">
-        </activity>
+        <activity
+            android:name="com.zzia.graduation.ui.AddProjectActivity"
+            android:screenOrientation="portrait"></activity>
 
-        <activity android:name="com.zzia.graduation.ui.AddTaskActivity"
-            android:screenOrientation="portrait">
-        </activity>
+        <activity
+            android:name="com.zzia.graduation.ui.AddTaskActivity"
+            android:screenOrientation="portrait"></activity>
 
-        <activity android:name="com.zzia.graduation.ui.AddOverTimeActivity"
-            android:screenOrientation="portrait">
-        </activity>
+        <activity
+            android:name="com.zzia.graduation.ui.AddOverTimeActivity"
+            android:screenOrientation="portrait"></activity>
 
-        <activity android:name="com.zzia.graduation.ui.AddHolidayActivity"
-            android:screenOrientation="portrait">
-        </activity>
+        <activity
+            android:name="com.zzia.graduation.ui.AddHolidayActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name="com.zzia.graduation.ui.AddClaimActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

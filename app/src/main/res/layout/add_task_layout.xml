@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.zzia.graduation.views.MyActionBar
+        android:id="@+id/edit_add_task_layout_actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/actionbar_height"
+        app:titleName="新建任务" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_add_task_layout_actionbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/space_twelve"
+            android:paddingRight="@dimen/space_twelve"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_twelve"
+                android:layout_marginBottom="@dimen/space_twelve"
+                android:text="请选择一个项目"
+                android:textColor="@color/dark_text_gray"
+                android:textSize="@dimen/text_middle" />
+
+            <Spinner
+                android:id="@+id/edit_add_task_layout_choice_project"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_forty"
+                android:layout_marginBottom="@dimen/space_twelve" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_twelve"
+                android:layout_marginBottom="@dimen/space_twelve"
+                android:text="任务名称"
+                android:textColor="@color/dark_text_gray"
+                android:textSize="@dimen/text_middle" />
+
+            <EditText
+                android:id="@+id/edit_add_task_layout_task_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_twelve"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_twelve"
+                android:layout_marginBottom="@dimen/space_twelve"
+                android:text="任务阶段"
+                android:textColor="@color/dark_text_gray"
+                android:textSize="@dimen/text_middle" />
+
+            <Spinner
+                android:id="@+id/edit_add_task_layout_choice_stage"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_forty"
+                android:layout_marginBottom="@dimen/space_twelve" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_twenty_four"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/edit_add_task_layout_zhixing_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/space_twelve"
+                    android:src="@mipmap/task_execute_user" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minWidth="@dimen/space_forty_eight"
+                        android:text="执行者"
+                        android:textColor="@color/dark_text_gray"
+                        android:textSize="@dimen/text_middle" />
+
+                    <TextView
+                        android:id="@+id/edit_add_task_layout_exectue_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minWidth="@dimen/space_forty_eight"
+                        android:text="依依"
+                        android:textColor="@color/text_detail"
+                        android:textSize="@dimen/text_default" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_twenty_four"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/space_twelve"
+                    android:src="@mipmap/task_partner" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minWidth="@dimen/space_forty_eight"
+                        android:text="参与者"
+                        android:textColor="@color/dark_text_gray"
+                        android:textSize="@dimen/text_middle" />
+
+                    <TextView
+                        android:id="@+id/edit_add_task_layout_partner_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minWidth="@dimen/space_forty_eight"
+                        android:lines="2"
+                        android:ellipsize="end"
+                        android:text="依依，小胖，大黑，大师，老罗，健宝，小强，小潘，董老师"
+                        android:textColor="@color/text_detail"
+                        android:textSize="@dimen/text_default" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_twenty_four"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/space_twelve"
+                    android:src="@mipmap/task_time" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minWidth="@dimen/space_forty_eight"
+                        android:text="截止时间"
+                        android:textColor="@color/dark_text_gray"
+                        android:textSize="@dimen/text_middle" />
+
+                    <TextView
+                        android:id="@+id/edit_add_task_layout_endtime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minWidth="@dimen/space_forty_eight"
+                        android:text="2015-12-30 18：00"
+                        android:textColor="@color/text_detail"
+                        android:textSize="@dimen/text_default" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_twenty_four"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/edit_add_task_layout_priority_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/space_twelve"
+                    android:src="@mipmap/task_priority" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minWidth="@dimen/space_forty_eight"
+                        android:text="优先级"
+                        android:textColor="@color/dark_text_gray"
+                        android:textSize="@dimen/text_middle" />
+
+                    <TextView
+                        android:id="@+id/edit_add_task_layout_priority"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minWidth="@dimen/space_forty_eight"
+                        android:text="紧急"
+                        android:textColor="@color/text_detail"
+                        android:textSize="@dimen/text_default" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

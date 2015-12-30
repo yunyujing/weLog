@@ -26,18 +26,18 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
             android:gravity="center"
+            android:orientation="horizontal"
             android:weightSum="3">
 
             <TextView
                 android:id="@+id/activity_main_toolbar_project"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_margin="12dp"
-                android:gravity="center"
+                android:layout_weight="1"
                 android:background="@drawable/homepage_rectangle_normal"
+                android:gravity="center"
                 android:text="项目"
                 android:textColor="@color/white"
                 android:textSize="18dp" />
@@ -46,10 +46,10 @@
                 android:id="@+id/activity_main_toolbar_task"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_margin="12dp"
-                android:gravity="center"
+                android:layout_weight="1"
                 android:background="@drawable/homepage_rectangle_normal"
+                android:gravity="center"
                 android:text="任务"
                 android:textColor="@color/white"
                 android:textSize="18dp" />
@@ -58,10 +58,10 @@
                 android:id="@+id/activity_main_toolbar_search"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_margin="12dp"
-                android:gravity="center"
+                android:layout_weight="1"
                 android:background="@drawable/homepage_rectangle_normal"
+                android:gravity="center"
                 android:text="搜索"
                 android:textColor="@color/white"
                 android:textSize="18dp" />
@@ -98,18 +98,6 @@
                 android:textColor="@color/dark_text_gray"
                 android:textSize="@dimen/text_big" />
 
-            <!--<TextView
-                android:id="@+id/activity_main_above_view_add_calendar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/homepage_above_view_spacing"
-                android:drawablePadding="10dp"
-                android:drawableRight="@mipmap/homepage_add_holiday"
-                android:gravity="center"
-                android:text="新建日程"
-                android:textColor="@color/dark_text_gray"
-                android:textSize="@dimen/text_big" />-->
-
             <TextView
                 android:id="@+id/activity_main_above_view_add_project"
                 android:layout_width="wrap_content"
@@ -121,6 +109,7 @@
                 android:text="新建项目"
                 android:textColor="@color/dark_text_gray"
                 android:textSize="@dimen/text_big" />
+
             <TextView
                 android:id="@+id/activity_main_above_view_add_overtime"
                 android:layout_width="wrap_content"
@@ -132,14 +121,27 @@
                 android:text="加班认定"
                 android:textColor="@color/dark_text_gray"
                 android:textSize="@dimen/text_big" />
+
             <TextView
                 android:id="@+id/activity_main_above_view_add_holiday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/homepage_above_view_spacing"
                 android:drawablePadding="10dp"
                 android:drawableRight="@mipmap/homepage_add_holiday"
                 android:gravity="center"
                 android:text="申请休假"
+                android:textColor="@color/dark_text_gray"
+                android:textSize="@dimen/text_big" />
+
+            <TextView
+                android:id="@+id/activity_main_above_view_add_claim"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:drawableRight="@mipmap/homepage_add_claim"
+                android:gravity="center"
+                android:text="差旅报销"
                 android:textColor="@color/dark_text_gray"
                 android:textSize="@dimen/text_big" />
 

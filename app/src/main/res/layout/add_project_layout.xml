@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.zzia.graduation.views.MyActionBar
+        android:id="@+id/edit_add_project_actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/actionbar_height"
+        app:titleName="新建项目" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_add_project_actionbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/edit_add_project_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/actionbar_height"
+                android:paddingRight="@dimen/space_twenty">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/space_twenty"
+                    android:layout_marginTop="@dimen/space_twenty"
+                    android:text="项目名称"
+                    android:textColor="@color/text_fff"
+                    android:textSize="@dimen/text_middle" />
+
+                <EditText
+                    android:id="@+id/edit_add_project_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="项目名称" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/space_twenty"
+                    android:layout_marginTop="@dimen/space_twenty"
+                    android:text="项目所有者"
+                    android:textColor="@color/text_fff"
+                    android:textSize="@dimen/text_middle" />
+
+                <Spinner
+                    android:id="@+id/edit_add_project_owner"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/space_forty"
+                    android:layout_marginBottom="@dimen/space_twenty" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/edit_add_project_show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edit_add_project_ll"
+                android:layout_marginLeft="@dimen/actionbar_height"
+                android:layout_marginTop="@dimen/space_forty"
+                android:text="仅自己可见"
+                android:textColor="@color/dark_text_gray"
+                android:textSize="@dimen/text_big" />
+
+            <CheckBox
+                android:id="@+id/edit_add_project_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/edit_add_project_show"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/space_twenty_eight" />
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

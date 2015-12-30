@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.zzia.graduation.ui.AddClaimActivity;
 import com.zzia.graduation.ui.AddHolidayActivity;
 import com.zzia.graduation.ui.AddOverTimeActivity;
 import com.zzia.graduation.ui.AddProjectActivity;
@@ -124,7 +125,19 @@ public class MainActivity extends FragmentActivity
                 break;
             case R.id.activity_main_above_view_add_holiday:
                 addHoliday();
+                break;
+            case R.id.activity_main_above_view_add_claim:
+                addClaim();
         }
+    }
+
+    private void addClaim() {
+        if (aboveView.getVisibility() == View.VISIBLE) {
+            aboveView.setVisibility(View.GONE);
+        } else {
+            aboveView.setVisibility(View.VISIBLE);
+        }
+        AddClaimActivity.startAddClaimActivity(this,"main");
     }
 
     private void addHoliday() {
@@ -247,11 +260,13 @@ public class MainActivity extends FragmentActivity
         int id = item.getItemId();
         if (id == R.id.nav_userinfo) {//账号信息
 
-        } else if (id == R.id.nav_usertask) {//我的任务
+        } else if (id == R.id.nav_collect) {//收藏
 
-        } else if (id == R.id.nav_userproject) {//我的项目
+        } else if (id == R.id.nav_overtime) {//加班
 
-        } else if (id == R.id.nav_usercompany) {//我的企业
+        } else if (id == R.id.nav_holiday) {//休假
+
+        }else if(id==R.id.nav_claim){//报销
 
         } else if (id == R.id.nav_manage) {//设置
 
