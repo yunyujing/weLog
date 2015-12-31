@@ -6,41 +6,50 @@
     <RelativeLayout
         android:id="@+id/search_layout_edit_rl"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:background="@color/bg_default">
 
         <EditText
             android:id="@+id/search_layout_edit"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="34dp"
             android:layout_centerVertical="true"
-            android:layout_margin="@dimen/space_three"
-            android:paddingLeft="@dimen/space_ten"
+            android:layout_margin="@dimen/space_six"
+            android:background="@drawable/search_edit_bg"
             android:focusable="true"
+            android:hint="@string/search_hint"
             android:imeOptions="actionSearch"
-            android:background="@drawable/search_edit_input_normal"
-            android:textColorHint="@color/text_hint"
-            android:hint="@string/search_hint"/>
+            android:paddingLeft="@dimen/space_ten"
+            android:textColorHint="@color/text_hint" />
 
         <ImageView
             android:id="@+id/search_edt_clean_img"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_alignRight="@id/search_layout_edit"
             android:layout_centerVertical="true"
             android:paddingLeft="@dimen/space_fifteen"
             android:paddingRight="@dimen/space_fifteen"
             android:scaleType="center"
-            android:src="@drawable/search_edt_clean_img"
+            android:src="@mipmap/search_edit_clean_img"
             android:visibility="visible" />
     </RelativeLayout>
+
+    <!--历史查询记录-->
+    <LinearLayout
+        android:id="@+id/search_layout_history_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/search_layout_edit_rl"
+        android:orientation="vertical">
+
+    </LinearLayout>
 
     <com.zzia.graduation.views.TipsLayout
         android:id="@+id/tips"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/search_layout_edit_rl">
-    </com.zzia.graduation.views.TipsLayout>
+        android:layout_below="@+id/search_layout_edit_rl"/>
 
 
 </RelativeLayout>

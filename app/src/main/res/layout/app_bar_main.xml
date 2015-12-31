@@ -18,7 +18,6 @@
             android:id="@+id/activity_main_toolbar_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right|center"
             android:onClick="true"
             android:padding="10dp"
             android:src="@mipmap/homepage_header_user" />
@@ -28,13 +27,12 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="horizontal"
-            android:weightSum="3">
+            android:weightSum="4">
 
             <TextView
                 android:id="@+id/activity_main_toolbar_project"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="12dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/homepage_rectangle_normal"
                 android:gravity="center"
@@ -45,9 +43,9 @@
             <TextView
                 android:id="@+id/activity_main_toolbar_task"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="12dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginLeft="10dp"
                 android:background="@drawable/homepage_rectangle_normal"
                 android:gravity="center"
                 android:text="任务"
@@ -55,19 +53,31 @@
                 android:textSize="18dp" />
 
             <TextView
+                android:id="@+id/activity_main_toolbar_clock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/homepage_rectangle_normal"
+                android:gravity="center"
+                android:text="打卡"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+            <TextView
                 android:id="@+id/activity_main_toolbar_search"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="12dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/homepage_rectangle_normal"
                 android:gravity="center"
                 android:text="搜索"
                 android:textColor="@color/white"
-                android:textSize="18dp" />
+                android:textSize="18dp"/>
         </LinearLayout>
     </LinearLayout>
-
+    <!--内容布局-->
     <include layout="@layout/content_main" />
 
     <RelativeLayout

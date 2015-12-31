@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--系统自带色-->
+    <!--android颜色-->
     <color name="pink">#FF4081</color>
     <color name="light_green">#81C784</color>
     <color name="green">#4CAF50</color>
@@ -32,6 +32,7 @@
 
     <!--背景色-->
     <color name="bg_default">#f0f2f2</color>
+    <color name="bg_clock">#d5d5d5</color>
 
     <!--actionBar的颜色-->
     <color name="titlebar_title">#FFFFFFFF</color>
