@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.zzia.graduation.adapters.DetailProjectAdapter;
 import com.zzia.graduation.utils.Common;
@@ -77,8 +78,6 @@ public class DetailProjectActivity extends AppCompatActivity {
                 if(item.getItemId()==R.id.menu_toolbar_edit){
                     //编辑项目
                     EditProjectActivity.startEditProjectActivity(DetailProjectActivity.this, Common.DETAIL_PROJECT);
-                }else if(item.getItemId()==R.id.menu_toolbar_delete){
-                    //删除项目
                 }
                 return true;
             }

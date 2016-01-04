@@ -8,10 +8,4 @@
         android:orderInCategory="100"
         app:showAsAction="always" />
 
-    <item
-        android:id="@+id/menu_toolbar_delete"
-        android:icon="@mipmap/actionbar_delete"
-        android:title="删除"
-        android:orderInCategory="100"
-        app:showAsAction="always"/>
 </menu>

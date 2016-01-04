@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -10,4 +10,81 @@
         android:layout_height="@dimen/actionbar_height" />
 
 
-</LinearLayout>
+    <LinearLayout
+        android:id="@+id/edit_project_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_project_layout_actionbar"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/actionbar_height"
+        android:paddingRight="@dimen/space_twenty">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_twenty"
+            android:layout_marginTop="@dimen/space_twenty"
+            android:text="项目名称"
+            android:textColor="@color/dark_text_gray"
+            android:textSize="@dimen/text_middle" />
+
+        <EditText
+            android:id="@+id/edit_project_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="答辩" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_twenty"
+            android:layout_marginTop="@dimen/space_twenty"
+            android:text="项目所有者"
+            android:textColor="@color/dark_text_gray"
+            android:textSize="@dimen/text_middle" />
+
+        <Spinner
+            android:id="@+id/edit_project_owner"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_forty"
+            android:layout_marginBottom="@dimen/space_twenty" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_forty">
+
+            <TextView
+                android:id="@+id/edit_project_show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="仅自己可见"
+                android:textColor="@color/dark_text_gray"
+                android:textSize="@dimen/text_big" />
+
+            <CheckBox
+                android:id="@+id/edit_project_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/space_twenty_eight"
+                android:gravity="center" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/edit_project_layout_delete"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/actionbar_height"
+        android:layout_margin="@dimen/space_eight"
+        android:layout_alignParentBottom="true"
+        android:background="@color/bg_default"
+        android:gravity="center"
+        android:text="删除项目"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_big" />
+
+
+</RelativeLayout>

@@ -20,14 +20,11 @@ import com.zzia.graduation.ui.AddOverTimeActivity;
 import com.zzia.graduation.ui.AddProjectActivity;
 import com.zzia.graduation.ui.AddTaskActivity;
 import com.zzia.graduation.ui.ClockFragment;
-import com.zzia.graduation.ui.EditProjectActivity;
 import com.zzia.graduation.ui.SearchFragment;
 import com.zzia.graduation.ui.ProjectFragment;
 import com.zzia.graduation.ui.TaskFragment;
 import com.zzia.graduation.utils.ActivityUtils;
-import com.zzia.graduation.utils.Common;
 
-import org.w3c.dom.Text;
 
 public class MainActivity extends FragmentActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
