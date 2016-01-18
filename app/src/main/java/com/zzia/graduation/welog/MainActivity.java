@@ -80,6 +80,7 @@ public class MainActivity extends FragmentActivity
         findViewById(R.id.activity_main_above_view_add_project).setOnClickListener(this);
         findViewById(R.id.activity_main_above_view_add_overtime).setOnClickListener(this);
         findViewById(R.id.activity_main_above_view_add_holiday).setOnClickListener(this);
+        findViewById(R.id.activity_main_above_view_add_claim).setOnClickListener(this);
 
         fragments = new Fragment[4];
         fragments[0] = new ProjectFragment();
