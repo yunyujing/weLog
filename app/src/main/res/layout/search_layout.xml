@@ -28,28 +28,32 @@
             android:layout_height="wrap_content"
             android:layout_alignRight="@id/search_layout_edit"
             android:layout_centerVertical="true"
-            android:paddingLeft="@dimen/space_fifteen"
-            android:paddingRight="@dimen/space_fifteen"
+            android:padding="@dimen/space_ten"
             android:scaleType="center"
             android:src="@mipmap/search_edit_clean_img"
-            android:visibility="visible" />
+            android:visibility="gone" />
     </RelativeLayout>
 
     <!--历史查询记录-->
     <LinearLayout
         android:id="@+id/search_layout_history_ll"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:layout_below="@+id/search_layout_edit_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
-
     </LinearLayout>
+    <TextView
+        android:layout_below="@+id/search_layout_history_ll"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_detail"
+        android:layout_marginTop="20dp"
+        android:text="清空历史纪录"/>
 
     <com.zzia.graduation.views.TipsLayout
         android:id="@+id/tips"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/search_layout_edit_rl"/>
-
-
 </RelativeLayout>
