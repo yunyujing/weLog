@@ -9,29 +9,18 @@
         android:layout_height="50dp"
         android:background="@color/bg_default">
 
-        <EditText
+        <android.support.v7.widget.SearchView
             android:id="@+id/search_layout_edit"
             android:layout_width="match_parent"
-            android:layout_height="34dp"
+            android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_margin="@dimen/space_six"
             android:background="@drawable/search_edit_bg"
             android:focusable="true"
-            android:hint="@string/search_hint"
             android:imeOptions="actionSearch"
-            android:paddingLeft="@dimen/space_ten"
-            android:textColorHint="@color/text_hint" />
+            android:paddingLeft="@dimen/space_ten" />
 
-        <ImageView
-            android:id="@+id/search_edt_clean_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignRight="@id/search_layout_edit"
-            android:layout_centerVertical="true"
-            android:padding="@dimen/space_ten"
-            android:scaleType="center"
-            android:src="@mipmap/search_edit_clean_img"
-            android:visibility="gone" />
+
     </RelativeLayout>
 
     <!--历史查询记录-->

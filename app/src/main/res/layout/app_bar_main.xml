@@ -40,17 +40,17 @@
                 android:textColor="@color/white"
                 android:textSize="18dp" />
 
-            <TextView
-                android:id="@+id/activity_main_toolbar_task"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/homepage_rectangle_normal"
-                android:gravity="center"
-                android:text="任务"
-                android:textColor="@color/white"
-                android:textSize="18dp" />
+            <!--<TextView-->
+                <!--android:id="@+id/activity_main_toolbar_task"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:background="@drawable/homepage_rectangle_normal"-->
+                <!--android:gravity="center"-->
+                <!--android:text="任务"-->
+                <!--android:textColor="@color/white"-->
+                <!--android:textSize="18dp" />-->
 
             <TextView
                 android:id="@+id/activity_main_toolbar_clock"

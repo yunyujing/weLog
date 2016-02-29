@@ -2,8 +2,14 @@
 <resources>
     <declare-styleable name="MyActionBar">
         <attr name="titleName" format="string" localization="suggested" />
-        <attr name="titleGravity" format="integer"/>
+        <attr name="titleGravity" format="integer" />
         <attr name="titleColor" format="color" />
     </declare-styleable>
+
+    <declare-styleable name="SquareView">
+        <attr name="width_weight" format="integer" localization="suggested" />
+        <attr name="height_weight" format="integer" localization="suggested" />
+    </declare-styleable>
+
 
 </resources>

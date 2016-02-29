@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.zzia.graduation.bean.Project;
 import com.zzia.graduation.ui.DetailProjectActivity;
 import com.zzia.graduation.welog.R;
@@ -42,7 +43,7 @@ public class ProjectAdapter extends RecyclerView.Adapter{
         projectViewHolder.position=position;
         Project project=list.get(position);
         if(project.getIcon()!=null&&!project.getIcon().equals("")&&position==0){
-//            projectViewHolder.imageView.setImageURI(Uri.parse(project.getIcon()));//使用普通的ImageView控件之恩只能引用本地的图片，使用SimpleDraweeView可以引用网络上的图片
+//            projectViewHolder.imageView.setImageURI(Uri.parse(project.getIcon()));//使用普通的ImageView控件之只能引用本地的图片，使用SimpleDraweeView可以引用网络上的图片
         }
         projectViewHolder.textView.setText(project.getName());
     }
@@ -55,15 +56,15 @@ public class ProjectAdapter extends RecyclerView.Adapter{
 
     class ProjectViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        private ImageView imageView;
+        private SimpleDraweeView imageView;
         private TextView textView;
         private View view;
         private int position;
         public ProjectViewHolder(View itemView) {
             super(itemView);
-            imageView= (ImageView) itemView.findViewById(R.id.project_layout_recycleview_item_img);
+            imageView= (SimpleDraweeView) itemView.findViewById(R.id.project_layout_recycleview_item_img);
             textView= (TextView) itemView.findViewById(R.id.project_layout_recycleview_item_text);
-            view=itemView.findViewById(R.id.project_layout_recycleview_item);
+            view=itemView.findViewById(R.id.project_layout_recycleview_item_layout);
             view.setOnClickListener(this);
         }
 

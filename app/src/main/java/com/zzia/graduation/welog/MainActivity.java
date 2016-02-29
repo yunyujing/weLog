@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.zzia.graduation.ui.AddClaimActivity;
 import com.zzia.graduation.ui.AddHolidayActivity;
 import com.zzia.graduation.ui.AddOverTimeActivity;
@@ -37,7 +38,7 @@ public class MainActivity extends FragmentActivity
     private FloatingActionButton fab;
     private View aboveView;
     private TextView projectView;
-    private TextView taskView;
+//    private TextView taskView;
     private TextView clocklView;
     private TextView searchView;
     //内容的Fragment
@@ -50,6 +51,7 @@ public class MainActivity extends FragmentActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fresco.initialize(getApplicationContext());
         setContentView(R.layout.activity_main);
         initView();
     }
@@ -59,8 +61,8 @@ public class MainActivity extends FragmentActivity
         userImg.setOnClickListener(this);
         projectView = (TextView) findViewById(R.id.activity_main_toolbar_project);
         projectView.setOnClickListener(this);
-        taskView = (TextView) findViewById(R.id.activity_main_toolbar_task);
-        taskView.setOnClickListener(this);
+//        taskView = (TextView) findViewById(R.id.activity_main_toolbar_task);
+//        taskView.setOnClickListener(this);
         clocklView = (TextView) findViewById(R.id.activity_main_toolbar_clock);
         clocklView.setOnClickListener(this);
         searchView= (TextView) findViewById(R.id.activity_main_toolbar_search);
@@ -84,9 +86,9 @@ public class MainActivity extends FragmentActivity
 
         fragments = new Fragment[4];
         fragments[0] = new ProjectFragment();
-        fragments[1] = new TaskFragment();
-        fragments[2] = new ClockFragment();
-        fragments[3]=new SearchFragment();
+//        fragments[1] = new TaskFragment();
+        fragments[1] = new ClockFragment();
+        fragments[2]=new SearchFragment();
         clickProject();
     }
 
@@ -104,9 +106,9 @@ public class MainActivity extends FragmentActivity
             case R.id.activity_main_toolbar_project:
                 clickProject();
                 break;
-            case R.id.activity_main_toolbar_task:
-                clickTask();
-                break;
+//            case R.id.activity_main_toolbar_task:
+//                clickTask();
+//                break;
             case R.id.activity_main_toolbar_clock:
                 clickClock();
                 break;
@@ -191,8 +193,8 @@ public class MainActivity extends FragmentActivity
         try {
             projectView.setBackgroundResource(R.drawable.homepage_rectangle_press);
             projectView.setTextColor(getResources().getColor(R.color.colorPrimary));
-            taskView.setBackgroundResource(R.drawable.homepage_rectangle_normal);
-            taskView.setTextColor(getResources().getColor(R.color.white));
+//            taskView.setBackgroundResource(R.drawable.homepage_rectangle_normal);
+//            taskView.setTextColor(getResources().getColor(R.color.white));
             clocklView.setBackgroundResource(R.drawable.homepage_rectangle_normal);
             clocklView.setTextColor(getResources().getColor(R.color.white));
             searchView.setBackgroundResource(R.drawable.homepage_rectangle_normal);
@@ -209,28 +211,59 @@ public class MainActivity extends FragmentActivity
             if (fragments[2].isAdded() && fragments[2].isVisible()) {
                 fragmentTransaction.hide(fragments[2]);
             }
-            if(fragments[3].isAdded()&&fragments[3].isVisible()){
-                fragmentTransaction.hide(fragments[3]);
-            }
+//            if(fragments[3].isAdded()&&fragments[3].isVisible()){
+//                fragmentTransaction.hide(fragments[3]);
+//            }
             fragmentTransaction.commitAllowingStateLoss();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void clickTask() {
+//    private void clickTask() {
+//        try {
+//            projectView.setBackgroundResource(R.drawable.homepage_rectangle_normal);
+//            projectView.setTextColor(getResources().getColor(R.color.white));
+//            taskView.setBackgroundResource(R.drawable.homepage_rectangle_press);
+//            taskView.setTextColor(getResources().getColor(R.color.colorPrimary));
+//            clocklView.setBackgroundResource(R.drawable.homepage_rectangle_normal);
+//            clocklView.setTextColor(getResources().getColor(R.color.white));
+//            searchView.setBackgroundResource(R.drawable.homepage_rectangle_normal);
+//            searchView.setTextColor(getResources().getColor(R.color.white));
+//            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//            if (!fragments[1].isAdded() && !taskTag.equals(fragments[1].getTag())) {
+//                fragmentTransaction.add(R.id.content_main_frame, fragments[1], taskTag);
+//            } else if (!fragments[1].isVisible()) {
+//                fragmentTransaction.show(fragments[1]);
+//            }
+//            if (fragments[0].isAdded() && fragments[0].isVisible()) {
+//                fragmentTransaction.hide(fragments[0]);
+//            }
+//            if (fragments[2].isAdded() && fragments[2].isVisible()) {
+//                fragmentTransaction.hide(fragments[2]);
+//            }
+//            if(fragments[3].isAdded()&&fragments[3].isVisible()){
+//                fragmentTransaction.hide(fragments[3]);
+//            }
+//            fragmentTransaction.commitAllowingStateLoss();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+
+    private void clickClock() {
         try {
             projectView.setBackgroundResource(R.drawable.homepage_rectangle_normal);
             projectView.setTextColor(getResources().getColor(R.color.white));
-            taskView.setBackgroundResource(R.drawable.homepage_rectangle_press);
-            taskView.setTextColor(getResources().getColor(R.color.colorPrimary));
-            clocklView.setBackgroundResource(R.drawable.homepage_rectangle_normal);
-            clocklView.setTextColor(getResources().getColor(R.color.white));
+//            taskView.setBackgroundResource(R.drawable.homepage_rectangle_normal);
+//            taskView.setTextColor(getResources().getColor(R.color.white));
+            clocklView.setBackgroundResource(R.drawable.homepage_rectangle_press);
+            clocklView.setTextColor(getResources().getColor(R.color.colorPrimary));
             searchView.setBackgroundResource(R.drawable.homepage_rectangle_normal);
             searchView.setTextColor(getResources().getColor(R.color.white));
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            if (!fragments[1].isAdded() && !taskTag.equals(fragments[1].getTag())) {
-                fragmentTransaction.add(R.id.content_main_frame, fragments[1], taskTag);
+            if (!fragments[1].isAdded() && !clockTag.equals(fragments[1].getTag())) {
+                fragmentTransaction.add(R.id.content_main_frame, fragments[1], clockTag);
             } else if (!fragments[1].isVisible()) {
                 fragmentTransaction.show(fragments[1]);
             }
@@ -240,40 +273,9 @@ public class MainActivity extends FragmentActivity
             if (fragments[2].isAdded() && fragments[2].isVisible()) {
                 fragmentTransaction.hide(fragments[2]);
             }
-            if(fragments[3].isAdded()&&fragments[3].isVisible()){
-                fragmentTransaction.hide(fragments[3]);
-            }
-            fragmentTransaction.commitAllowingStateLoss();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void clickClock() {
-        try {
-            projectView.setBackgroundResource(R.drawable.homepage_rectangle_normal);
-            projectView.setTextColor(getResources().getColor(R.color.white));
-            taskView.setBackgroundResource(R.drawable.homepage_rectangle_normal);
-            taskView.setTextColor(getResources().getColor(R.color.white));
-            clocklView.setBackgroundResource(R.drawable.homepage_rectangle_press);
-            clocklView.setTextColor(getResources().getColor(R.color.colorPrimary));
-            searchView.setBackgroundResource(R.drawable.homepage_rectangle_normal);
-            searchView.setTextColor(getResources().getColor(R.color.white));
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            if (!fragments[2].isAdded() && !clockTag.equals(fragments[2].getTag())) {
-                fragmentTransaction.add(R.id.content_main_frame, fragments[2], clockTag);
-            } else if (!fragments[2].isVisible()) {
-                fragmentTransaction.show(fragments[2]);
-            }
-            if (fragments[0].isAdded() && fragments[0].isVisible()) {
-                fragmentTransaction.hide(fragments[0]);
-            }
-            if (fragments[1].isAdded() && fragments[1].isVisible()) {
-                fragmentTransaction.hide(fragments[1]);
-            }
-            if(fragments[3].isAdded()&&fragments[3].isVisible()){
-                fragmentTransaction.hide(fragments[3]);
-            }
+//            if(fragments[3].isAdded()&&fragments[3].isVisible()){
+//                fragmentTransaction.hide(fragments[3]);
+//            }
             fragmentTransaction.commitAllowingStateLoss();
         } catch (Exception e) {
             e.printStackTrace();
@@ -284,17 +286,17 @@ public class MainActivity extends FragmentActivity
         try {
             projectView.setBackgroundResource(R.drawable.homepage_rectangle_normal);
             projectView.setTextColor(getResources().getColor(R.color.white));
-            taskView.setBackgroundResource(R.drawable.homepage_rectangle_normal);
-            taskView.setTextColor(getResources().getColor(R.color.white));
+//            taskView.setBackgroundResource(R.drawable.homepage_rectangle_normal);
+//            taskView.setTextColor(getResources().getColor(R.color.white));
             clocklView.setBackgroundResource(R.drawable.homepage_rectangle_normal);
             clocklView.setTextColor(getResources().getColor(R.color.white));
             searchView.setBackgroundResource(R.drawable.homepage_rectangle_press);
             searchView.setTextColor(getResources().getColor(R.color.colorPrimary));
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            if (!fragments[3].isAdded() && !searchTag.equals(fragments[3].getTag())) {
-                fragmentTransaction.add(R.id.content_main_frame, fragments[3], searchTag);
-            } else if (!fragments[3].isVisible()) {
-                fragmentTransaction.show(fragments[3]);
+            if (!fragments[2].isAdded() && !searchTag.equals(fragments[2].getTag())) {
+                fragmentTransaction.add(R.id.content_main_frame, fragments[2], searchTag);
+            } else if (!fragments[2].isVisible()) {
+                fragmentTransaction.show(fragments[2]);
             }
             if (fragments[0].isAdded() && fragments[0].isVisible()) {
                 fragmentTransaction.hide(fragments[0]);
@@ -302,9 +304,9 @@ public class MainActivity extends FragmentActivity
             if (fragments[1].isAdded() && fragments[1].isVisible()) {
                 fragmentTransaction.hide(fragments[1]);
             }
-            if(fragments[2].isAdded()&&fragments[2].isVisible()){
-                fragmentTransaction.hide(fragments[2]);
-            }
+//            if(fragments[2].isAdded()&&fragments[2].isVisible()){
+//                fragmentTransaction.hide(fragments[2]);
+//            }
             fragmentTransaction.commitAllowingStateLoss();
         } catch (Exception e) {
             e.printStackTrace();

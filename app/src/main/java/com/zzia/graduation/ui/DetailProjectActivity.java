@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.zzia.graduation.adapters.DetailProjectAdapter;
@@ -31,6 +32,9 @@ public class DetailProjectActivity extends AppCompatActivity {
 
     private Toolbar mToolbar;
     private CollapsingToolbarLayout mCollapsingToolbarLayout;
+//    private TextView projectName;
+    private TextView projectDes;
+    private TextView projectMember;
     private DetailProjectAdapter detailProjectAdapter;
     private ArrayList<String> list;
     private RecyclerView mRecyceView;
@@ -87,6 +91,10 @@ public class DetailProjectActivity extends AppCompatActivity {
         mCollapsingToolbarLayout.setTitle("项目名称");//通过CollapsingToolbarLayout设置标题
         mCollapsingToolbarLayout.setExpandedTitleColor(Color.WHITE);//设置还没收缩时状态下字体颜色
         mCollapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE);//设置收缩后Toolbar上字体的颜色
+
+//        projectName= (TextView) findViewById(R.id.detail_project_layout_content_title);
+        projectDes= (TextView) findViewById(R.id.detail_project_layout_content_about);
+        projectMember= (TextView) findViewById(R.id.detail_project_layout_content_member);
 
         mRecyceView= (RecyclerView) findViewById(R.id.detail_project_layout_content_recycle);
         mRecyceView.setHasFixedSize(false);//没有固定大小的recycleView

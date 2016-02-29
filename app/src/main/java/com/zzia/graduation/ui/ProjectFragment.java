@@ -45,11 +45,12 @@ public class ProjectFragment extends Fragment {
     private void initData() {
         list = new ArrayList<>();
         Project project1 = new Project();
-        project1.setName("答辩");
+        project1.setName("Test");
         list.add(project1);
         Project project2 = new Project();
-        project2.setName("公司日志APP的设计与实现");
+        project2.setName("Test2");
         list.add(project2);
+
     }
 
     private void initView(View view) {
