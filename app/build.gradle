@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.zzia.graduation.welog"
-        minSdkVersion 9
+        minSdkVersion 15
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -21,8 +21,10 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-//    compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'com.android.support:design:23.1.1'
-    compile 'com.facebook.fresco:fresco:0.8.1+'
+    //    testCompile 'junit:junit:4.12'
+    //    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:design:23.1.1'//Android新控件支持库
+    compile 'com.squareup.retrofit2:retrofit:2.0.2'//网络请求
+    compile 'com.facebook.fresco:fresco:0.8.1+'//图片处理
+    compile 'de.greenrobot:eventbus:2.4.0'//消息处理
 }
