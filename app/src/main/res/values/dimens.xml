@@ -9,6 +9,7 @@
     <dimen name="homepage_above_view_bottom">112dp</dimen>
     <dimen name="actionbar_height">52dp</dimen>
     <dimen name="drawer_height">160dp</dimen>
+    <dimen name="appbar_height">200dp</dimen>
 
     <!--常用的间距-->
     <dimen name="space_one">1dp</dimen>

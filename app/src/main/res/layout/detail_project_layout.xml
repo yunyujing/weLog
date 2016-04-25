@@ -8,7 +8,7 @@
     <android.support.design.widget.AppBarLayout
         android:id="@+id/detail_project_layout_appbar_layout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/drawer_height"
+        android:layout_height="@dimen/appbar_height"
         android:fitsSystemWindows="true"
         android:theme="@style/AppTheme.AppBarOverlay">
 
@@ -42,7 +42,7 @@
                     android:ellipsize="end"
                     android:lines="1"
                     android:text="毕业生为毕业设计准备的答辩文档项目简介"
-                    android:textColor="@color/text_666"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/text_middle" />
 
                 <TextView
@@ -51,7 +51,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="10个成员"
-                    android:textColor="@color/dark_text_gray"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/text_middle" />
             </LinearLayout>
 

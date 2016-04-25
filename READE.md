@@ -15,12 +15,10 @@
 2.jdk的版本：1.7.0_79
 3.sdk的版本：23（最小版本15）
 4.gradle的版本：2.0.0
-
 ### 主要控件
 1.主界面使用DrawerLayout嵌套CoordinatorLayout实现侧滑和悬浮按钮
 2.二级界面使用AppBarLayout嵌套CollapsingToolbarLayout，再加上ToolBar实现滑动渐变的标题栏
 3.列表的加载和刷新使用RecycleView和Refresh
-
 ### 第三方资源的引用
 1.使用EventBus实现消息传递
 2.使用Fresco实现图片加载和显示
