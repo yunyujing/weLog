@@ -1,9 +1,9 @@
 package com.zzia.graduation.ui;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.zzia.graduation.utils.Common;
@@ -14,7 +14,7 @@ import com.zzia.graduation.welog.R;
  * Author: yunyujing
  * Date: 2015/12/21
  */
-public class DetailTaskActivity extends Activity {
+public class DetailTaskActivity extends AppCompatActivity {
     private MyActionBar actionBar;
 
     public static void startDetailTaskActivity(Context context){

@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.zzia.graduation.utils.Common;
-import com.zzia.graduation.utils.StringUtils;
 import com.zzia.graduation.views.MyActionBar;
 import com.zzia.graduation.welog.R;
 
