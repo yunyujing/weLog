@@ -6,8 +6,6 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
-
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/iconfont"
@@ -25,45 +23,60 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity android:name=".MainActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.zzia.graduation.ui.DetailProjectActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name="com.zzia.graduation.ui.DetailTaskActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name="com.zzia.graduation.ui.EditProjectActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name="com.zzia.graduation.ui.EditTaskActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name="com.zzia.graduation.ui.AddProjectActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name="com.zzia.graduation.ui.AddTaskActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name="com.zzia.graduation.ui.AddOverTimeActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name="com.zzia.graduation.ui.AddHolidayActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name="com.zzia.graduation.ui.AddClaimActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.zzia.graduation.ui.AboutMeActivity"
+            android:screenOrientation="portrait"/>
+        
+        <activity android:name="com.zzia.graduation.ui.CollectListActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.zzia.graduation.ui.OverTimeListActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.zzia.graduation.ui.HolidayListActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.zzia.graduation.ui.ClaimListActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

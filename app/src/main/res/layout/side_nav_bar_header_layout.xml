@@ -10,6 +10,16 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:src="@mipmap/homepage_header_user"/>
+    <!--<com.facebook.drawee.view.SimpleDraweeView-->
+        <!--android:id="@+id/drawerlayout_main_icon"-->
+        <!--android:layout_width="40dp"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--fresco:fadeDuration="300"-->
+        <!--fresco:placeholderImage="@mipmap/homepage_header_user"-->
+        <!--fresco:placeholderImageScaleType="centerInside"-->
+        <!--fresco:failureImage="@mipmap/homepage_header_user"-->
+        <!--fresco:failureImageScaleType="centerInside"/>-->
     <TextView
         android:id="@+id/drawerlayout_main_text"
         android:layout_width="wrap_content"

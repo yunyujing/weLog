@@ -1,5 +1,6 @@
 package com.zzia.graduation.welog;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -9,21 +10,21 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.KeyEvent;
-import android.view.View;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.zzia.graduation.ui.AboutMeActivity;
 import com.zzia.graduation.ui.AddClaimActivity;
 import com.zzia.graduation.ui.AddHolidayActivity;
 import com.zzia.graduation.ui.AddOverTimeActivity;
 import com.zzia.graduation.ui.AddProjectActivity;
 import com.zzia.graduation.ui.AddTaskActivity;
 import com.zzia.graduation.ui.ClockFragment;
-import com.zzia.graduation.ui.SearchFragment;
 import com.zzia.graduation.ui.ProjectFragment;
-import com.zzia.graduation.ui.TaskFragment;
+import com.zzia.graduation.ui.SearchFragment;
 import com.zzia.graduation.utils.ActivityUtils;
 
 
@@ -318,6 +319,7 @@ public class MainActivity extends FragmentActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.nav_userinfo) {//账号信息
+            startActivity(new Intent(getApplicationContext(),AboutMeActivity.class));
 
         } else if (id == R.id.nav_collect) {//收藏
 
