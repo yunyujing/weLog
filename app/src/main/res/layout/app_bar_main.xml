@@ -40,29 +40,29 @@
                 android:textColor="@color/white"
                 android:textSize="18dp" />
 
-            <!--<TextView-->
-                <!--android:id="@+id/activity_main_toolbar_task"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_weight="1"-->
-                <!--android:layout_marginLeft="10dp"-->
-                <!--android:background="@drawable/homepage_rectangle_normal"-->
-                <!--android:gravity="center"-->
-                <!--android:text="任务"-->
-                <!--android:textColor="@color/white"-->
-                <!--android:textSize="18dp" />-->
-
             <TextView
-                android:id="@+id/activity_main_toolbar_clock"
+                android:id="@+id/activity_main_toolbar_task"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginLeft="10dp"
                 android:background="@drawable/homepage_rectangle_normal"
                 android:gravity="center"
-                android:text="打卡"
+                android:text="任务"
                 android:textColor="@color/white"
                 android:textSize="18dp" />
+
+            <!--<TextView-->
+                <!--android:id="@+id/activity_main_toolbar_clock"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:background="@drawable/homepage_rectangle_normal"-->
+                <!--android:gravity="center"-->
+                <!--android:text="打卡"-->
+                <!--android:textColor="@color/white"-->
+                <!--android:textSize="18dp" />-->
             <TextView
                 android:id="@+id/activity_main_toolbar_search"
                 android:layout_width="wrap_content"
@@ -97,26 +97,26 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/activity_main_above_view_add_task"
+                android:id="@+id/activity_main_above_view_add_plan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/homepage_above_view_spacing"
                 android:drawablePadding="10dp"
                 android:drawableRight="@mipmap/homepage_add_task"
                 android:gravity="center"
-                android:text="新建任务"
+                android:text="工作计划"
                 android:textColor="@color/dark_text_gray"
                 android:textSize="@dimen/text_big" />
 
             <TextView
-                android:id="@+id/activity_main_above_view_add_project"
+                android:id="@+id/activity_main_above_view_add_submit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/homepage_above_view_spacing"
                 android:drawablePadding="10dp"
                 android:drawableRight="@mipmap/homepage_add_project"
                 android:gravity="center"
-                android:text="新建项目"
+                android:text="工作总结"
                 android:textColor="@color/dark_text_gray"
                 android:textSize="@dimen/text_big" />
 
