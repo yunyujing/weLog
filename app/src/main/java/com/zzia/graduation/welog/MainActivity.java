@@ -20,10 +20,17 @@ import com.zzia.graduation.ui.AboutMeActivity;
 import com.zzia.graduation.ui.AddClaimActivity;
 import com.zzia.graduation.ui.AddHolidayActivity;
 import com.zzia.graduation.ui.AddOverTimeActivity;
-import com.zzia.graduation.ui.AddProjectActivity;
-import com.zzia.graduation.ui.AddTaskActivity;
+import com.zzia.graduation.ui.AddPlanActivity;
+import com.zzia.graduation.ui.AddSummaryActivity;
+import com.zzia.graduation.ui.ClaimListActivity;
+import com.zzia.graduation.ui.HelpActivity;
+import com.zzia.graduation.ui.HolidayListActivity;
+import com.zzia.graduation.ui.OverTimeListActivity;
+import com.zzia.graduation.ui.PlanListActivity;
 import com.zzia.graduation.ui.ProjectFragment;
 import com.zzia.graduation.ui.SearchFragment;
+import com.zzia.graduation.ui.SettingActivity;
+import com.zzia.graduation.ui.SummaryListActivity;
 import com.zzia.graduation.ui.TaskFragment;
 import com.zzia.graduation.utils.ActivityUtils;
 
@@ -40,13 +47,13 @@ public class MainActivity extends FragmentActivity
     private View aboveView;
     private TextView projectView;
     private TextView taskView;
-//    private TextView clocklView;
+    //    private TextView clocklView;
     private TextView searchView;
     //内容的Fragment
     private String projectTag = "projectTag";
     private String taskTag = "taskTag";
     private String clockTag = "clockTag";
-    private String searchTag="searchTag";
+    private String searchTag = "searchTag";
     private Fragment[] fragments;
 
     @Override
@@ -66,7 +73,7 @@ public class MainActivity extends FragmentActivity
         taskView.setOnClickListener(this);
 //        clocklView = (TextView) findViewById(R.id.activity_main_toolbar_clock);
 //        clocklView.setOnClickListener(this);
-        searchView= (TextView) findViewById(R.id.activity_main_toolbar_search);
+        searchView = (TextView) findViewById(R.id.activity_main_toolbar_search);
         searchView.setOnClickListener(this);
 
         drawerLayout = (DrawerLayout) findViewById(R.id.activity_main_drawer);
@@ -79,8 +86,8 @@ public class MainActivity extends FragmentActivity
 
         aboveView = findViewById(R.id.activity_main_above_view);
         aboveView.setOnClickListener(this);
-        findViewById(R.id.activity_main_above_view_add_task).setOnClickListener(this);
-        findViewById(R.id.activity_main_above_view_add_project).setOnClickListener(this);
+        findViewById(R.id.activity_main_above_view_add_plan).setOnClickListener(this);
+        findViewById(R.id.activity_main_above_view_add_submit).setOnClickListener(this);
         findViewById(R.id.activity_main_above_view_add_overtime).setOnClickListener(this);
         findViewById(R.id.activity_main_above_view_add_holiday).setOnClickListener(this);
         findViewById(R.id.activity_main_above_view_add_claim).setOnClickListener(this);
@@ -89,7 +96,7 @@ public class MainActivity extends FragmentActivity
         fragments[0] = new ProjectFragment();
         fragments[1] = new TaskFragment();
 //        fragments[1] = new ClockFragment();
-        fragments[2]=new SearchFragment();
+        fragments[2] = new SearchFragment();
         clickProject();
     }
 
@@ -127,10 +134,10 @@ public class MainActivity extends FragmentActivity
                 aboveView.setVisibility(View.GONE);
                 break;
             case R.id.activity_main_above_view_add_plan:
-                addTask();
+                addPlan();
                 break;
             case R.id.activity_main_above_view_add_submit:
-                addProject();
+                addSubmit();
                 break;
             case R.id.activity_main_above_view_add_overtime:
                 addOvertime();
@@ -144,6 +151,23 @@ public class MainActivity extends FragmentActivity
         }
     }
 
+    private void addPlan() {
+        if (aboveView.getVisibility() == View.VISIBLE) {
+            aboveView.setVisibility(View.GONE);
+        } else {
+            aboveView.setVisibility(View.VISIBLE);
+        }
+        AddPlanActivity.startAddProjectActivity(this, "main");
+    }
+
+    private void addSubmit() {
+        if (aboveView.getVisibility() == View.VISIBLE) {
+            aboveView.setVisibility(View.GONE);
+        } else {
+            aboveView.setVisibility(View.VISIBLE);
+        }
+        AddSummaryActivity.startAddProjectActivity(this, "main");
+    }
 
     private void addClaim() {
         if (aboveView.getVisibility() == View.VISIBLE) {
@@ -172,23 +196,23 @@ public class MainActivity extends FragmentActivity
         AddOverTimeActivity.startAddOverTimeActivity(this, "main");
     }
 
-    private void addProject() {
-        if (aboveView.getVisibility() == View.VISIBLE) {
-            aboveView.setVisibility(View.GONE);
-        } else {
-            aboveView.setVisibility(View.VISIBLE);
-        }
-        AddProjectActivity.startAddProjectActivity(this, "main");
-    }
-
-    private void addTask() {
-        if (aboveView.getVisibility() == View.VISIBLE) {
-            aboveView.setVisibility(View.GONE);
-        } else {
-            aboveView.setVisibility(View.VISIBLE);
-        }
-        AddTaskActivity.startAddTaskActivity(this, "main");
-    }
+//    private void addProject() {
+//        if (aboveView.getVisibility() == View.VISIBLE) {
+//            aboveView.setVisibility(View.GONE);
+//        } else {
+//            aboveView.setVisibility(View.VISIBLE);
+//        }
+//        AddProjectActivity.startAddProjectActivity(this, "main");
+//    }
+//
+//    private void addTask() {
+//        if (aboveView.getVisibility() == View.VISIBLE) {
+//            aboveView.setVisibility(View.GONE);
+//        } else {
+//            aboveView.setVisibility(View.VISIBLE);
+//        }
+//        AddTaskActivity.startAddTaskActivity(this, "main");
+//    }
 
     private void clickProject() {
         try {
@@ -243,9 +267,9 @@ public class MainActivity extends FragmentActivity
             if (fragments[2].isAdded() && fragments[2].isVisible()) {
                 fragmentTransaction.hide(fragments[2]);
             }
-            if(fragments[3].isAdded()&&fragments[3].isVisible()){
-                fragmentTransaction.hide(fragments[3]);
-            }
+//            if(fragments[3].isAdded()&&fragments[3].isVisible()){
+//                fragmentTransaction.hide(fragments[3]);
+//            }
             fragmentTransaction.commitAllowingStateLoss();
         } catch (Exception e) {
             e.printStackTrace();
@@ -319,19 +343,28 @@ public class MainActivity extends FragmentActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.nav_userinfo) {//账号信息
-            startActivity(new Intent(getApplicationContext(),AboutMeActivity.class));
+            startActivity(new Intent(getApplicationContext(), AboutMeActivity.class));
 
-        } else if (id == R.id.nav_collect) {//收藏
+        } else if (id == R.id.nav_plan) {//计划考核
+            startActivity(new Intent(getApplicationContext(), PlanListActivity.class));
+
+        }else if(id==R.id.nav_summary){//总结考核
+            startActivity(new Intent(getApplicationContext(), SummaryListActivity.class));
 
         } else if (id == R.id.nav_overtime) {//加班
+            startActivity(new Intent(getApplicationContext(), OverTimeListActivity.class));
 
         } else if (id == R.id.nav_holiday) {//休假
+            startActivity(new Intent(getApplicationContext(), HolidayListActivity.class));
 
         } else if (id == R.id.nav_claim) {//报销
+            startActivity(new Intent(getApplicationContext(), ClaimListActivity.class));
 
         } else if (id == R.id.nav_manage) {//设置
+            startActivity(new Intent(getApplicationContext(), SettingActivity.class));
 
         } else if (id == R.id.nav_help) {//帮助
+            startActivity(new Intent(getApplicationContext(), HelpActivity.class));
 
         }
         drawerLayout.closeDrawer(GravityCompat.START);

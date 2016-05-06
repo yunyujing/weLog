@@ -7,9 +7,13 @@
             android:icon="@mipmap/iconfont_zhanghao"
             android:title="账号信息" />
         <item
-            android:id="@+id/nav_collect"
+            android:id="@+id/nav_plan"
             android:icon="@mipmap/iconfont_shoucang"
-            android:title="工作考核" />
+            android:title="计划考核" />
+        <item
+            android:id="@+id/nav_summary"
+            android:icon="@mipmap/iconfont_shoucang"
+            android:title="总结考核" />
         <item
             android:id="@+id/nav_overtime"
             android:icon="@mipmap/iconfont_gongzuo"
@@ -21,7 +25,7 @@
         <item
             android:id="@+id/nav_claim"
             android:icon="@mipmap/icomfont_claim"
-            android:title="差旅报销" />
+            android:title="报销列表" />
 
     </group>
 

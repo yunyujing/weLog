@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/summary_list_layout_recycle_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/space_twelve"
+    android:background="@color/bg_default">
+
+
+    <TextView
+        android:id="@+id/summary_list_recycle_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="无评论"
+        android:textSize="@dimen/text_default" />
+
+    <TextView
+        android:id="@+id/summary_list_recycle_item_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="2015-12-25" />
+
+    <TextView
+        android:id="@+id/summary_list_recycle_item_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/summary_list_recycle_item_title"
+        android:layout_marginTop="@dimen/space_four"
+        android:text="4月份工作总结"
+        android:textColor="@color/text_ooo"
+        android:textSize="@dimen/text_middle" />
+</RelativeLayout>

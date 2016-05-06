@@ -14,6 +14,7 @@ import com.zzia.graduation.welog.R;
 import java.util.ArrayList;
 
 /**
+ * 项目详情页适配器
  * Author: yunyujing
  * Date: 2015/12/22
  */

@@ -43,6 +43,12 @@
             android:name="com.zzia.graduation.ui.EditTaskActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name="com.zzia.graduation.ui.AddPlanActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.zzia.graduation.ui.AddSummaryActivity"
+            android:screenOrientation="portrait"/>
+
         <activity
             android:name="com.zzia.graduation.ui.AddProjectActivity"
             android:screenOrientation="portrait"/>
@@ -65,8 +71,17 @@
 
         <activity android:name="com.zzia.graduation.ui.AboutMeActivity"
             android:screenOrientation="portrait"/>
-        
-        <activity android:name="com.zzia.graduation.ui.CollectListActivity"
+
+        <activity android:name="com.zzia.graduation.ui.CheckPlanActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.zzia.graduation.ui.CheckSummaryActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.zzia.graduation.ui.PlanListActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.zzia.graduation.ui.SummaryListActivity"
             android:screenOrientation="portrait"/>
 
         <activity android:name="com.zzia.graduation.ui.OverTimeListActivity"

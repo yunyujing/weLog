@@ -19,6 +19,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
+ * 添加加班认定
  * Author: yunyujing
  * Date: 2015/12/29
  */
@@ -74,14 +75,14 @@ public class AddOverTimeActivity extends AppCompatActivity implements View.OnCli
             }
         });
 
-        startDate = (TextView) findViewById(R.id.edit_add_holiday_layout_start_date);
+        startDate = (TextView) findViewById(R.id.edit_add_overtime_layout_start_date);
         startDate.setOnClickListener(this);
-        startTime = (TextView) findViewById(R.id.edit_add_holiday_layout_start_time);
+        startTime = (TextView) findViewById(R.id.edit_add_overtime_layout_start_time);
         startTime.setOnClickListener(this);
 
-        endDate = (TextView) findViewById(R.id.edit_add_holiday_layout_end_date);
+        endDate = (TextView) findViewById(R.id.edit_add_overtime_layout_end_date);
         endDate.setOnClickListener(this);
-        endTime = (TextView) findViewById(R.id.edit_add_holiday_layout_end_time);
+        endTime = (TextView) findViewById(R.id.edit_add_overtime_layout_end_time);
         endTime.setOnClickListener(this);
     }
 
@@ -89,16 +90,16 @@ public class AddOverTimeActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View v) {
 
         switch (v.getId()) {
-            case R.id.edit_add_holiday_layout_start_date:
+            case R.id.edit_add_overtime_layout_start_date:
                 showDatePickerDialog(0);
                 break;
-            case R.id.edit_add_holiday_layout_end_date:
+            case R.id.edit_add_overtime_layout_end_date:
                 showDatePickerDialog(1);
                 break;
-            case R.id.edit_add_holiday_layout_start_time:
+            case R.id.edit_add_overtime_layout_start_time:
                 showTimePickerDialog(0);
                 break;
-            case R.id.edit_add_holiday_layout_end_time:
+            case R.id.edit_add_overtime_layout_end_time:
                 showTimePickerDialog(1);
             default:
                 break;

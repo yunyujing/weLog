@@ -5,7 +5,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +16,7 @@ import com.zzia.graduation.welog.R;
 import java.util.ArrayList;
 
 /**
+ * 我的任务页
  * Author: yunyujing
  * Date: 2015/12/17
  */
