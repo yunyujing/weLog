@@ -41,7 +41,7 @@ public class CheckPlanActivity extends AppCompatActivity {
     private void initData() {
         list = new ArrayList<>();
 //        BaseBean baseBean = new BaseBean();
-//        baseBean.set("url","res:// /"+R.mipmap.iconfont_zhanghao);
+//        baseBean.set("url","res:///"+R.mipmap.iconfont_zhanghao);
 //        list.add(baseBean);
     }
 
@@ -51,7 +51,7 @@ public class CheckPlanActivity extends AppCompatActivity {
 
         gridView = (GridView) findViewById(R.id.check_plan_layout_grid);
         if (!list.isEmpty()) {
-            checkLargeImageGridAdapter = new CheckLargeImageGridAdapter(getApplicationContext(), list);
+            checkLargeImageGridAdapter = new CheckLargeImageGridAdapter(this, list);
             gridView.setAdapter(checkLargeImageGridAdapter);
             gridView.setVisibility(View.VISIBLE);
         } else {

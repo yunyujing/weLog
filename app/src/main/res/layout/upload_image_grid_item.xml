@@ -8,8 +8,8 @@
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/upload_image_gird_item_simpleview"
-        android:layout_width="66dp"
-        android:layout_height="66dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         app:actualImageScaleType="centerInside"
         app:fadeDuration="300"
         app:failureImage="@mipmap/add_image_def"

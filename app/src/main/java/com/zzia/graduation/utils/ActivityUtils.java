@@ -3,8 +3,12 @@ package com.zzia.graduation.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.support.v7.app.AlertDialog;
-import android.view.View;
+
+import java.util.List;
 
 /**
  * Author: yunyujing
@@ -29,6 +33,22 @@ public class ActivityUtils {
             }
         });
         builder.show();
+    }
+
+    /**
+     * 判断intent是否可用
+     *
+     * @param context
+     * @return
+     */
+    public static boolean isIntentAvailable(Context context, Intent intent) {
+        final PackageManager packageManager = context.getPackageManager();
+        List<ResolveInfo> list = packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+        if (list == null) {
+            return false;
+        } else {
+            return list.size() > 0;
+        }
     }
 
 }

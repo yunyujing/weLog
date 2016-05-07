@@ -25,7 +25,7 @@
                 android:id="@+id/add_summary_layout_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/space_ten"
+                android:layout_marginBottom="@dimen/space_twelve"
                 android:layout_marginLeft="@dimen/space_twelve"
                 android:layout_marginRight="@dimen/space_twelve"
                 android:layout_marginTop="@dimen/space_ten"
@@ -35,8 +35,56 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_big" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_marginBottom="@dimen/space_twelve"
+                android:layout_marginLeft="@dimen/space_twelve"
+                android:layout_marginRight="@dimen/space_twelve"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="工作概况：" />
+
+                <RadioGroup
+                    android:id="@+id/add_claim_layout_rgp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/space_twelve"
+                    android:layout_marginRight="@dimen/space_twelve">
+
+                    <android.support.v7.widget.AppCompatRadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="工作提前完成" />
+
+                    <android.support.v7.widget.AppCompatRadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="工作如期完成" />
+
+                    <android.support.v7.widget.AppCompatRadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="工作超时完成" />
+
+                    <android.support.v7.widget.AppCompatRadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="工作延后处理" />
+
+                    <android.support.v7.widget.AppCompatRadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="其他情况" />
+                </RadioGroup>
+            </LinearLayout>
+
             <EditText
-                android:id="@+id/add_aummary_layout_user"
+                android:id="@+id/add_summary_layout_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/space_twelve"
@@ -44,29 +92,88 @@
                 android:background="@color/white"
                 android:gravity="top"
                 android:hint="  请填写内容——"
-                android:maxLines="25"
-                android:minLines="20"
+                android:maxLines="20"
+                android:minLines="10"
                 android:textSize="@dimen/text_middle" />
 
             <TextView
                 android:id="@+id/add_summary_layout_extra"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/space_twelve"
+                android:background="@drawable/comment_btn_selector"
                 android:drawableLeft="@mipmap/extra"
-                android:gravity="center"
-                android:text="添加附件：（图片）" />
+                android:drawablePadding="@dimen/space_twelve"
+                android:gravity="left|center"
+                android:padding="@dimen/space_five"
+                android:text="添加附件（最多可上传8张图片）"
+                android:textColor="@color/text_detail"
+                android:textSize="@dimen/text_default" />
 
             <GridView
                 android:id="@+id/add_summary_layout_grid"
                 android:layout_width="match_parent"
-                android:layout_height="96dp"
-                android:horizontalSpacing="20dp"
+                android:layout_height="176dp"
                 android:numColumns="4"
                 android:paddingLeft="18dp"
                 android:paddingRight="18dp"
                 android:paddingTop="16dp"
-                android:verticalSpacing="20dp" />
+                android:horizontalSpacing="20dp"
+                android:verticalSpacing="20dp"
+                android:scrollbars="none"/>
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="96dp"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<com.facebook.drawee.view.SimpleDraweeView-->
+            <!--android:id="@+id/add_summary_layout_simpleview1"-->
+            <!--android:layout_width="66dp"-->
+            <!--android:layout_height="66dp"-->
+            <!--android:layout_weight="1"-->
+            <!--app:actualImageScaleType="centerInside"-->
+            <!--app:fadeDuration="300"-->
+            <!--app:failureImage="@mipmap/add_image_def"-->
+            <!--app:failureImageScaleType="centerInside"-->
+            <!--app:placeholderImage="@mipmap/add_image"-->
+            <!--app:placeholderImageScaleType="centerInside" />-->
+
+            <!--<com.facebook.drawee.view.SimpleDraweeView-->
+            <!--android:id="@+id/add_summary_layout_simpleview2"-->
+            <!--android:layout_width="66dp"-->
+            <!--android:layout_height="66dp"-->
+            <!--android:layout_weight="1"-->
+            <!--app:actualImageScaleType="centerInside"-->
+            <!--app:fadeDuration="300"-->
+            <!--app:failureImage="@mipmap/add_image_def"-->
+            <!--app:failureImageScaleType="centerInside"-->
+            <!--app:placeholderImage="@mipmap/add_image"-->
+            <!--app:placeholderImageScaleType="centerInside" />-->
+
+            <!--<com.facebook.drawee.view.SimpleDraweeView-->
+            <!--android:id="@+id/add_summary_layout_simpleview3"-->
+            <!--android:layout_width="66dp"-->
+            <!--android:layout_height="66dp"-->
+            <!--android:layout_weight="1"-->
+            <!--app:actualImageScaleType="centerInside"-->
+            <!--app:fadeDuration="300"-->
+            <!--app:failureImage="@mipmap/add_image_def"-->
+            <!--app:failureImageScaleType="centerInside"-->
+            <!--app:placeholderImage="@mipmap/add_image"-->
+            <!--app:placeholderImageScaleType="centerInside" />-->
+
+            <!--<com.facebook.drawee.view.SimpleDraweeView-->
+            <!--android:id="@+id/add_summary_layout_simpleview4"-->
+            <!--android:layout_width="66dp"-->
+            <!--android:layout_height="66dp"-->
+            <!--android:layout_weight="1"-->
+            <!--app:actualImageScaleType="centerInside"-->
+            <!--app:fadeDuration="300"-->
+            <!--app:failureImage="@mipmap/add_image_def"-->
+            <!--app:failureImageScaleType="centerInside"-->
+            <!--app:placeholderImage="@mipmap/add_image"-->
+            <!--app:placeholderImageScaleType="centerInside" />-->
+            <!--</LinearLayout>-->
         </LinearLayout>
     </ScrollView>
     <!--<LinearLayout-->

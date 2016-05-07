@@ -6,6 +6,17 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
+    <!--调用摄像头-->
+    <uses-permission android:name = "android.permission.CAMERA" />
+    <uses-feature android:name = "android.hardware.camera" />
+    <uses-feature android:name = "android.hardware.camera.autofocus" />
+
+    <!--读写sd卡-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/iconfont"
@@ -91,6 +102,12 @@
             android:screenOrientation="portrait"/>
 
         <activity android:name="com.zzia.graduation.ui.ClaimListActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.zzia.graduation.ui.SettingActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.zzia.graduation.ui.HelpActivity"
             android:screenOrientation="portrait"/>
     </application>
 

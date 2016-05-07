@@ -1,6 +1,7 @@
 package com.zzia.graduation.adapters;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,20 +46,20 @@ public class CheckLargeImageGridAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        UploadImageGridViewHOlder uploadImageGridViewHOlder = null;
+        CheckLargeImageGridViewHOlder checkLargeImageGridViewHOlder = null;
         if (convertView == null) {
-            uploadImageGridViewHOlder = new UploadImageGridViewHOlder();
+            checkLargeImageGridViewHOlder = new CheckLargeImageGridViewHOlder();
             convertView = LayoutInflater.from(context).inflate(R.layout.upload_image_grid_item, null);
-            uploadImageGridViewHOlder.image = (SimpleDraweeView) convertView.findViewById(R.id.upload_image_gird_item_simpleview);
-            convertView.setTag(uploadImageGridViewHOlder);
+            checkLargeImageGridViewHOlder.image = (SimpleDraweeView) convertView.findViewById(R.id.upload_image_gird_item_simpleview);
+            convertView.setTag(checkLargeImageGridViewHOlder);
         } else {
             convertView.getTag();
         }
-        uploadImageGridViewHOlder.update(getItem(position),position);
+        checkLargeImageGridViewHOlder.update(getItem(position),position);
         return convertView;
     }
 
-    class UploadImageGridViewHOlder implements View.OnClickListener {
+    class CheckLargeImageGridViewHOlder implements View.OnClickListener {
 
         private SimpleDraweeView image;
         private BaseBean baseBean;
@@ -69,7 +70,7 @@ public class CheckLargeImageGridAdapter extends BaseAdapter {
             this.baseBean=  item;
             this.position=position;
             image.setOnClickListener(this);
-//            image.setImageURI(Uri.parse(" "));
+            image.setImageURI(Uri.parse(baseBean.getStr("url")));
 
         }
 

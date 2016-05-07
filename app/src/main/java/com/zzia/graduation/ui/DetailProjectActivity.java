@@ -16,7 +16,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.zzia.graduation.adapters.DetailProjectAdapter;
 import com.zzia.graduation.utils.Common;
@@ -79,9 +78,10 @@ public class DetailProjectActivity extends AppCompatActivity {
         mToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                if(item.getItemId()==R.id.menu_toolbar_edit){
-                    //编辑项目
+                if(item.getItemId()==R.id.menu_toolbar_edit){//编辑项目
                     EditProjectActivity.startEditProjectActivity(DetailProjectActivity.this, Common.DETAIL_PROJECT);
+                }else if(item.getItemId()==R.id.menu_toolbar_new){//新建项目
+                    AddProjectActivity.startAddProjectActivity(DetailProjectActivity.this,Common.DETAIL_PROJECT);
                 }
                 return true;
             }
