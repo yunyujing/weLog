@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:layout_margin="@dimen/space_eight"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/detail_task_layout_comment_recycle_item_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/detail_task_layout_comment_recycle_item_icon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                fresco:actualImageScaleType="centerInside"
+                fresco:fadeDuration="300"
+                fresco:failureImage="@mipmap/homepage_header_user"
+                fresco:failureImageScaleType="centerInside"
+                fresco:placeholderImage="@mipmap/homepage_header_user"
+                fresco:placeholderImageScaleType="centerInside" />
+
+            <TextView
+                android:id="@+id/detail_task_layout_comment_recycle_item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/detail_task_layout_comment_recycle_item_head"
+                android:layout_marginTop="@dimen/space_two"
+                android:text="依依"
+                android:textColor="@color/text_detail"
+                android:textSize="@dimen/text_small" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/detail_task_layout_comment_recycle_item_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/space_eight"
+            android:layout_marginRight="@dimen/space_eight"
+            android:layout_toLeftOf="@+id/detail_task_layout_comment_recycle_item_time"
+            android:layout_toRightOf="@+id/detail_task_layout_comment_recycle_item_head"
+            android:text="这个任务可以参考评论回复功能"
+            android:textColor="@color/text_333" />
+
+        <TextView
+            android:id="@+id/detail_task_layout_comment_recycle_item_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="2015-5-10" />
+    </RelativeLayout>
+
+    <GridView
+        android:id="@+id/detail_task_layout_commetn_recycle_item_grid"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:horizontalSpacing="20dp"
+        android:numColumns="3"
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp"
+        android:paddingTop="16dp"
+        android:verticalSpacing="20dp"
+        android:scrollbars="none"
+        android:visibility="gone"/>
+
+</LinearLayout>

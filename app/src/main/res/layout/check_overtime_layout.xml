@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <com.zzia.graduation.views.MyActionBar
+        android:id="@+id/check_overtime_layout_actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/actionbar_height"
+        app:titleName="加班审核"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/space_twelve"
+        android:text="加班详情"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_big" />
+
+    <TextView
+        android:id="@+id/check_overtime_layout_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginRight="@dimen/space_twelve"
+        android:text="2016-05-05" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_twelve">
+
+        <TextView
+            android:id="@+id/check_overtime_layout_user_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_twelve"
+            android:text="申请人:" />
+
+        <TextView
+            android:id="@+id/check_overtime_layout_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/space_twenty"
+            android:layout_toRightOf="@+id/check_overtime_layout_user_text"
+            android:text="贠玉晶"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle" />
+
+        <TextView
+            android:id="@+id/check_overtime_layout_reason_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/check_overtime_layout_user_text"
+            android:layout_marginBottom="@dimen/space_twelve"
+            android:text="加班事项：" />
+
+        <TextView
+            android:id="@+id/check_overtime_layout_reason"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/check_overtime_layout_user"
+            android:layout_below="@+id/check_overtime_layout_user_text"
+            android:text="修复线上 BUG-1200"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle" />
+
+
+        <TextView
+            android:id="@+id/check_overtime_layout_time_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/check_overtime_layout_reason_text"
+            android:layout_marginBottom="@dimen/space_twelve"
+            android:text="加班时间:" />
+
+        <TextView
+            android:id="@+id/check_overtime_layout_overtime_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/check_overtime_layout_reason"
+            android:layout_below="@+id/check_overtime_layout_reason_text"
+            android:text="2015-03-09"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle" />
+
+        <TextView
+            android:id="@+id/check_overtime_layout_approval_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/check_overtime_layout_time_text"
+            android:layout_marginBottom="@dimen/space_twelve"
+            android:text="审批人:" />
+
+        <TextView
+            android:id="@+id/check_overtime_layout_approval"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/check_overtime_layout_overtime_time"
+            android:layout_below="@+id/check_overtime_layout_time_text"
+            android:text="于老师"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle" />
+
+        <TextView
+            android:id="@+id/check_overtime_layout_state_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/check_overtime_layout_approval_text"
+            android:text="审批状态:" />
+
+        <RadioGroup
+            android:id="@+id/check_overtime_layout_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/check_overtime_layout_approval"
+            android:layout_below="@+id/check_overtime_layout_approval_text">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="待审核" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="通过" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="驳回" />
+        </RadioGroup>
+    </RelativeLayout>
+
+</LinearLayout>

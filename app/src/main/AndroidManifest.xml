@@ -80,7 +80,7 @@
             android:name="com.zzia.graduation.ui.AddClaimActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.zzia.graduation.ui.AboutMeActivity"
+        <activity android:name="com.zzia.graduation.ui.MyProfileActivity"
             android:screenOrientation="portrait"/>
 
         <activity android:name="com.zzia.graduation.ui.CheckPlanActivity"
@@ -98,10 +98,19 @@
         <activity android:name="com.zzia.graduation.ui.OverTimeListActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name="com.zzia.graduation.ui.CheckOverTimeActivity"
+            android:screenOrientation="portrait"/>
+
         <activity android:name="com.zzia.graduation.ui.HolidayListActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name="com.zzia.graduation.ui.CheckHolidayActivity"
+            android:screenOrientation="portrait"/>
+
         <activity android:name="com.zzia.graduation.ui.ClaimListActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.zzia.graduation.ui.CheckClaimActivity"
             android:screenOrientation="portrait"/>
 
         <activity android:name="com.zzia.graduation.ui.SettingActivity"

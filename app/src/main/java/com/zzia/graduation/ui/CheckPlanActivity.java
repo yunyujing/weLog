@@ -2,6 +2,7 @@ package com.zzia.graduation.ui;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -9,21 +10,20 @@ import android.view.View;
 import android.widget.GridView;
 
 import com.zzia.graduation.adapters.CheckLargeImageGridAdapter;
-import com.zzia.graduation.common.bean.BaseBean;
 import com.zzia.graduation.views.MyActionBar;
 import com.zzia.graduation.welog.R;
 
 import java.util.ArrayList;
 
 /**
- * 工作计划内容
+ * 审核工作计划
  * Created by yunyujing on 16/5/4.
  */
 public class CheckPlanActivity extends AppCompatActivity {
     private MyActionBar myActionBar;
     private GridView gridView;
     private CheckLargeImageGridAdapter checkLargeImageGridAdapter;
-    private ArrayList<BaseBean> list;
+    private ArrayList<Uri> list;
 
     public static void startCheckPlanActivity(Context context) {
         Intent intent = new Intent(context, CheckPlanActivity.class);

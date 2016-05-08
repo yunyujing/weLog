@@ -34,8 +34,8 @@ import java.util.ArrayList;
  */
 public class AddSummaryActivity extends AppCompatActivity implements View.OnClickListener {
 
-    public static final int REQUEST_IMAGE_CAPTURE = 100;
-    public static final int REQUEST_IMAGE_ALBUM = 101;
+    private static final int REQUEST_IMAGE_CAPTURE = 101;
+    private static final int REQUEST_IMAGE_ALBUM = 102;
 
     private MyActionBar myActionBar;
     private TextView addImage;

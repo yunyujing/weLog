@@ -45,7 +45,7 @@
                 android:gravity="top"
                 android:hint="  内容——"
                 android:maxLines="25"
-                android:minLines="20"
+                android:minLines="15"
                 android:textSize="@dimen/text_middle" />
 
             <TextView
@@ -54,8 +54,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/space_twelve"
                 android:drawableLeft="@mipmap/extra"
+                android:drawablePadding="@dimen/space_twelve"
                 android:gravity="center"
-                android:text="附件:(图片)" />
+                android:text="附件：（图片）" />
 
             <GridView
                 android:id="@+id/check_plan_layout_grid"
@@ -68,54 +69,21 @@
                 android:paddingTop="16dp"
                 android:verticalSpacing="20dp"
                 android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/check_plan_layout_comment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/space_twelve"
+                android:background="@color/white"
+                android:gravity="top"
+                android:hint="审核评价~"
+                android:maxLines="5"
+                android:minLines="5"
+                android:textSize="@dimen/text_middle" />
+
+
         </LinearLayout>
     </ScrollView>
-
-    <LinearLayout
-        android:id="@+id/check_plan_layout_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/comment_bg"
-        android:orientation="horizontal">
-
-
-        <ImageView
-            android:id="@+id/check_plan_layout_input_add_image"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_marginTop="@dimen/space_five"
-            android:layout_marginBottom="@dimen/space_five"
-            android:layout_marginLeft="@dimen/space_five"
-            android:layout_marginRight="@dimen/space_eight"
-            android:src="@mipmap/comment_add_image" />
-
-        <EditText
-            android:id="@+id/check_plan_layout_input_edit"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_five"
-            android:layout_marginBottom="@dimen/space_five"
-            android:layout_weight="1"
-            android:background="@color/white"
-            android:maxEms="512"
-            android:maxLines="4"
-            android:minHeight="32dp"
-            android:textSize="16sp" />
-
-        <Button
-            android:id="@+id/check_plan_layout_input_send"
-            android:layout_width="48dp"
-            android:layout_height="32dp"
-            android:layout_marginTop="@dimen/space_five"
-            android:layout_marginBottom="@dimen/space_five"
-            android:layout_marginLeft="@dimen/space_eight"
-            android:layout_marginRight="@dimen/space_five"
-            android:background="@drawable/comment_btn_selector"
-            android:text="回复"
-            android:textColor="#fff"
-            android:textSize="14sp" />
-    </LinearLayout>
-
 
 </RelativeLayout>

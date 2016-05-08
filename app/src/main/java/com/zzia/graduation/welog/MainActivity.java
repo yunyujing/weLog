@@ -16,7 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
-import com.zzia.graduation.ui.AboutMeActivity;
+import com.zzia.graduation.ui.MyProfileActivity;
 import com.zzia.graduation.ui.AddClaimActivity;
 import com.zzia.graduation.ui.AddHolidayActivity;
 import com.zzia.graduation.ui.AddOverTimeActivity;
@@ -343,7 +343,7 @@ public class MainActivity extends FragmentActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.nav_userinfo) {//账号信息
-            startActivity(new Intent(getApplicationContext(), AboutMeActivity.class));
+            startActivity(new Intent(getApplicationContext(), MyProfileActivity.class));
 
         } else if (id == R.id.nav_plan) {//计划考核
             startActivity(new Intent(getApplicationContext(), PlanListActivity.class));

@@ -8,21 +8,20 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.zzia.graduation.common.bean.BaseBean;
 import com.zzia.graduation.welog.R;
 
 import java.util.ArrayList;
 
 /**
- * 点击上传图片的适配器
+ * 点击查看大图的适配器
  * Created by yunyujing on 16/5/4.
  */
 public class CheckLargeImageGridAdapter extends BaseAdapter {
 
     private Context context;
-    private ArrayList<BaseBean> list;
+    private ArrayList<Uri> list;
 
-    public CheckLargeImageGridAdapter(Context context, ArrayList<BaseBean> list) {
+    public CheckLargeImageGridAdapter(Context context, ArrayList<Uri> list) {
 
         this.context = context;
         this.list = list;
@@ -34,7 +33,7 @@ public class CheckLargeImageGridAdapter extends BaseAdapter {
     }
 
     @Override
-    public BaseBean getItem(int position) {
+    public Uri getItem(int position) {
         return list.get(position);
     }
 
@@ -46,31 +45,31 @@ public class CheckLargeImageGridAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        CheckLargeImageGridViewHOlder checkLargeImageGridViewHOlder = null;
+        CheckLargeImageGridViewHolder checkLargeImageGridViewHolder = null;
         if (convertView == null) {
-            checkLargeImageGridViewHOlder = new CheckLargeImageGridViewHOlder();
+            checkLargeImageGridViewHolder = new CheckLargeImageGridViewHolder();
             convertView = LayoutInflater.from(context).inflate(R.layout.upload_image_grid_item, null);
-            checkLargeImageGridViewHOlder.image = (SimpleDraweeView) convertView.findViewById(R.id.upload_image_gird_item_simpleview);
-            convertView.setTag(checkLargeImageGridViewHOlder);
+            checkLargeImageGridViewHolder.image = (SimpleDraweeView) convertView.findViewById(R.id.upload_image_gird_item_simpleview);
+            convertView.setTag(checkLargeImageGridViewHolder);
         } else {
-            convertView.getTag();
+            checkLargeImageGridViewHolder= (CheckLargeImageGridViewHolder) convertView.getTag();
         }
-        checkLargeImageGridViewHOlder.update(getItem(position),position);
+        checkLargeImageGridViewHolder.update(getItem(position),position);
         return convertView;
     }
 
-    class CheckLargeImageGridViewHOlder implements View.OnClickListener {
+    class CheckLargeImageGridViewHolder implements View.OnClickListener {
 
         private SimpleDraweeView image;
-        private BaseBean baseBean;
+        private Uri uri;
         private int position;
 
-        public void update(BaseBean item,int position) {
+        public void update(Uri uri,int position) {
 
-            this.baseBean=  item;
+            this.uri= uri;
             this.position=position;
             image.setOnClickListener(this);
-            image.setImageURI(Uri.parse(baseBean.getStr("url")));
+            image.setImageURI(uri);
 
         }
 
