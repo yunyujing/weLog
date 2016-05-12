@@ -31,7 +31,7 @@
                 android:layout_marginTop="@dimen/space_ten"
                 android:background="@color/white"
                 android:gravity="center"
-                android:hint="标题"
+                android:hint="4月工作总结"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_big" />
 
@@ -43,7 +43,7 @@
                 android:layout_marginRight="@dimen/space_twelve"
                 android:background="@color/white"
                 android:gravity="top"
-                android:hint="  内容——"
+                android:hint=" 完成计划任务：实现前端框架的搭建和基本库的引用。"
                 android:maxLines="25"
                 android:minLines="15"
                 android:textSize="@dimen/text_middle" />

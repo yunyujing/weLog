@@ -16,7 +16,8 @@
         android:id="@+id/detail_task_layout_scroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/detail_task_layout_actionbar">
+        android:layout_below="@+id/detail_task_layout_actionbar"
+        android:layout_above="@+id/detail_task_layout_input_ll">
 
         <LinearLayout
             android:layout_width="match_parent"

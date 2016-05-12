@@ -31,7 +31,7 @@
                 android:layout_marginTop="@dimen/space_ten"
                 android:background="@color/white"
                 android:gravity="center"
-                android:hint="标题"
+                android:hint="5月工作计划"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_big" />
 
@@ -43,7 +43,7 @@
                 android:layout_marginRight="@dimen/space_twelve"
                 android:background="@color/white"
                 android:gravity="top"
-                android:hint="  内容——"
+                android:hint="实现前端全部界面和功能\n\n搭建后台服务端\n\n连通后台进行数据填充"
                 android:maxLines="25"
                 android:minLines="15"
                 android:textSize="@dimen/text_middle" />
