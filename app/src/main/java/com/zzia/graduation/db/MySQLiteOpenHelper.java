@@ -11,8 +11,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 
     public static final String DB_NAME = "welog.db"; // database name
-    public static final int DB_VERSION = 3;//database version
-    //    1:test    2:建表    3:修改表结构,添加company表
+    public static final int DB_VERSION = 4;//database version
+    //    1:test    2:建表    3:修改表结构,添加company表  4:修改company表结构
 
     public static final String TABLE_DEPARTMENT = "department";
     public static final String TABLE_USER = "user";
@@ -60,6 +60,8 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
                 db.execSQL(CreateTable.IMAGE);
                 break;
             case 3:
+            case 4:
+                db.execSQL("DROP TABLE IF EXISTS company;");
                 db.execSQL("DROP TABLE IF EXISTS image;");
                 db.execSQL("DROP TABLE IF EXISTS comment;");
                 db.execSQL("DROP TABLE IF EXISTS checkwork;");
@@ -80,4 +82,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 
         }
     }
+
+
+
 }

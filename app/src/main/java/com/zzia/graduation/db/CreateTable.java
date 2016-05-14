@@ -13,7 +13,9 @@ public class CreateTable {
     public static final String COMPANY =
             "CREATE TABLE company(" +
                     "[company_id] INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    "[company_name] varchar(50) NOT NULL " +
+                    "[company_name] varchar(50) NOT NULL ," +
+                    "[company_email] VARCHAR(255) NOT NULL ," +
+                    "[company_password] VARCHAR(12) NOT NULL " +
                     ");";
 
     public static final String DEPARTMENT =

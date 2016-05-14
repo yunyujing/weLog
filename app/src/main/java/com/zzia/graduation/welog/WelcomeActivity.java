@@ -10,8 +10,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
-import com.zzia.graduation.db.MySQLiteOpenHelper;
-
 
 /**
  * 启动页
@@ -29,8 +27,6 @@ public class WelcomeActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);  //fullScreen
         setContentView(R.layout.activity_welcome);
         initAnimation();
-        MySQLiteOpenHelper mySQLiteOpenHelper=new MySQLiteOpenHelper(this);
-        mySQLiteOpenHelper.getWritableDatabase();//在手机/data/data/包名/下创建db文件
 
 
     }
@@ -46,6 +42,7 @@ public class WelcomeActivity extends AppCompatActivity {
             public void run() {
                 Animation animation= AnimationUtils.loadAnimation(WelcomeActivity.this,R.anim.welcome_alpha);
                 welcomeView.setAnimation(animation);
+
                 startActivity(new Intent(WelcomeActivity.this,LoginActivity.class));
                 finish();
 
