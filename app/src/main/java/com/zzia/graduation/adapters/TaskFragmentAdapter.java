@@ -78,7 +78,6 @@ public class TaskFragmentAdapter extends RecyclerView.Adapter {
 
         @Override
         public void onClick(View v) {
-            Log.e("onclick","Task click");
             DetailTaskActivity.startDetailTaskActivity(context);
         }
     }

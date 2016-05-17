@@ -73,14 +73,14 @@
 
 
                     <TextView
-                        android:id="@+id/my_profile_edit"
+                        android:id="@+id/my_profile_add_user"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/space_twenty"
                         android:background="@drawable/my_profile_round_corner_bg_selector"
                         android:gravity="center"
-                        android:padding="3dp"
-                        android:text="编辑资料"
+                        android:padding="5dp"
+                        android:text="添加员工"
                         android:textColor="#ffffff"
                         android:textSize="16sp"
                         android:visibility="visible" />
@@ -147,33 +147,42 @@
                     android:id="@+id/my_profile_layout_bottom_person"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
                     android:layout_marginBottom="@dimen/space_twelve"
+                    android:layout_marginLeft="20dp"
                     android:gravity="center"
                     android:text="个人：依依  女  4  9月10日"
                     android:textColor="@color/text_333"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/my_profile_layout_bottom_tel"
+                    android:id="@+id/my_profile_layout_bottom_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
                     android:layout_marginBottom="@dimen/space_twelve"
+                    android:layout_marginLeft="20dp"
                     android:gravity="center"
-                    android:text="电话：13564661292"
+                    android:text="账号：13564661292"
+                    android:textColor="@color/text_333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/my_profile_layout_bottom_dept"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/space_twelve"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center"
                     android:textColor="@color/text_333"
                     android:textSize="16sp" />
 
 
                 <TextView
-                    android:id="@+id/my_profile_layout_bottom_department"
+                    android:id="@+id/my_profile_layout_bottom_tel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
                     android:layout_marginBottom="@dimen/space_twelve"
+                    android:layout_marginLeft="20dp"
                     android:gravity="center"
-                    android:text="部门：技术部"
                     android:textColor="@color/text_333"
                     android:textSize="16sp" />
 
@@ -183,13 +192,21 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:gravity="center"
-                    android:text="住址：郑州航院宿舍楼"
                     android:textColor="@color/text_333"
                     android:textSize="16sp" />
 
             </LinearLayout>
 
-
+            <Button
+                android:id="@+id/my_profile_layout_change_user"
+                style="?android:textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/space_twelve"
+                android:background="@drawable/my_profile_round_corner_bg_change"
+                android:layout_marginTop="16dp"
+                android:text="切换账号"
+                android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>
 

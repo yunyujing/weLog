@@ -10,6 +10,9 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import com.zzia.graduation.utils.Common;
+import com.zzia.graduation.utils.SharedPreferenceUtils;
+
 
 /**
  * 启动页
@@ -17,8 +20,11 @@ import android.widget.ImageView;
  */
 public class WelcomeActivity extends AppCompatActivity {
 
+
+    private int userID;
     private ImageView welcomeView;
-    private Handler handler=new Handler();
+    private Handler handler = new Handler();
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +32,8 @@ public class WelcomeActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);  //fullScreen
         setContentView(R.layout.activity_welcome);
+
+        userID = Integer.parseInt(String.valueOf(SharedPreferenceUtils.get(getApplicationContext(),Common.UserInfo.id, 0)));
         initAnimation();
 
 
@@ -35,15 +43,21 @@ public class WelcomeActivity extends AppCompatActivity {
      * 延迟跳转
      */
     private void initAnimation() {
-        welcomeView= (ImageView) findViewById(R.id.welcome_image);
+        welcomeView = (ImageView) findViewById(R.id.welcome_image);
         handler.postDelayed(new Runnable() {
 
             @Override
             public void run() {
-                Animation animation= AnimationUtils.loadAnimation(WelcomeActivity.this,R.anim.welcome_alpha);
+                Animation animation = AnimationUtils.loadAnimation(WelcomeActivity.this, R.anim.welcome_alpha);
                 welcomeView.setAnimation(animation);
 
-                startActivity(new Intent(WelcomeActivity.this,LoginActivity.class));
+                if (userID==0) {
+
+                    startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
+                } else {
+                    startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+
+                }
                 finish();
 
             }
@@ -54,7 +68,7 @@ public class WelcomeActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(handler!=null){
+        if (handler != null) {
             handler.removeCallbacksAndMessages(null);
         }
     }

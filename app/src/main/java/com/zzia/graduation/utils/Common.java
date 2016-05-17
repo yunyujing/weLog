@@ -7,6 +7,7 @@ import android.os.Environment;
  * Date: 2015/12/27
  */
 public class Common {
+    //调试日志
     public static final String LOG_APP="welog";
     public static final String DETAIL_TASK = "detail_task";
     public static final String DETAIL_PROJECT = "detail_project";
@@ -24,5 +25,24 @@ public class Common {
     public static final String CACHEDIR_IMG = DEFAULT_SDCARD + CACHEDIR_RELATIVE_PATH+"/imgs/";
     public static final String CACHEDIR_COMMON = Environment.getExternalStorageDirectory().getPath() + "/zzia/common/";// 产品公共目录
 
+    public static final String FILE_SHARED="welog";
+
+    //user相关
+    public static class UserInfo{
+        public static String isCompany="isCompany";
+//        public static String companyId="companyId";
+        public static String isManager="isManager";
+        public static String id="id";
+        public static String name="name";
+        public static String age="age";
+        public static String sex="sex";
+        public static String icon="icon";
+        public static String email="email";
+        public static String password="password";
+        public static String tel="tel";
+        public static String address="address";
+        public static String deptName="deptName";
+
+    }
 
 }

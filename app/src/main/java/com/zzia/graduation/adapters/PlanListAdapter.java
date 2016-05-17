@@ -65,7 +65,6 @@ public class PlanListAdapter extends RecyclerView.Adapter {
 
         @Override
         public void onClick(View v) {
-            Log.e("click","PlanListAcvitity click");
             CheckPlanActivity.startCheckPlanActivity(context);
         }
     }

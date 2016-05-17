@@ -11,8 +11,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 
     public static final String DB_NAME = "welog.db"; // database name
-    public static final int DB_VERSION = 4;//database version
-    //    1:test    2:建表    3:修改表结构,添加company表  4:修改company表结构
+    public static final int DB_VERSION = 7;//database version
+    //1:test    2:建表    3:修改表结构  4:添加company表  5:user表添加tel字段,company表添加address字段  6:user表去掉company_id字段
 
     public static final String TABLE_DEPARTMENT = "department";
     public static final String TABLE_USER = "user";
@@ -42,7 +42,6 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         db.execSQL(CreateTable.CHECKWORK);
         db.execSQL(CreateTable.COMMENT);
         db.execSQL(CreateTable.IMAGE);
-
 
     }
 
@@ -79,7 +78,33 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
                 db.execSQL(CreateTable.COMMENT);
                 db.execSQL(CreateTable.IMAGE);
                 break;
+            case 5:
+                db.execSQL("alter table company " +
+                        "add [company_address] varchar(255);");
 
+                db.execSQL("alter table user " +
+                        "add [user_tel] varchar(15);");
+                break;
+
+            case 7:
+                db.execSQL("DROP TABLE IF EXISTS image;");
+                db.execSQL("DROP TABLE IF EXISTS comment;");
+                db.execSQL("DROP TABLE IF EXISTS checkwork;");
+                db.execSQL("DROP TABLE IF EXISTS task;");
+                db.execSQL("DROP TABLE IF EXISTS project;");
+                db.execSQL("DROP TABLE IF EXISTS user;");
+                db.execSQL("DROP TABLE IF EXISTS department;");
+                db.execSQL("DROP TABLE IF EXISTS company;");
+
+                db.execSQL(CreateTable.COMPANY);
+                db.execSQL(CreateTable.DEPARTMENT);
+                db.execSQL(CreateTable.USER);
+                db.execSQL(CreateTable.PROJECT);
+                db.execSQL(CreateTable.TASK);
+                db.execSQL(CreateTable.CHECKWORK);
+                db.execSQL(CreateTable.COMMENT);
+                db.execSQL(CreateTable.IMAGE);
+                break;
         }
     }
 

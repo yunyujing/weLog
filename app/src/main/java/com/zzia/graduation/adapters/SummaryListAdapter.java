@@ -65,7 +65,6 @@ public class SummaryListAdapter extends RecyclerView.Adapter {
 
         @Override
         public void onClick(View v) {
-            Log.e("click","CheckListAcvitity click");
             CheckSummaryActivity.startCheckSummaryActivity(context);
         }
     }

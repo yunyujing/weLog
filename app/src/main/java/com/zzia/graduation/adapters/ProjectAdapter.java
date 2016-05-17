@@ -70,7 +70,6 @@ public class ProjectAdapter extends RecyclerView.Adapter{
 
         @Override
         public void onClick(View v) {
-            Log.e("click","Project click");
             DetailProjectActivity.startDetailProjectActivity(context);
         }
     }

@@ -73,7 +73,6 @@ public class UploadImageGridAdapter extends BaseAdapter {
             this.uri = item;
             this.position = position;
             simpleDraweeView.setImageURI(uri);
-            Log.e(Common.LOG_APP,"showimage=="+uri.getEncodedPath());
 
         }
     }

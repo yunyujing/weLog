@@ -131,6 +131,12 @@
             android:name="com.zzia.graduation.ui.CheckClaimActivity"
             android:screenOrientation="portrait" />
 
+        <activity android:name="com.zzia.graduation.ui.AddUserActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.zzia.graduation.ui.EditMyProfileActivity"
+            android:screenOrientation="portrait"/>
+
         <activity
             android:name="com.zzia.graduation.ui.SettingActivity"
             android:screenOrientation="portrait" />

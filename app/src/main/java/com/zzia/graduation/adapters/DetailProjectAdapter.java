@@ -63,7 +63,6 @@ public class DetailProjectAdapter extends RecyclerView.Adapter{
 
         @Override
         public void onClick(View v) {
-            Log.e("click","DetailProject click");
             DetailTaskActivity.startDetailTaskActivity(context);
         }
     }
