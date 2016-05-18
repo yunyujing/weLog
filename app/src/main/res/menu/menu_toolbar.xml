@@ -7,12 +7,7 @@
         android:title="编辑"
         android:orderInCategory="100"
         app:showAsAction="always" />
-    <item
-        android:id="@+id/menu_toolbar_new"
-        android:icon="@mipmap/actionbar_add"
-        android:title="新建"
-        android:orderInCategory="100"
-        app:showAsAction="always"/>
+
 
 
 </menu>

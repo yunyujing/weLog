@@ -9,8 +9,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.zzia.graduation.bean.User;
 import com.zzia.graduation.common.util.StringUtils;
-import com.zzia.graduation.utils.Common;
 import com.zzia.graduation.utils.SharedPreferenceUtils;
 import com.zzia.graduation.views.MyActionBar;
 import com.zzia.graduation.welog.LoginActivity;
@@ -53,16 +53,16 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
     }
 
     public void getData() {
-        isCompany = Boolean.parseBoolean(String.valueOf(SharedPreferenceUtils.get(getApplicationContext(), Common.UserInfo.isCompany, false)));
-        isManager = Boolean.parseBoolean(String.valueOf(SharedPreferenceUtils.get(getApplicationContext(), Common.UserInfo.isManager, false)));
-        name = String.valueOf(SharedPreferenceUtils.get(getApplicationContext(), Common.UserInfo.name, ""));
-        sex = String.valueOf(SharedPreferenceUtils.get(getApplicationContext(), Common.UserInfo.sex, ""));
+        isCompany = Boolean.parseBoolean(String.valueOf(SharedPreferenceUtils.get(getApplicationContext(), User.isCompany, false)));
+        isManager = Boolean.parseBoolean(String.valueOf(SharedPreferenceUtils.get(getApplicationContext(), User.isManager, false)));
+        name = String.valueOf(SharedPreferenceUtils.get(getApplicationContext(), User.name, ""));
+        sex = String.valueOf(SharedPreferenceUtils.get(getApplicationContext(), User.sex, ""));
 
-        age = String.valueOf(SharedPreferenceUtils.get(getApplicationContext(), Common.UserInfo.age, ""));
-        email = String.valueOf(SharedPreferenceUtils.get(getApplicationContext(), Common.UserInfo.email, ""));
-        department = String.valueOf(SharedPreferenceUtils.get(getApplicationContext(), Common.UserInfo.deptName, ""));
-        tel = String.valueOf(SharedPreferenceUtils.get(getApplicationContext(), Common.UserInfo.tel, ""));
-        address = String.valueOf(SharedPreferenceUtils.get(getApplicationContext(), Common.UserInfo.address, ""));
+        age = String.valueOf(SharedPreferenceUtils.get(getApplicationContext(), User.age, ""));
+        email = String.valueOf(SharedPreferenceUtils.get(getApplicationContext(), User.email, ""));
+        department = String.valueOf(SharedPreferenceUtils.get(getApplicationContext(), User.deptName, ""));
+        tel = String.valueOf(SharedPreferenceUtils.get(getApplicationContext(), User.tel, ""));
+        address = String.valueOf(SharedPreferenceUtils.get(getApplicationContext(), User.address, ""));
 
 
     }

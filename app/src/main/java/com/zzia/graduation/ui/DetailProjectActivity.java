@@ -18,6 +18,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.zzia.graduation.adapters.DetailProjectAdapter;
+import com.zzia.graduation.bean.Project;
+import com.zzia.graduation.common.bean.BaseBean;
 import com.zzia.graduation.utils.Common;
 import com.zzia.graduation.welog.R;
 
@@ -31,14 +33,19 @@ public class DetailProjectActivity extends AppCompatActivity {
 
     private Toolbar mToolbar;
     private CollapsingToolbarLayout mCollapsingToolbarLayout;
-//    private TextView projectName;
     private TextView projectDes;
-    private TextView projectMember;
     private DetailProjectAdapter detailProjectAdapter;
-    private ArrayList<String> list;
+    private ArrayList<BaseBean> list;
     private RecyclerView mRecyceView;
-    public static void startDetailProjectActivity(Context context){
-        Intent intent=new Intent(context,DetailProjectActivity.class);
+
+    private String name;
+    private String info;
+
+    public static void startDetailProjectActivity(Context context, BaseBean baseBean) {
+        Intent intent = new Intent(context, DetailProjectActivity.class);
+        intent.putExtra("project_id", baseBean.getInt("project_id"));
+        intent.putExtra("project_name", baseBean.getStr("project_name"));
+        intent.putExtra("project_info", baseBean.getStr("project_info"));
         context.startActivity(intent);
     }
 
@@ -52,16 +59,23 @@ public class DetailProjectActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_toolbar,menu);
+        getMenuInflater().inflate(R.menu.menu_toolbar, menu);
         return true;
     }
 
     private void initData() {
-        list=new ArrayList<>();
-        String s="依依修改了任务";
-        for (int i=0;i<10;i++){
-            list.add(s);
-        }
+        list = new ArrayList<>();
+        Intent intent = getIntent();
+        name = intent.getStringExtra("project_name");
+        info = intent.getStringExtra("project_info");
+        int id=intent.getIntExtra("project_id",0);
+
+        list= Project.getTasks(getApplicationContext(),id);
+
+//        String s="依依修改了任务";
+//        for (int i=0;i<10;i++){
+//            list.add(s);
+//        }
 
     }
 
@@ -78,54 +92,51 @@ public class DetailProjectActivity extends AppCompatActivity {
         mToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                if(item.getItemId()==R.id.menu_toolbar_edit){//编辑项目
+                if (item.getItemId() == R.id.menu_toolbar_edit) {//编辑项目
                     EditProjectActivity.startEditProjectActivity(DetailProjectActivity.this, Common.DETAIL_PROJECT);
-                }else if(item.getItemId()==R.id.menu_toolbar_new){//新建项目
-                    AddProjectActivity.startAddProjectActivity(DetailProjectActivity.this,Common.DETAIL_PROJECT);
                 }
                 return true;
             }
         });
         //使用CollapsingToolbarLayout必须把title设置到CollapsingToolbarLayout上，设置到Toolbar上则不会显示
         mCollapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.detail_project_layout_collapsing);
-        mCollapsingToolbarLayout.setTitle("项目名称");//通过CollapsingToolbarLayout设置标题
+        mCollapsingToolbarLayout.setTitle(name);//通过CollapsingToolbarLayout设置标题
         mCollapsingToolbarLayout.setExpandedTitleColor(Color.WHITE);//设置还没收缩时状态下字体颜色
         mCollapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE);//设置收缩后Toolbar上字体的颜色
 
-//        projectName= (TextView) findViewById(R.id.detail_project_layout_content_title);
-        projectDes= (TextView) findViewById(R.id.detail_project_layout_content_about);
-        projectMember= (TextView) findViewById(R.id.detail_project_layout_content_member);
+        projectDes = (TextView) findViewById(R.id.detail_project_layout_content_about);
+        projectDes.setText(info);
 
-        mRecyceView= (RecyclerView) findViewById(R.id.detail_project_layout_content_recycle);
+
+        mRecyceView = (RecyclerView) findViewById(R.id.detail_project_layout_content_recycle);
         mRecyceView.setHasFixedSize(false);//没有固定大小的recycleView
-        LinearLayoutManager layoutManager=new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mRecyceView.setLayoutManager(layoutManager);
-        MyListItemDecoration myListItemDirector=new MyListItemDecoration(40);
+        MyListItemDecoration myListItemDirector = new MyListItemDecoration(40);
         mRecyceView.addItemDecoration(myListItemDirector);
-        detailProjectAdapter=new DetailProjectAdapter(this,list);
+        detailProjectAdapter = new DetailProjectAdapter(this, list);
         mRecyceView.setAdapter(detailProjectAdapter);
-
 
 
     }
 
     static class MyListItemDecoration extends RecyclerView.ItemDecoration {
-         private int space;
+        private int space;
 
-         public MyListItemDecoration(int space) {
-             this.space = space;
-         }
+        public MyListItemDecoration(int space) {
+            this.space = space;
+        }
 
-         @Override
-         public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
-             super.onDraw(c, parent, state);
-         }
+        @Override
+        public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
+            super.onDraw(c, parent, state);
+        }
 
-         @Override
-         public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-             super.getItemOffsets(outRect, view, parent, state);
-             outRect.bottom = space;
-         }
-     }
+        @Override
+        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+            super.getItemOffsets(outRect, view, parent, state);
+            outRect.bottom = space;
+        }
+    }
 
 }

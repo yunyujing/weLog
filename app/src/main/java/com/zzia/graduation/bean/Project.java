@@ -1,5 +1,12 @@
 package com.zzia.graduation.bean;
 
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
+import com.zzia.graduation.common.bean.BaseBean;
+import com.zzia.graduation.db.MySQLiteOpenHelper;
+
 import java.util.ArrayList;
 
 /**
@@ -7,49 +14,32 @@ import java.util.ArrayList;
  * Date: 2015/12/9
  */
 public class Project {
-    private String id;
-    private String company;
-    private String icon;
-    private String name;
-    private ArrayList<User> users;
+    /**
+     * 根据项目id查找：任务列表
+     *
+     * @param context
+     * @return
+     */
+    public static ArrayList<BaseBean> getTasks(Context context,int id) {
 
-    public String getName() {
-        return name;
-    }
+        ArrayList<BaseBean> taskList = new ArrayList<>();
+        SQLiteDatabase sqLiteDatabase=new MySQLiteOpenHelper(context).getWritableDatabase();
+        Cursor cursor=sqLiteDatabase.rawQuery("select * from project,task,user " +
+                "where project.project_id=task.project_id and project.project_id=? ;",new String[]{String.valueOf(id)});
+        while (cursor.moveToNext()){
+            BaseBean task=new BaseBean();
+            task.set("task_id",cursor.getInt(cursor.getColumnIndex("task_id")));
+            task.set("task_name",cursor.getString(cursor.getColumnIndex("task_name")));
+            task.set("task_creater",cursor.getInt(cursor.getColumnIndex("task_creater")));
+            task.set("task_createtime",cursor.getString(cursor.getColumnIndex("task_createtime")));
+            task.set("task_excuter",cursor.getInt(cursor.getColumnIndex("task_excuter")));
+            task.set("task_statrttime",cursor.getString(cursor.getColumnIndex("task_statrttime")));
+            task.set("task_endtime",cursor.getString(cursor.getColumnIndex("task_endtime")));
+            task.set("task_state",cursor.getInt(cursor.getColumnIndex("task_state")));
+            taskList.add(task);
+        }
+        cursor.close();
 
-    public String getIcon() {
-        return icon;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getCompany() {
-        return company;
-    }
-
-    public void setCompany(String company) {
-        this.company = company;
-    }
-
-    public void setIcon(String icon) {
-        this.icon = icon;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public ArrayList<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(ArrayList<User> users) {
-        this.users = users;
+        return taskList;
     }
 }

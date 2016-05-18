@@ -6,26 +6,26 @@
     android:background="@drawable/side_nav_bar">
     <ImageView
         android:id="@+id/drawerlayout_main_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
         android:layout_centerInParent="true"
         android:src="@mipmap/homepage_header_user"/>
-    <!--<com.facebook.drawee.view.SimpleDraweeView-->
-        <!--android:id="@+id/drawerlayout_main_icon"-->
-        <!--android:layout_width="40dp"-->
-        <!--android:layout_height="40dp"-->
-        <!--android:layout_centerInParent="true"-->
-        <!--fresco:fadeDuration="300"-->
-        <!--fresco:placeholderImage="@mipmap/homepage_header_user"-->
-        <!--fresco:placeholderImageScaleType="centerInside"-->
-        <!--fresco:failureImage="@mipmap/homepage_header_user"-->
-        <!--fresco:failureImageScaleType="centerInside"/>-->
-    <TextView
-        android:id="@+id/drawerlayout_main_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/space_ten"
-        android:layout_below="@+id/drawerlayout_main_icon"
-        android:text="依依"/>
+    <!--&lt;!&ndash;<com.facebook.drawee.view.SimpleDraweeView&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/drawerlayout_main_icon"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="40dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="40dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_centerInParent="true"&ndash;&gt;-->
+        <!--&lt;!&ndash;fresco:fadeDuration="300"&ndash;&gt;-->
+        <!--&lt;!&ndash;fresco:placeholderImage="@mipmap/homepage_header_user"&ndash;&gt;-->
+        <!--&lt;!&ndash;fresco:placeholderImageScaleType="centerInside"&ndash;&gt;-->
+        <!--&lt;!&ndash;fresco:failureImage="@mipmap/homepage_header_user"&ndash;&gt;-->
+        <!--&lt;!&ndash;fresco:failureImageScaleType="centerInside"/>&ndash;&gt;-->
+    <!--<TextView-->
+        <!--android:id="@+id/drawerlayout_main_text"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="@dimen/space_ten"-->
+        <!--android:layout_below="@+id/drawerlayout_main_icon"-->
+        <!--android:text="依依"/>-->
 </RelativeLayout>

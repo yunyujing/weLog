@@ -3,12 +3,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/task_viewpager_fragment1_recycleview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical">
-    </android.support.v7.widget.RecyclerView>
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"></android.support.v7.widget.RecyclerView>
+
+    <LinearLayout
+        android:id="@+id/task_viewpager_fragment1_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_default"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_twenty"
+            android:src="@mipmap/add_image" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="新建任务"
+            android:textSize="@dimen/text_middle"
+            />
+    </LinearLayout>
 
 
 </LinearLayout>

@@ -8,9 +8,18 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/project_layout_recycleview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:scrollbars="vertical">
     </android.support.v7.widget.RecyclerView>
+
+
+    <ImageView
+        android:id="@+id/project_layout_add"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="@dimen/space_twenty"
+        android:layout_marginLeft="50dp"
+        android:src="@mipmap/add_image"/>
 
 
 </LinearLayout>

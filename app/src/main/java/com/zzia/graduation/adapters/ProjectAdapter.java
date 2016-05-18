@@ -1,20 +1,17 @@
 package com.zzia.graduation.adapters;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.zzia.graduation.bean.Project;
+import com.zzia.graduation.common.bean.BaseBean;
 import com.zzia.graduation.ui.DetailProjectActivity;
+import com.zzia.graduation.utils.Common;
 import com.zzia.graduation.welog.R;
 
 import java.util.ArrayList;
@@ -26,8 +23,8 @@ import java.util.ArrayList;
 public class ProjectAdapter extends RecyclerView.Adapter{
 
     private Context context;
-    private ArrayList<Project> list;
-    public ProjectAdapter(Context context, ArrayList<Project> list){
+    private ArrayList<BaseBean> list;
+    public ProjectAdapter(Context context, ArrayList<BaseBean> list){
         this.context=context;
         this.list=list;
     }
@@ -41,11 +38,11 @@ public class ProjectAdapter extends RecyclerView.Adapter{
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         ProjectViewHolder projectViewHolder= (ProjectViewHolder) holder;
         projectViewHolder.position=position;
-        Project project=list.get(position);
-        if(project.getIcon()!=null&&!project.getIcon().equals("")&&position==0){
+        BaseBean project=list.get(position);
+//        if(project.getIcon()!=null&&!project.getIcon().equals("")&&position==0){
 //            projectViewHolder.imageView.setImageURI(Uri.parse(project.getIcon()));//使用普通的ImageView控件之只能引用本地的图片，使用SimpleDraweeView可以引用网络上的图片
-        }
-        projectViewHolder.textView.setText(project.getName());
+//        }
+        projectViewHolder.textView.setText(project.getStr("project_name"));
     }
 
     @Override
@@ -70,7 +67,7 @@ public class ProjectAdapter extends RecyclerView.Adapter{
 
         @Override
         public void onClick(View v) {
-            DetailProjectActivity.startDetailProjectActivity(context);
+            DetailProjectActivity.startDetailProjectActivity(context,list.get(position));
         }
     }
 }

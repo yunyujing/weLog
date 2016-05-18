@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,10 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.zzia.graduation.bean.Dept;
+import com.zzia.graduation.bean.Company;
 import com.zzia.graduation.common.util.Isvalid;
 import com.zzia.graduation.db.MySQLiteOpenHelper;
-import com.zzia.graduation.utils.Common;
 import com.zzia.graduation.views.MyActionBar;
 import com.zzia.graduation.welog.R;
 
@@ -122,7 +120,7 @@ public class AddUserActivity extends AppCompatActivity {
         deptId = new ArrayList<>();
         deptName = new ArrayList<>();
 
-        depts = Dept.getDepts(getApplicationContext());
+        depts = Company.getDepts(getApplicationContext());
 
         Iterator iter = depts.keySet().iterator();
         while (iter.hasNext()) {
@@ -192,6 +190,8 @@ public class AddUserActivity extends AppCompatActivity {
         sqLiteDatabase.execSQL("insert into user (dept_id,user_email,user_password,user_name,user_ismanager) values" +
                 "("+selectDeptid+",'"+email+ "',"+password+",'"+name+"',"+isManager+");");
 
+        //添加完成之后返回到个人中心
+        finish();
 
 
     }

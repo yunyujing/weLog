@@ -2,12 +2,12 @@ package com.zzia.graduation.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.zzia.graduation.common.bean.BaseBean;
 import com.zzia.graduation.ui.DetailTaskActivity;
 import com.zzia.graduation.welog.R;
 
@@ -20,8 +20,8 @@ import java.util.ArrayList;
  */
 public class DetailProjectAdapter extends RecyclerView.Adapter{
     private Context context;
-    private ArrayList<String> list;
-    public DetailProjectAdapter(Context context, ArrayList<String> list){
+    private ArrayList<BaseBean> list;
+    public DetailProjectAdapter(Context context, ArrayList<BaseBean> list){
         this.context=context;
         this.list=list;
     }
@@ -34,8 +34,8 @@ public class DetailProjectAdapter extends RecyclerView.Adapter{
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         DetailProjectViewHOlder detailProjectViewHOlder= (DetailProjectViewHOlder) holder;
-        String string=list.get(position);
-        detailProjectViewHOlder.title.setText(string);
+        BaseBean task=list.get(position);
+        detailProjectViewHOlder.title.setText(task.getStr("task_name"));
     }
 
     @Override

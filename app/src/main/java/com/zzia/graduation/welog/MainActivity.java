@@ -16,15 +16,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
-import com.zzia.graduation.ui.MyProfileActivity;
 import com.zzia.graduation.ui.AddClaimActivity;
 import com.zzia.graduation.ui.AddHolidayActivity;
 import com.zzia.graduation.ui.AddOverTimeActivity;
 import com.zzia.graduation.ui.AddPlanActivity;
+import com.zzia.graduation.ui.AddProjectActivity;
 import com.zzia.graduation.ui.AddSummaryActivity;
 import com.zzia.graduation.ui.ClaimListActivity;
 import com.zzia.graduation.ui.HelpActivity;
 import com.zzia.graduation.ui.HolidayListActivity;
+import com.zzia.graduation.ui.MyProfileActivity;
 import com.zzia.graduation.ui.OverTimeListActivity;
 import com.zzia.graduation.ui.PlanListActivity;
 import com.zzia.graduation.ui.ProjectFragment;
@@ -148,7 +149,17 @@ public class MainActivity extends FragmentActivity
             case R.id.activity_main_above_view_add_claim:
                 addClaim();
                 break;
+
         }
+    }
+
+    private void addProject() {
+        if (aboveView.getVisibility() == View.VISIBLE) {
+            aboveView.setVisibility(View.GONE);
+        } else {
+            aboveView.setVisibility(View.VISIBLE);
+        }
+        AddProjectActivity.startAddProjectActivity(this, "main");
     }
 
     private void addPlan() {
@@ -338,7 +349,6 @@ public class MainActivity extends FragmentActivity
         }
     }
 
-
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -348,7 +358,7 @@ public class MainActivity extends FragmentActivity
         } else if (id == R.id.nav_plan) {//计划考核
             startActivity(new Intent(getApplicationContext(), PlanListActivity.class));
 
-        }else if(id==R.id.nav_summary){//总结考核
+        } else if (id == R.id.nav_summary) {//总结考核
             startActivity(new Intent(getApplicationContext(), SummaryListActivity.class));
 
         } else if (id == R.id.nav_overtime) {//加班

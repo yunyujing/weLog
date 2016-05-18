@@ -45,14 +45,14 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/text_middle" />
 
-                <TextView
-                    android:id="@+id/detail_project_layout_content_member"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="10个成员"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_middle" />
+                <!--<TextView-->
+                    <!--android:id="@+id/detail_project_layout_content_member"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:text="10个成员"-->
+                    <!--android:textColor="@color/white"-->
+                    <!--android:textSize="@dimen/text_middle" />-->
             </LinearLayout>
 
             <android.support.v7.widget.Toolbar

@@ -44,8 +44,8 @@
                 android:id="@+id/activity_main_toolbar_task"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginLeft="10dp"
+                android:layout_weight="1"
                 android:background="@drawable/homepage_rectangle_normal"
                 android:gravity="center"
                 android:text="任务"
@@ -53,28 +53,28 @@
                 android:textSize="18dp" />
 
             <!--<TextView-->
-                <!--android:id="@+id/activity_main_toolbar_clock"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_weight="1"-->
-                <!--android:layout_marginLeft="10dp"-->
-                <!--android:background="@drawable/homepage_rectangle_normal"-->
-                <!--android:gravity="center"-->
-                <!--android:text="打卡"-->
-                <!--android:textColor="@color/white"-->
-                <!--android:textSize="18dp" />-->
+            <!--android:id="@+id/activity_main_toolbar_clock"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:background="@drawable/homepage_rectangle_normal"-->
+            <!--android:gravity="center"-->
+            <!--android:text="打卡"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:textSize="18dp" />-->
             <TextView
                 android:id="@+id/activity_main_toolbar_search"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
+                android:layout_weight="1"
                 android:background="@drawable/homepage_rectangle_normal"
                 android:gravity="center"
                 android:text="搜索"
                 android:textColor="@color/white"
-                android:textSize="18dp"/>
+                android:textSize="18dp" />
         </LinearLayout>
     </LinearLayout>
     <!--内容布局-->
@@ -100,7 +100,8 @@
                 android:id="@+id/activity_main_above_view_add_plan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/homepage_above_view_spacing"
+                android:background="@color/bg_default"
+                android:layout_marginBottom="@dimen/space_twenty"
                 android:drawablePadding="10dp"
                 android:drawableRight="@mipmap/homepage_add_task"
                 android:gravity="center"
@@ -112,9 +113,10 @@
                 android:id="@+id/activity_main_above_view_add_submit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/homepage_above_view_spacing"
+                android:background="@color/bg_default"
+                android:layout_marginBottom="@dimen/space_twenty"
                 android:drawablePadding="10dp"
-                android:drawableRight="@mipmap/homepage_add_project"
+                android:drawableRight="@mipmap/homepage_add_summary"
                 android:gravity="center"
                 android:text="工作总结"
                 android:textColor="@color/dark_text_gray"
@@ -124,7 +126,8 @@
                 android:id="@+id/activity_main_above_view_add_overtime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/homepage_above_view_spacing"
+                android:background="@color/bg_default"
+                android:layout_marginBottom="@dimen/space_twenty"
                 android:drawablePadding="10dp"
                 android:drawableRight="@mipmap/homepage_add_overtime"
                 android:gravity="center"
@@ -136,7 +139,8 @@
                 android:id="@+id/activity_main_above_view_add_holiday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/homepage_above_view_spacing"
+                android:background="@color/bg_default"
+                android:layout_marginBottom="@dimen/space_twenty"
                 android:drawablePadding="10dp"
                 android:drawableRight="@mipmap/homepage_add_holiday"
                 android:gravity="center"
@@ -148,6 +152,7 @@
                 android:id="@+id/activity_main_above_view_add_claim"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@color/bg_default"
                 android:drawablePadding="10dp"
                 android:drawableRight="@mipmap/homepage_add_claim"
                 android:gravity="center"

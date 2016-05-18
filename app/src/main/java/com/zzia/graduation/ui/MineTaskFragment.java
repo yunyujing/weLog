@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.zzia.graduation.adapters.TaskFragmentAdapter;
-import com.zzia.graduation.bean.Task;
+import com.zzia.graduation.common.bean.BaseBean;
 import com.zzia.graduation.welog.R;
 
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class MineTaskFragment extends Fragment {
 
     private RecyclerView recyclerView;
-    private ArrayList<Task> tasks;
+    private ArrayList<BaseBean> tasks;
     private TaskFragmentAdapter taskFragmentAdapter;
 
     @Override
@@ -39,21 +39,21 @@ public class MineTaskFragment extends Fragment {
 
     private void initData() {
         tasks=new ArrayList<>();
-        Task task1=new Task();
-        task1.setTitle("依依 完成了任务");
-        task1.setDetail("后台的数据处理");
-        task1.setEndTime("2015-12-18");
-        tasks.add(task1);
-        Task task2=new Task();
-        task2.setTitle("依依 完成了任务");
-        task2.setDetail("web前端");
-        task2.setEndTime("2015-12-17");
-        tasks.add(task2);
-        Task task3=new Task();
-        task3.setTitle("依依 完成了任务");
-        task3.setDetail("后台的接口");
-        task3.setEndTime("2015-12-10");
-        tasks.add(task3);
+//        Task task1=new Task();
+//        task1.setTitle("依依 完成了任务");
+//        task1.setDetail("后台的数据处理");
+//        task1.setEndTime("2015-12-18");
+//        tasks.add(task1);
+//        Task task2=new Task();
+//        task2.setTitle("依依 完成了任务");
+//        task2.setDetail("web前端");
+//        task2.setEndTime("2015-12-17");
+//        tasks.add(task2);
+//        Task task3=new Task();
+//        task3.setTitle("依依 完成了任务");
+//        task3.setDetail("后台的接口");
+//        task3.setEndTime("2015-12-10");
+//        tasks.add(task3);
     }
 
     private void initView(View view) {

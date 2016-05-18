@@ -10,7 +10,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
-import com.zzia.graduation.utils.Common;
+import com.zzia.graduation.bean.User;
 import com.zzia.graduation.utils.SharedPreferenceUtils;
 
 
@@ -33,7 +33,7 @@ public class WelcomeActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);  //fullScreen
         setContentView(R.layout.activity_welcome);
 
-        userID = Integer.parseInt(String.valueOf(SharedPreferenceUtils.get(getApplicationContext(),Common.UserInfo.id, 0)));
+        userID = Integer.parseInt(String.valueOf(SharedPreferenceUtils.get(getApplicationContext(), User.id, 0)));
         initAnimation();
 
 

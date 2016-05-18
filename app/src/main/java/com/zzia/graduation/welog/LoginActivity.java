@@ -19,12 +19,11 @@ import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.TextView;
 
-import com.zzia.graduation.bean.Dept;
+import com.zzia.graduation.bean.User;
 import com.zzia.graduation.common.util.Isvalid;
 import com.zzia.graduation.common.util.StringUtils;
 import com.zzia.graduation.common.util.ToastUtils;
 import com.zzia.graduation.db.MySQLiteOpenHelper;
-import com.zzia.graduation.utils.Common;
 import com.zzia.graduation.utils.SharedPreferenceUtils;
 
 import java.util.ArrayList;
@@ -201,6 +200,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
      * @param password
      */
     private void addDataToSql(String name, String email, String password, String address) {
+
         //获取部门信息
         for (int i = 0; i < addDeptView.getChildCount(); i++) {
 
@@ -211,37 +211,39 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
 
             }
         }
+        if (depts == null || depts.size() <= 0) {
+            ToastUtils.show(getApplicationContext(), "请设置公司部门");
+        } else {
+            //将注册账号添加到数据库并登录
+            sqLiteDatabase.execSQL("INSERT INTO company(company_name,company_email,company_password,company_address) VALUES (?,?,?,?); ", new String[]{name, email, password, address});
+            Cursor cursor = sqLiteDatabase.rawQuery("select * from company " +
+                    "where company_name=? and company_email=? and company_password=? and company_address=? ", new String[]{name, email, password, address});
+            if (cursor.moveToFirst()) {
 
-        //将注册账号添加到数据库并登录
-        sqLiteDatabase.execSQL("INSERT INTO company(company_name,company_email,company_password,company_address) VALUES (?,?,?,?); ", new String[]{name, email, password, address});
-        Cursor cursor = sqLiteDatabase.rawQuery("select * from company " +
-                "where company_name=? and company_email=? and company_password=? and company_address=? ", new String[]{name, email, password, address});
-        if (cursor.moveToFirst()) {
+                //登录信息存储到SharedPreferences并登录
+                SharedPreferenceUtils.put(getApplicationContext(), User.isCompany, true);
+                SharedPreferenceUtils.put(getApplicationContext(), User.companyId, cursor.getInt(cursor.getColumnIndex("company_id")));
+                SharedPreferenceUtils.put(getApplicationContext(), User.id, cursor.getInt(cursor.getColumnIndex("company_id")));
+                SharedPreferenceUtils.put(getApplicationContext(), User.name, name);
+                SharedPreferenceUtils.put(getApplicationContext(), User.email, email);
+                SharedPreferenceUtils.put(getApplicationContext(), User.address, address);
 
-            //登录信息存储到SharedPreferences并登录
-            SharedPreferenceUtils.put(getApplicationContext(), Common.UserInfo.isCompany, true);
-//            SharedPreferenceUtils.put(getApplicationContext(), Common.UserInfo.companyId, cursor.getInt(cursor.getColumnIndex("company_id")));
-            SharedPreferenceUtils.put(getApplicationContext(), Common.UserInfo.id, cursor.getInt(cursor.getColumnIndex("company_id")));
-            SharedPreferenceUtils.put(getApplicationContext(), Common.UserInfo.name, name);
-            SharedPreferenceUtils.put(getApplicationContext(), Common.UserInfo.email, email);
-            SharedPreferenceUtils.put(getApplicationContext(), Common.UserInfo.address, address);
-
-        }
-
-        //将部门信息添加到部门表
-        if (depts != null && depts.size() > 0) {
-            for (int i = 0; i < depts.size(); i++) {
-                sqLiteDatabase.execSQL("INSERT INTO department(dept_name,dept_num,company_id) VALUES (?," + 0 + ",?); ",
-                        new String[]{depts.get(i), String.valueOf(cursor.getInt(cursor.getColumnIndex("company_id")))});
             }
 
+            //将部门信息添加到部门表
+            if (depts != null && depts.size() > 0) {
+                for (int i = 0; i < depts.size(); i++) {
+                    sqLiteDatabase.execSQL("INSERT INTO department(dept_name,dept_num,company_id) VALUES (?," + 0 + ",?); ",
+                            new String[]{depts.get(i), String.valueOf(cursor.getInt(cursor.getColumnIndex("company_id")))});
+                }
+
+            }
+
+            cursor.close();
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
         }
-
-        cursor.close();
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
-
 
     }
 
@@ -291,12 +293,12 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                             ToastUtils.show(this, "密码错误");
                         } else {
                             //登录信息存储到SharedPreferences并登录
-                            SharedPreferenceUtils.put(getApplicationContext(), Common.UserInfo.isCompany, true);
-//                            SharedPreferenceUtils.put(getApplicationContext(), Common.UserInfo.companyId, cursorCompany.getInt(cursorCompany.getColumnIndex("company_id")));
-                            SharedPreferenceUtils.put(getApplicationContext(), Common.UserInfo.id, cursorCompany.getInt(cursorCompany.getColumnIndex("company_id")));
-                            SharedPreferenceUtils.put(getApplicationContext(), Common.UserInfo.name, cursorCompany.getString(cursorCompany.getColumnIndex("company_name")));
-                            SharedPreferenceUtils.put(getApplicationContext(), Common.UserInfo.email, email);
-                            SharedPreferenceUtils.put(getApplicationContext(), Common.UserInfo.address, cursorCompany.getString(cursorCompany.getColumnIndex("company_address")));
+                            SharedPreferenceUtils.put(getApplicationContext(), User.isCompany, true);
+                            SharedPreferenceUtils.put(getApplicationContext(), User.companyId, cursorCompany.getInt(cursorCompany.getColumnIndex("company_id")));
+                            SharedPreferenceUtils.put(getApplicationContext(), User.id, cursorCompany.getInt(cursorCompany.getColumnIndex("company_id")));
+                            SharedPreferenceUtils.put(getApplicationContext(), User.name, cursorCompany.getString(cursorCompany.getColumnIndex("company_name")));
+                            SharedPreferenceUtils.put(getApplicationContext(), User.email, email);
+                            SharedPreferenceUtils.put(getApplicationContext(), User.address, cursorCompany.getString(cursorCompany.getColumnIndex("company_address")));
 
                             Intent intent = new Intent(this, MainActivity.class);
                             startActivity(intent);
@@ -315,21 +317,22 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                             ToastUtils.show(this, "密码错误");
                         } else {
                             //登录信息存储到SharedPreferences并登录
-                            SharedPreferenceUtils.put(getApplicationContext(), Common.UserInfo.isCompany, false);
+                            SharedPreferenceUtils.put(getApplicationContext(), User.isCompany, false);
                             int managerValue = cursor.getInt(cursor.getColumnIndex("user_ismanager"));
                             if (managerValue == 0) {
-                                SharedPreferenceUtils.put(getApplicationContext(), Common.UserInfo.isManager, false);
-                            }else {
-                                SharedPreferenceUtils.put(getApplicationContext(), Common.UserInfo.isManager, true);
+                                SharedPreferenceUtils.put(getApplicationContext(), User.isManager, false);
+                            } else {
+                                SharedPreferenceUtils.put(getApplicationContext(), User.isManager, true);
                             }
-                            SharedPreferenceUtils.put(getApplicationContext(), Common.UserInfo.id, cursor.getInt(cursor.getColumnIndex("user_id")));
-                            SharedPreferenceUtils.put(getApplicationContext(), Common.UserInfo.deptName, Dept.getDeptName(getApplicationContext()));
-                            SharedPreferenceUtils.put(getApplicationContext(), Common.UserInfo.name, cursor.getString(cursor.getColumnIndex("user_name")));
-                            SharedPreferenceUtils.put(getApplicationContext(), Common.UserInfo.sex, cursor.getString(cursor.getColumnIndex("user_sex")));
-                            SharedPreferenceUtils.put(getApplicationContext(), Common.UserInfo.age, cursor.getString(cursor.getColumnIndex("user_age")));
-                            SharedPreferenceUtils.put(getApplicationContext(), Common.UserInfo.email, email);
-                            SharedPreferenceUtils.put(getApplicationContext(), Common.UserInfo.tel, cursor.getString(cursor.getColumnIndex("user_tel")));
-                            SharedPreferenceUtils.put(getApplicationContext(), Common.UserInfo.address, cursor.getString(cursor.getColumnIndex("user_address")));
+                            SharedPreferenceUtils.put(getApplicationContext(), User.companyId, User.getBasicInfo(getApplicationContext()).get("company_id"));
+                            SharedPreferenceUtils.put(getApplicationContext(), User.id, cursor.getInt(cursor.getColumnIndex("user_id")));
+                            SharedPreferenceUtils.put(getApplicationContext(), User.deptName, User.getBasicInfo(getApplicationContext()).get("dept_name"));
+                            SharedPreferenceUtils.put(getApplicationContext(), User.name, cursor.getString(cursor.getColumnIndex("user_name")));
+                            SharedPreferenceUtils.put(getApplicationContext(), User.sex, cursor.getString(cursor.getColumnIndex("user_sex")));
+                            SharedPreferenceUtils.put(getApplicationContext(), User.age, cursor.getString(cursor.getColumnIndex("user_age")));
+                            SharedPreferenceUtils.put(getApplicationContext(), User.email, email);
+                            SharedPreferenceUtils.put(getApplicationContext(), User.tel, cursor.getString(cursor.getColumnIndex("user_tel")));
+                            SharedPreferenceUtils.put(getApplicationContext(), User.address, cursor.getString(cursor.getColumnIndex("user_address")));
 
 
                             Intent intent = new Intent(this, MainActivity.class);
@@ -407,7 +410,6 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                             checkBox.setChecked(true);
 
                             addDeptView.addView(checkBox, params);
-//                                    depts.add(deptName);
 
                         }
                     }

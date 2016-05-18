@@ -2,6 +2,9 @@ package com.zzia.graduation.utils;
 
 import android.os.Environment;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Author: yunyujing
  * Date: 2015/12/27
@@ -27,22 +30,14 @@ public class Common {
 
     public static final String FILE_SHARED="welog";
 
-    //user相关
-    public static class UserInfo{
-        public static String isCompany="isCompany";
-//        public static String companyId="companyId";
-        public static String isManager="isManager";
-        public static String id="id";
-        public static String name="name";
-        public static String age="age";
-        public static String sex="sex";
-        public static String icon="icon";
-        public static String email="email";
-        public static String password="password";
-        public static String tel="tel";
-        public static String address="address";
-        public static String deptName="deptName";
-
+    /**
+     * 获取当前系统时间
+     * @return yyyy-MM-dd hh:mm:ss
+     */
+    public static String getNowTime(){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        String createTime = dateFormat.format(new Date(System.currentTimeMillis()));
+        return createTime;
     }
 
 }

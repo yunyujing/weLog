@@ -5,4 +5,9 @@
         <item>部门经理</item>
         <item>超级管理员</item>
     </array>
+
+    <array name="projects">
+        <item>私有项目</item>
+        <item>公共项目</item>
+    </array>
 </resources>

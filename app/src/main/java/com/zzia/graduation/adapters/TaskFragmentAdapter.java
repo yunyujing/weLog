@@ -1,20 +1,16 @@
 package com.zzia.graduation.adapters;
 
 import android.content.Context;
-import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.zzia.graduation.bean.Task;
+import com.zzia.graduation.common.bean.BaseBean;
 import com.zzia.graduation.ui.DetailTaskActivity;
 import com.zzia.graduation.welog.R;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -24,8 +20,8 @@ import java.util.ArrayList;
  */
 public class TaskFragmentAdapter extends RecyclerView.Adapter {
     private Context context;
-    private ArrayList<Task> list;
-    public TaskFragmentAdapter(Context context, ArrayList<Task> list){
+    private ArrayList<BaseBean> list;
+    public TaskFragmentAdapter(Context context, ArrayList<BaseBean> list){
         this.context=context;
         this.list=list;
     }
@@ -40,13 +36,13 @@ public class TaskFragmentAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         TaskFragmentViewHOlder allTaskFragmentViewHOlder= (TaskFragmentViewHOlder) holder;
         allTaskFragmentViewHOlder.position=position;
-        Task task=list.get(position);
-        if(task.getUser()!=null&&!task.getUser().getIcon().equals("")){
-            allTaskFragmentViewHOlder.userImag.setImageURI(Uri.parse(""));
-        }
-        allTaskFragmentViewHOlder.time.setText(task.getEndTime());
-        allTaskFragmentViewHOlder.title.setText(task.getTitle());
-        allTaskFragmentViewHOlder.detail.setText(task.getDetail());
+        BaseBean task=list.get(position);
+//        if(task.getUser()!=null&&!task.getUser().getIcon().equals("")){
+//            allTaskFragmentViewHOlder.userImag.setImageURI(Uri.parse(""));
+//        }
+        allTaskFragmentViewHOlder.time.setText(task.getStr("end_time"));
+        allTaskFragmentViewHOlder.title.setText(task.getStr("task_name"));
+//        allTaskFragmentViewHOlder.detail.setText(task.getDetail());
 //        allTaskFragmentViewHOlder.project.setText(task.getProject().getName());
 
     }

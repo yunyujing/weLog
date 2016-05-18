@@ -101,23 +101,23 @@ public class DetailTaskActivity extends AppCompatActivity implements View.OnClic
                 EditTaskActivity.startEditTaskActivity(DetailTaskActivity.this, Common.DETAIL_TASK);
             }
         });
-        actionBar.setRight2Action(new MyActionBar.Action() {
-            @Override
-            public int getDrawable() {
-                return R.mipmap.actionbar_add;
-            }
-
-            @Override
-            public int getText() {
-                return 0;
-            }
-
-            @Override
-            public void performAction(View view) {
-                //新建任务
-                AddTaskActivity.startAddTaskActivity(DetailTaskActivity.this, Common.DETAIL_TASK);
-            }
-        });
+//        actionBar.setRight2Action(new MyActionBar.Action() {
+//            @Override
+//            public int getDrawable() {
+//                return R.mipmap.actionbar_add;
+//            }
+//
+//            @Override
+//            public int getText() {
+//                return 0;
+//            }
+//
+//            @Override
+//            public void performAction(View view) {
+//                //新建任务
+//                AddTaskActivity.startAddTaskActivity(DetailTaskActivity.this, Common.DETAIL_TASK);
+//            }
+//        });
 
 
         addImage = (ImageView) findViewById(R.id.detail_task_layout_input_add_image);
