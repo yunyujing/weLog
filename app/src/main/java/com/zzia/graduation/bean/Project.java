@@ -24,18 +24,34 @@ public class Project {
 
         ArrayList<BaseBean> taskList = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase=new MySQLiteOpenHelper(context).getWritableDatabase();
-        Cursor cursor=sqLiteDatabase.rawQuery("select * from project,task,user " +
-                "where project.project_id=task.project_id and project.project_id=? ;",new String[]{String.valueOf(id)});
+        Cursor cursor=sqLiteDatabase.rawQuery("select * from task " +
+                "where project_id=? ;",new String[]{String.valueOf(id)});
         while (cursor.moveToNext()){
             BaseBean task=new BaseBean();
             task.set("task_id",cursor.getInt(cursor.getColumnIndex("task_id")));
             task.set("task_name",cursor.getString(cursor.getColumnIndex("task_name")));
-            task.set("task_creater",cursor.getInt(cursor.getColumnIndex("task_creater")));
+            task.set("task_creater",User.getBasicInfo(context,cursor.getInt(cursor.getColumnIndex("task_creater"))).get("user_name"));
             task.set("task_createtime",cursor.getString(cursor.getColumnIndex("task_createtime")));
-            task.set("task_excuter",cursor.getInt(cursor.getColumnIndex("task_excuter")));
+            task.set("task_excuter",User.getBasicInfo(context,cursor.getInt(cursor.getColumnIndex("task_excuter"))).get("user_name"));
             task.set("task_statrttime",cursor.getString(cursor.getColumnIndex("task_statrttime")));
             task.set("task_endtime",cursor.getString(cursor.getColumnIndex("task_endtime")));
-            task.set("task_state",cursor.getInt(cursor.getColumnIndex("task_state")));
+
+            int state = cursor.getInt(cursor.getColumnIndex("task_state"));
+            switch (state) {
+                case 0:
+                    task.set("task_state", "待处理");
+                    break;
+                case 1:
+                    task.set("task_state", "进行中");
+                    break;
+                case 2:
+                    task.set("task_state", "测试中");
+                    break;
+                case 3:
+                    task.set("task_state", "已完成");
+                    break;
+
+            }
             taskList.add(task);
         }
         cursor.close();

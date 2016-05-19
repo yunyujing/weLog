@@ -34,9 +34,9 @@ public class TaskFragmentPagerAdapter extends FragmentPagerAdapter {
 //        return super.getPageTitle(position);
         switch (position){
             case 0:
-                return "全部任务";
+                return "由我创建";
             case 1:
-                return "我的任务";
+                return "由我执行";
             default:
                 return null;
         }

@@ -324,9 +324,9 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                             } else {
                                 SharedPreferenceUtils.put(getApplicationContext(), User.isManager, true);
                             }
-                            SharedPreferenceUtils.put(getApplicationContext(), User.companyId, User.getBasicInfo(getApplicationContext()).get("company_id"));
+                            SharedPreferenceUtils.put(getApplicationContext(), User.companyId, User.getBasicInfo(getApplicationContext(),0).get("company_id"));
                             SharedPreferenceUtils.put(getApplicationContext(), User.id, cursor.getInt(cursor.getColumnIndex("user_id")));
-                            SharedPreferenceUtils.put(getApplicationContext(), User.deptName, User.getBasicInfo(getApplicationContext()).get("dept_name"));
+                            SharedPreferenceUtils.put(getApplicationContext(), User.deptName, User.getBasicInfo(getApplicationContext(),0).get("dept_name"));
                             SharedPreferenceUtils.put(getApplicationContext(), User.name, cursor.getString(cursor.getColumnIndex("user_name")));
                             SharedPreferenceUtils.put(getApplicationContext(), User.sex, cursor.getString(cursor.getColumnIndex("user_sex")));
                             SharedPreferenceUtils.put(getApplicationContext(), User.age, cursor.getString(cursor.getColumnIndex("user_age")));

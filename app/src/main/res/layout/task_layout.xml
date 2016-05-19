@@ -25,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/space_forty_six"
                 android:gravity="center"
-                android:text="全部任务"
+                android:text="由我创建"
                 android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/text_middle" />
 
@@ -55,7 +55,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="我的任务"
+                android:text="由我执行"
                 android:textColor="@color/dark_text_gray"
                 android:textSize="@dimen/text_middle" />
 

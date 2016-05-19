@@ -31,33 +31,40 @@ public class User {
     public static String deptName = "deptName";
 
     /**
-     * 根据用户id查找：公司id;公司名字;部门id;部门名字;
+     * 根据用户id查找：用户基本信息
      *
      * @param context
      * @return HashMap
      */
-    public static HashMap<String, String> getBasicInfo(Context context) {
+    public static HashMap<String, String> getBasicInfo(Context context,int id) {
 
+        String userId=String.valueOf(SharedPreferenceUtils.get(context, User.id, 0));
+        if(id!=0){
+           userId=String.valueOf(id);
+        }
         HashMap<String, String> userInfo = new HashMap<>();
         String companyId = null;
         String companyName = null;
         String deptId = null;
         String deptName = null;
+        String userName=null;
 
         SQLiteDatabase sqLiteDatabase = new MySQLiteOpenHelper(context).getWritableDatabase();
 
         Cursor cursor = sqLiteDatabase.rawQuery("select * from company,department,user " +
                         "where company.company_id=department.company_id and department.dept_id==user.dept_id and user.user_id=?",
-                new String[]{String.valueOf(SharedPreferenceUtils.get(context, User.id, 0))});
+                new String[]{userId});
         if (cursor.moveToFirst()) {
             companyId = String.valueOf(cursor.getInt(cursor.getColumnIndex("company_id")));
             companyName = String.valueOf(cursor.getString(cursor.getColumnIndex("company_name")));
             deptId = String.valueOf(cursor.getInt(cursor.getColumnIndex("dept_id")));
             deptName = cursor.getString(cursor.getColumnIndex("dept_name"));
+            userName=cursor.getString(cursor.getColumnIndex("user_name"));
             userInfo.put("company_id", companyId);
             userInfo.put("company_name", companyName);
             userInfo.put("dept_id", deptId);
             userInfo.put("dept_name", deptName);
+            userInfo.put("user_name",userName);
         }
         cursor.close();
         return userInfo;
@@ -69,7 +76,7 @@ public class User {
      * @param context
      * @return HashMap
      */
-    public static ArrayList<BaseBean> getProjects(Context context) {
+    public static ArrayList<BaseBean> getUserProjects(Context context) {
 
         ArrayList<BaseBean> userInfo = new ArrayList<>();
         String companyId = null;

@@ -57,7 +57,7 @@ public class ProjectFragment extends Fragment {
             list=User.getCompanyProjects(getActivity());
 
         } else {
-            list = User.getProjects(getActivity());
+            list = User.getUserProjects(getActivity());
         }
     }
 

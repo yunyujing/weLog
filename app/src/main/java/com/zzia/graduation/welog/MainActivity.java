@@ -20,7 +20,6 @@ import com.zzia.graduation.ui.AddClaimActivity;
 import com.zzia.graduation.ui.AddHolidayActivity;
 import com.zzia.graduation.ui.AddOverTimeActivity;
 import com.zzia.graduation.ui.AddPlanActivity;
-import com.zzia.graduation.ui.AddProjectActivity;
 import com.zzia.graduation.ui.AddSummaryActivity;
 import com.zzia.graduation.ui.ClaimListActivity;
 import com.zzia.graduation.ui.HelpActivity;
@@ -56,6 +55,7 @@ public class MainActivity extends FragmentActivity
     private String clockTag = "clockTag";
     private String searchTag = "searchTag";
     private Fragment[] fragments;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,7 +98,15 @@ public class MainActivity extends FragmentActivity
         fragments[1] = new TaskFragment();
 //        fragments[1] = new ClockFragment();
         fragments[2] = new SearchFragment();
-        clickProject();
+        Intent intent = getIntent();
+        String show = intent.getStringExtra("show");
+        if (intent!=null&&show!=null&&show.equals("task")) {
+
+            clickTask();
+        } else {
+
+            clickProject();
+        }
     }
 
 
@@ -151,15 +159,6 @@ public class MainActivity extends FragmentActivity
                 break;
 
         }
-    }
-
-    private void addProject() {
-        if (aboveView.getVisibility() == View.VISIBLE) {
-            aboveView.setVisibility(View.GONE);
-        } else {
-            aboveView.setVisibility(View.VISIBLE);
-        }
-        AddProjectActivity.startAddProjectActivity(this, "main");
     }
 
     private void addPlan() {

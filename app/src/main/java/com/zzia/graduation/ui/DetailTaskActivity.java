@@ -84,23 +84,23 @@ public class DetailTaskActivity extends AppCompatActivity implements View.OnClic
         actionBar = (MyActionBar) findViewById(R.id.detail_task_layout_actionbar);
         actionBar.setTitle("任务详情");
         actionBar.setBackAction(new MyActionBar.BackAction(this));
-        actionBar.setRightAction(new MyActionBar.Action() {
-            @Override
-            public int getDrawable() {
-                return R.mipmap.actionbar_edit;
-            }
-
-            @Override
-            public int getText() {
-                return 0;
-            }
-
-            @Override
-            public void performAction(View view) {
-                //编辑任务
-                EditTaskActivity.startEditTaskActivity(DetailTaskActivity.this, Common.DETAIL_TASK);
-            }
-        });
+//        actionBar.setRight2Action(new MyActionBar.Action() {
+//            @Override
+//            public int getDrawable() {
+//                return R.mipmap.actionbar_edit;
+//            }
+//
+//            @Override
+//            public int getText() {
+//                return 0;
+//            }
+//
+//            @Override
+//            public void performAction(View view) {
+//                //编辑任务
+//                EditTaskActivity.startEditTaskActivity(DetailTaskActivity.this, Common.DETAIL_TASK);
+//            }
+//        });
 //        actionBar.setRight2Action(new MyActionBar.Action() {
 //            @Override
 //            public int getDrawable() {

@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.zzia.graduation.adapters.TaskFragmentAdapter;
+import com.zzia.graduation.bean.Task;
 import com.zzia.graduation.common.bean.BaseBean;
 import com.zzia.graduation.welog.R;
 
@@ -40,6 +41,7 @@ public class AllTaskFragment extends Fragment {
 
     private void initData() {
         tasks=new ArrayList<>();
+        tasks= Task.getCreateTasks(getActivity());
 //        Task task1=new Task();
 //        task1.setTitle("小潘 完成了任务");
 //        task1.setDetail("后台的数据处理");
