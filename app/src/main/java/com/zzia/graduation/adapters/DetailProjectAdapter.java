@@ -34,6 +34,7 @@ public class DetailProjectAdapter extends RecyclerView.Adapter{
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         DetailProjectViewHOlder detailProjectViewHOlder= (DetailProjectViewHOlder) holder;
+        detailProjectViewHOlder.position=position;
         BaseBean task=list.get(position);
         detailProjectViewHOlder.title.setText(task.getStr("task_creater")+"创建  "+task.getStr("task_excuter")+"执行");
         detailProjectViewHOlder.detail.setText(task.getStr("task_name"));
@@ -65,7 +66,7 @@ public class DetailProjectAdapter extends RecyclerView.Adapter{
 
         @Override
         public void onClick(View v) {
-            DetailTaskActivity.startDetailTaskActivity(context);
+            DetailTaskActivity.startDetailTaskActivity(context,list.get(position));
         }
     }
 }

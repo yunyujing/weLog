@@ -19,7 +19,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/task_layout_fragment1_recycleview_item_img">
+        android:layout_toRightOf="@+id/task_layout_fragment1_recycleview_item_img"
+        android:layout_alignTop="@+id/task_layout_fragment1_recycleview_item_img"
+        android:layout_alignBottom="@+id/task_layout_fragment1_recycleview_item_img">
 
         <TextView
             android:id="@+id/task_layout_fragment1_recycleview_item_text_time"
@@ -34,27 +36,26 @@
             android:id="@+id/task_layout_fragment1_recycleview_item_text_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="依依完成了任务"
+            android:text="任务名称"
             android:textColor="@color/text_333"
             android:textSize="@dimen/text_middle" />
 
 
-        <TextView
-            android:id="@+id/task_layout_fragment1_recycleview_item_text_detail"
-            android:layout_below="@+id/task_layout_fragment1_recycleview_item_text_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="完成UI"
-            android:textColor="@color/text_detail"
-            android:textSize="@dimen/text_default" />
+        <!--<TextView-->
+            <!--android:id="@+id/task_layout_fragment1_recycleview_item_text_detail"-->
+            <!--android:layout_below="@+id/task_layout_fragment1_recycleview_item_text_title"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="完成UI"-->
+            <!--android:textColor="@color/text_detail"-->
+            <!--android:textSize="@dimen/text_default" />-->
 
         <TextView
             android:id="@+id/task_layout_fragment1_recycleview_item_text_project"
-            android:layout_below="@+id/task_layout_fragment1_recycleview_item_text_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="#答辩#"
-            android:textColor="@color/text_dimiss"
+            android:layout_alignParentBottom="true"
+            android:text="#项目名称#"
             android:textSize="@dimen/text_default" />
     </RelativeLayout>
 

@@ -61,7 +61,7 @@ public class AddTaskActivity extends AppCompatActivity implements View.OnClickLi
 
     private void initData() {
         createrId=Integer.parseInt(String.valueOf(SharedPreferenceUtils.get(getApplicationContext(), User.id,0)));
-        createTime = Common.getNowTime();
+        createTime = Common.getNowDate();
 
         projectIdList=new ArrayList<>();
         projectList = new ArrayList<>();

@@ -2,12 +2,14 @@ package com.zzia.graduation.adapters;
 
 import android.content.Context;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.zzia.graduation.utils.Common;
 import com.zzia.graduation.welog.R;
 
 import java.util.ArrayList;
@@ -19,9 +21,9 @@ import java.util.ArrayList;
 public class CheckLargeImageGridAdapter extends BaseAdapter {
 
     private Context context;
-    private ArrayList<Uri> list;
+    private ArrayList<String> list;
 
-    public CheckLargeImageGridAdapter(Context context, ArrayList<Uri> list) {
+    public CheckLargeImageGridAdapter(Context context, ArrayList<String> list) {
 
         this.context = context;
         this.list = list;
@@ -33,7 +35,7 @@ public class CheckLargeImageGridAdapter extends BaseAdapter {
     }
 
     @Override
-    public Uri getItem(int position) {
+    public String getItem(int position) {
         return list.get(position);
     }
 
@@ -61,15 +63,16 @@ public class CheckLargeImageGridAdapter extends BaseAdapter {
     class CheckLargeImageGridViewHolder implements View.OnClickListener {
 
         private SimpleDraweeView image;
-        private Uri uri;
+        private String uri;
         private int position;
 
-        public void update(Uri uri,int position) {
+        public void update(String uri,int position) {
 
             this.uri= uri;
             this.position=position;
-            image.setOnClickListener(this);
-            image.setImageURI(uri);
+//            image.setOnClickListener(this);
+            image.setImageURI(Uri.parse(uri));
+            Log.e(Common.LOG_APP,uri);
 
         }
 

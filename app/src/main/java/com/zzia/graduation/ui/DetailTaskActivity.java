@@ -3,8 +3,9 @@ package com.zzia.graduation.ui;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
@@ -16,13 +17,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.zzia.graduation.adapters.DetailTaskAdapter;
 import com.zzia.graduation.adapters.UploadImageGridAdapter;
+import com.zzia.graduation.bean.Task;
+import com.zzia.graduation.bean.User;
 import com.zzia.graduation.common.bean.BaseBean;
 import com.zzia.graduation.common.util.ToastUtils;
+import com.zzia.graduation.db.MySQLiteOpenHelper;
 import com.zzia.graduation.utils.ActivityUtils;
 import com.zzia.graduation.utils.Common;
+import com.zzia.graduation.utils.SharedPreferenceUtils;
 import com.zzia.graduation.views.MyActionBar;
 import com.zzia.graduation.welog.R;
 
@@ -41,13 +47,17 @@ public class DetailTaskActivity extends AppCompatActivity implements View.OnClic
 
 
     private MyActionBar actionBar;
+    private int taskId;
+    private TextView nameText, createrText, createrTimeText, excuterText, endTimeText, stateText;
+    private String name, creater, createrTime, excuter, endTime, state;
+
     private RecyclerView recyclerView;
     private DetailTaskAdapter detailTaskAdapter;
     private ArrayList<BaseBean> list;
 
     private GridView gridView;
     private UploadImageGridAdapter imageGridAdapter;
-    private ArrayList<Uri> imageList = new ArrayList<>();
+    private ArrayList<String> imageList = new ArrayList<>();
 
     private ImageView addImage;
     private EditText input;
@@ -56,8 +66,16 @@ public class DetailTaskActivity extends AppCompatActivity implements View.OnClic
     private static final int REQUEST_IMAGE_ALBUM = 102;
     private String imageUrl;
 
-    public static void startDetailTaskActivity(Context context) {
+
+    public static void startDetailTaskActivity(Context context, BaseBean baseBean) {
         Intent intent = new Intent(context, DetailTaskActivity.class);
+        intent.putExtra("task_id", baseBean.getInt("task_id"));
+        intent.putExtra("task_name", baseBean.getStr("task_name"));
+        intent.putExtra("task_creater", baseBean.getStr("task_creater"));
+        intent.putExtra("task_createtime", baseBean.getStr("task_createtime"));
+        intent.putExtra("task_excuter", baseBean.getStr("task_excuter"));
+        intent.putExtra("task_endtime", baseBean.getStr("task_endtime"));
+        intent.putExtra("task_state", baseBean.getStr("task_state"));
         context.startActivity(intent);
     }
 
@@ -70,19 +88,30 @@ public class DetailTaskActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void initData() {
+        Intent intent = getIntent();
+        if (intent != null) {
+            taskId = intent.getIntExtra("task_id", 0);
+            name = intent.getStringExtra("task_name");
+            creater = intent.getStringExtra("task_creater");
+            createrTime = intent.getStringExtra("task_createtime");
+            excuter = intent.getStringExtra("task_excuter");
+            endTime = intent.getStringExtra("task_endtime");
+            state = intent.getStringExtra("task_state");
+        }
+
         list = new ArrayList<>();
-        BaseBean bean = new BaseBean();
-        bean.set("icon", "http://login.jpg");
-        bean.set("name", "依依");
-        bean.set("comment", "该任务需求已经商量Ok");
-        bean.set("time", "2016-05-08");
-        list.add(bean);
+        list = Task.getComments(getApplicationContext(), taskId);
+//        BaseBean bean = new BaseBean();
+//        bean.set("icon", "http://login.jpg");
+//        bean.set("name", "依依");
+//        bean.set("comment", "该任务需求已经商量Ok");
+//        bean.set("time", "2016-05-08");
+//        list.add(bean);
 
     }
 
     private void initView() {
         actionBar = (MyActionBar) findViewById(R.id.detail_task_layout_actionbar);
-        actionBar.setTitle("任务详情");
         actionBar.setBackAction(new MyActionBar.BackAction(this));
 //        actionBar.setRight2Action(new MyActionBar.Action() {
 //            @Override
@@ -101,23 +130,19 @@ public class DetailTaskActivity extends AppCompatActivity implements View.OnClic
 //                EditTaskActivity.startEditTaskActivity(DetailTaskActivity.this, Common.DETAIL_TASK);
 //            }
 //        });
-//        actionBar.setRight2Action(new MyActionBar.Action() {
-//            @Override
-//            public int getDrawable() {
-//                return R.mipmap.actionbar_add;
-//            }
-//
-//            @Override
-//            public int getText() {
-//                return 0;
-//            }
-//
-//            @Override
-//            public void performAction(View view) {
-//                //新建任务
-//                AddTaskActivity.startAddTaskActivity(DetailTaskActivity.this, Common.DETAIL_TASK);
-//            }
-//        });
+
+        nameText = (TextView) findViewById(R.id.detail_task_layout_task_name);
+        nameText.setText(name);
+        createrText = (TextView) findViewById(R.id.detail_task_layout_creater_name);
+        createrText.setText(creater);
+        createrTimeText = (TextView) findViewById(R.id.detail_task_layout_createtime);
+        createrTimeText.setText(createrTime);
+        excuterText = (TextView) findViewById(R.id.detail_task_layout_excuter_name);
+        excuterText.setText(excuter);
+        endTimeText = (TextView) findViewById(R.id.detail_task_layout_endtime);
+        endTimeText.setText(endTime);
+        stateText = (TextView) findViewById(R.id.detail_task_layout_stage_name);
+        stateText.setText(state);
 
 
         addImage = (ImageView) findViewById(R.id.detail_task_layout_input_add_image);
@@ -137,10 +162,10 @@ public class DetailTaskActivity extends AppCompatActivity implements View.OnClic
         recyclerView.addItemDecoration(new DetailProjectActivity.MyListItemDecoration(10));
         detailTaskAdapter = new DetailTaskAdapter(this, list);
         recyclerView.setAdapter(detailTaskAdapter);
-        if (list!=null&&list.size()>0&&recyclerView.getVisibility()==View.GONE) {
+        if (list != null && list.size() > 0) {
             recyclerView.setVisibility(View.VISIBLE);
             findViewById(R.id.detaile_task_layout_no_comment).setVisibility(View.GONE);
-        }else{
+        } else {
             recyclerView.setVisibility(View.GONE);
             findViewById(R.id.detaile_task_layout_no_comment).setVisibility(View.VISIBLE);
         }
@@ -163,21 +188,19 @@ public class DetailTaskActivity extends AppCompatActivity implements View.OnClic
             case R.id.detail_task_layout_input_send:
                 BaseBean baseBean = new BaseBean();
                 String comment = input.getText().toString().trim();
+                String time = Common.getNowTimeNoSecond();
                 if (comment.isEmpty() && imageList.size() <= 0) {
                     ToastUtils.show(this, "发送内容不能为空");
                 } else {
                     if (!comment.isEmpty()) {
-                        baseBean.set("icon", "http://login.jpg");
-                        baseBean.set("name", "依依");
-                        baseBean.set("comment", comment);
-                        baseBean.set("time", "2016-05-09");
+                        baseBean.set("comment_creater", String.valueOf(SharedPreferenceUtils.get(getApplicationContext(), User.name, "")));
+                        baseBean.set("comment_createtime", time);
+                        baseBean.set("comment_content", comment);
 
                     }
                     if (imageList != null && imageList.size() > 0) {
-                        baseBean.set("imageNum", imageList.size());
-                        for (int i = 0; i < imageList.size(); i++) {
-                            baseBean.set("image" + i, String.valueOf(imageList.get(i)));
-                        }
+//
+                        baseBean.set("comment_image",imageList);
 
                     }
                     list.add(baseBean);
@@ -187,10 +210,43 @@ public class DetailTaskActivity extends AppCompatActivity implements View.OnClic
                     imageList.clear();
                     gridView.setVisibility(View.GONE);
 
+                    addDataToSql(time, comment, imageList);
+
                 }
         }
 
+    }
 
+    /**
+     * 将评论内容添加到数据库
+     *
+     * @param time
+     * @param comment
+     * @param imageList
+     */
+    private void addDataToSql(String time, String comment, ArrayList<String> imageList) {
+
+        SQLiteDatabase sqLiteDatabase = new MySQLiteOpenHelper(getApplicationContext()).getWritableDatabase();
+        //插入到comment表
+        sqLiteDatabase.execSQL("insert into comment (comment_creater,comment_createtime,comment_content,task_id) values (?,?,?,?) ",
+                new String[]{String.valueOf(SharedPreferenceUtils.get(getApplicationContext(), User.id, 0)), time, comment, String.valueOf(taskId)});
+        //查询刚才插入的那条数据的ID
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from comment where comment_creater=? and comment_createtime=? and comment_content=? and task_id=?",
+                new String[]{String.valueOf(SharedPreferenceUtils.get(getApplicationContext(), User.id, 0)), time, comment, String.valueOf(taskId)});
+        int commentId = 0;
+        if (cursor.moveToFirst()) {
+            commentId = cursor.getInt(cursor.getColumnIndex("comment_id"));
+        }
+
+        //将评论的图片插入到image表中
+        if (imageList != null && imageList.size() > 0) {
+            for (int i = 0; i < imageList.size(); i++) {
+
+                sqLiteDatabase.execSQL("insert into image where img_url=? and comment_id=?",
+                        new String[]{imageList.get(i), String.valueOf(commentId)});
+            }
+        }
+        cursor.close();
     }
 
 
@@ -296,12 +352,12 @@ public class DetailTaskActivity extends AppCompatActivity implements View.OnClic
                     imageUrl = Common.CACHEDIR_IMG + imageName + ".jpg";
                     //将图片保存到本地
                     saveImage(photo, imageUrl);
-                    imageList.add(Uri.parse(imageUrl));
+                    imageList.add(imageUrl);
                 }
             }
 
         } else if (way == REQUEST_IMAGE_ALBUM) {
-            imageList.add(data.getData());
+            imageList.add(data.getData().toString());
         }
         //显示图片
         imageGridAdapter.notifyDataSetChanged();

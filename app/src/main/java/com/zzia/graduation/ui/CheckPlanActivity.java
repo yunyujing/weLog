@@ -2,7 +2,6 @@ package com.zzia.graduation.ui;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -23,7 +22,7 @@ public class CheckPlanActivity extends AppCompatActivity {
     private MyActionBar myActionBar;
     private GridView gridView;
     private CheckLargeImageGridAdapter checkLargeImageGridAdapter;
-    private ArrayList<Uri> list;
+    private ArrayList<String> list;
 
     public static void startCheckPlanActivity(Context context) {
         Intent intent = new Intent(context, CheckPlanActivity.class);

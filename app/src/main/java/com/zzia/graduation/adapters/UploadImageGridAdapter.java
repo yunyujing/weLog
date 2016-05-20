@@ -2,14 +2,12 @@ package com.zzia.graduation.adapters;
 
 import android.content.Context;
 import android.net.Uri;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.zzia.graduation.utils.Common;
 import com.zzia.graduation.welog.R;
 
 import java.util.ArrayList;
@@ -21,7 +19,7 @@ import java.util.ArrayList;
 public class UploadImageGridAdapter extends BaseAdapter {
 
     private Context context;
-    private ArrayList<Uri> list;
+    private ArrayList<String> list;
 
     public UploadImageGridAdapter(Context context, ArrayList list) {
 
@@ -35,7 +33,7 @@ public class UploadImageGridAdapter extends BaseAdapter {
     }
 
     @Override
-    public Uri getItem(int position) {
+    public String getItem(int position) {
         return list.get(position);
     }
 
@@ -65,14 +63,14 @@ public class UploadImageGridAdapter extends BaseAdapter {
     public class UploadImageGridViewHOlder {
 
         private SimpleDraweeView simpleDraweeView;
-        private Uri uri;
+        private String uri;
         private int position;
 
-        public void update(Uri item, int position) {
+        public void update(String item, int position) {
 
             this.uri = item;
             this.position = position;
-            simpleDraweeView.setImageURI(uri);
+            simpleDraweeView.setImageURI(Uri.parse(uri));
 
         }
     }

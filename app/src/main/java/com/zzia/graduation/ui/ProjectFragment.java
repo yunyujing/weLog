@@ -45,12 +45,6 @@ public class ProjectFragment extends Fragment {
 
     private void initData() {
         list = new ArrayList<>();
-//        Project project1 = new Project();
-//        project1.setName("Test");
-//        list.add(project1);
-//        Project project2 = new Project();
-//        project2.setName("Test2");
-//        list.add(project2);
 
         if (Boolean.parseBoolean(String.valueOf(SharedPreferenceUtils.get(getContext(), User.isCompany, false)))) {
 

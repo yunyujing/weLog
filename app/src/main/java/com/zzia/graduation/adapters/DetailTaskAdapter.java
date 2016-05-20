@@ -1,7 +1,6 @@
 package com.zzia.graduation.adapters;
 
 import android.content.Context;
-import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +21,7 @@ public class DetailTaskAdapter extends RecyclerView.Adapter {
 
     private Context context;
     private ArrayList<BaseBean> list;
-    private ArrayList<Uri> imageList = new ArrayList<>();
+    private ArrayList<String> imageList = new ArrayList<>();
 
     public DetailTaskAdapter(Context context, ArrayList<BaseBean> list) {
         this.context = context;
@@ -39,19 +38,19 @@ public class DetailTaskAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         DetailTaskAdapterViewHolder detailTaskAdapterViewHolder = (DetailTaskAdapterViewHolder) holder;
         BaseBean baseBean = list.get(position);
-        detailTaskAdapterViewHolder.headIcon.setImageURI(Uri.parse(baseBean.getStr("icon")));
-        detailTaskAdapterViewHolder.name.setText(baseBean.getStr("name"));
-        detailTaskAdapterViewHolder.comment.setText(baseBean.getStr("comment"));
-        detailTaskAdapterViewHolder.time.setText(baseBean.getStr("time"));
-        if (baseBean.getInt("imageNum") > 0) {
-
+        detailTaskAdapterViewHolder.name.setText(baseBean.getStr("comment_creater"));
+        detailTaskAdapterViewHolder.time.setText(baseBean.getStr("comment_createtime"));
+        detailTaskAdapterViewHolder.comment.setText(baseBean.getStr("comment_content"));
+        imageList = (ArrayList<String>) baseBean.get("comment_image");
+        if (imageList != null && imageList.size() > 0) {
             detailTaskAdapterViewHolder.gridView.setVisibility(View.VISIBLE);
-            for (int i = 0; i < baseBean.getInt("imageNum"); i++) {
-
-                imageList.add(Uri.parse(baseBean.getStr("image" + i)));
-            }
             detailTaskAdapterViewHolder.gridView.setAdapter(new CheckLargeImageGridAdapter(context, imageList));
+
+        }else {
+            detailTaskAdapterViewHolder.gridView.setVisibility(View.GONE);
+
         }
+
 
     }
 

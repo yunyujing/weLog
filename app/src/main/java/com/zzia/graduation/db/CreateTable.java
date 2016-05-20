@@ -33,7 +33,7 @@ public class CreateTable {
             "CREATE TABLE user (" +
                     "[user_id] INTEGER PRIMARY KEY AUTOINCREMENT," +
                     "[dept_id] INTEGER NOT NULL ," +
-                    "[user_ismanager] TINYINT(2) NOT NULL DEFAULT '0'," +
+                    "[user_ismanager] tinyint(4) DEFAULT '0'," +
                     "[user_email] VARCHAR(255) NOT NULL ," +
                     "[user_password] VARCHAR(12) NOT NULL ," +
                     "[user_name] VARCHAR(30) NOT NULL," +
@@ -51,9 +51,9 @@ public class CreateTable {
                     "  [project_id] INTEGER PRIMARY KEY AUTOINCREMENT," +
                     "  [project_name] varchar(50) NOT NULL," +
                     "  [project_info] varchar(100) NOT NULL," +
-                    "  [project_ispublic] tinyint(4) NOT NULL," +
                     "  [project_creater] INTEGER NOT NULL," +
                     "  [project_createtime] datetime NOT NULL," +
+                    "  [project_ispublic] tinyint(4) NOT NULL," +
                     "  [company_id] INTEGER NOT NULL," +
                     "  FOREIGN KEY ([company_id]) REFERENCES company ([company_id]) ON DELETE CASCADE ON UPDATE CASCADE," +
                     "  FOREIGN KEY ([project_creater]) REFERENCES user ([user_id]) ON DELETE NO ACTION ON UPDATE NO ACTION" +
@@ -65,11 +65,10 @@ public class CreateTable {
                     "  [task_name] varchar(255) NOT NULL," +
                     "  [task_creater] INTEGER NOT NULL," +
                     "  [task_createtime] datetime NOT NULL," +
-                    "  [project_id] INTEGER NOT NULL," +
                     "  [task_excuter] INTEGER NOT NULL," +
-                    "  [task_statrttime] datetime ," +
                     "  [task_endtime] datetime ," +
                     "  [task_state] tinyint(4) DEFAULT 0," +
+                    "  [project_id] INTEGER NOT NULL," +
                     "  FOREIGN KEY ([task_creater]) REFERENCES user ([user_id]) ON DELETE NO ACTION ON UPDATE NO ACTION," +
                     "  FOREIGN KEY ([task_excuter]) REFERENCES user ([user_id]) ON DELETE NO ACTION ON UPDATE NO ACTION," +
                     "  FOREIGN KEY ([project_id]) REFERENCES project ([project_id]) ON DELETE CASCADE ON UPDATE CASCADE" +
@@ -108,8 +107,8 @@ public class CreateTable {
                     "  [comment_creater] int(11) NOT NULL," +
                     "  [comment_createtime] datetime NOT NULL," +
                     "  [comment_content] varchar(500) NOT NULL," +
-                    "  [task_id] INTEGER NOT NULL," +
-                    "  [check_id] INTEGER NOT NULL," +
+                    "  [task_id] INTEGER DEFAULT NULL ," +
+                    "  [check_id] INTEGER DEFAULT NULL ," +
                     "  FOREIGN KEY ([comment_creater]) REFERENCES user ([user_id]) ON DELETE NO ACTION ON UPDATE NO ACTION," +
                     "  FOREIGN KEY ([task_id]) REFERENCES task ([task_id]) ON DELETE  CASCADE ON UPDATE  CASCADE," +
                     "  FOREIGN KEY ([check_id]) REFERENCES checkwork ([check_id]) ON DELETE  CASCADE ON UPDATE  CASCADE" +

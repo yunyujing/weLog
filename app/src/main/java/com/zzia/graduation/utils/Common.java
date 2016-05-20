@@ -39,5 +39,24 @@ public class Common {
         String createTime = dateFormat.format(new Date(System.currentTimeMillis()));
         return createTime;
     }
+    /**
+     * 获取当前系统时间
+     * @return yyyy-MM-dd hh:mm
+     */
+    public static String getNowTimeNoSecond(){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+        String createTime = dateFormat.format(new Date(System.currentTimeMillis()));
+        return createTime;
+    }
+
+    /**
+     * 获取当前系统日期
+     * @return yyyy-MM-dd
+     */
+    public static String getNowDate(){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String createTime = dateFormat.format(new Date(System.currentTimeMillis()));
+        return createTime;
+    }
 
 }

@@ -33,7 +33,6 @@ public class Project {
             task.set("task_creater",User.getBasicInfo(context,cursor.getInt(cursor.getColumnIndex("task_creater"))).get("user_name"));
             task.set("task_createtime",cursor.getString(cursor.getColumnIndex("task_createtime")));
             task.set("task_excuter",User.getBasicInfo(context,cursor.getInt(cursor.getColumnIndex("task_excuter"))).get("user_name"));
-            task.set("task_statrttime",cursor.getString(cursor.getColumnIndex("task_statrttime")));
             task.set("task_endtime",cursor.getString(cursor.getColumnIndex("task_endtime")));
 
             int state = cursor.getInt(cursor.getColumnIndex("task_state"));

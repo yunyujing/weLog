@@ -42,8 +42,7 @@ public class TaskFragmentAdapter extends RecyclerView.Adapter {
 //        }
         allTaskFragmentViewHOlder.time.setText(task.getStr("end_time"));
         allTaskFragmentViewHOlder.title.setText(task.getStr("task_name"));
-//        allTaskFragmentViewHOlder.detail.setText(task.getDetail());
-//        allTaskFragmentViewHOlder.project.setText(task.getProject().getName());
+        allTaskFragmentViewHOlder.project.setText("#"+task.getStr("project_name")+"#");
 
     }
 
@@ -56,7 +55,6 @@ public class TaskFragmentAdapter extends RecyclerView.Adapter {
         private ImageView userImag;
         private TextView time;
         private TextView title;
-        private TextView detail;
         private TextView project;
         private View view;
         private int position;
@@ -66,7 +64,6 @@ public class TaskFragmentAdapter extends RecyclerView.Adapter {
             userImag= (ImageView) itemView.findViewById(R.id.task_layout_fragment1_recycleview_item_img);
             time= (TextView) itemView.findViewById(R.id.task_layout_fragment1_recycleview_item_text_time);
             title= (TextView) itemView.findViewById(R.id.task_layout_fragment1_recycleview_item_text_title);
-            detail= (TextView) itemView.findViewById(R.id.task_layout_fragment1_recycleview_item_text_detail);
             project= (TextView) itemView.findViewById(R.id.task_layout_fragment1_recycleview_item_text_project);
             view=itemView.findViewById(R.id.task_viewpager_fragment1_recycleview_item);
             view.setOnClickListener(this);
@@ -74,7 +71,7 @@ public class TaskFragmentAdapter extends RecyclerView.Adapter {
 
         @Override
         public void onClick(View v) {
-            DetailTaskActivity.startDetailTaskActivity(context);
+            DetailTaskActivity.startDetailTaskActivity(context,list.get(position));
         }
     }
 }
