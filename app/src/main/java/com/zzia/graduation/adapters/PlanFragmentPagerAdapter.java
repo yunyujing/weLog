@@ -7,16 +7,16 @@ import android.support.v4.app.FragmentPagerAdapter;
 import java.util.ArrayList;
 
 /**
- * Author: yunyujing
- * Date: 2015/12/17
+ * Created by yunyujing on 16/5/21.
  */
-public class TaskFragmentPagerAdapter extends FragmentPagerAdapter {
+public class PlanFragmentPagerAdapter extends FragmentPagerAdapter {
     private ArrayList<Fragment> fragmentArrayList;
     private FragmentManager fragmentManager;
-    public TaskFragmentPagerAdapter(FragmentManager fm, ArrayList<Fragment> fragmentArrayList) {
+
+    public PlanFragmentPagerAdapter(FragmentManager fm, ArrayList<Fragment> fragmentArrayList) {
         super(fm);
-        this.fragmentManager=fm;
-        this.fragmentArrayList=fragmentArrayList;
+        this.fragmentManager = fm;
+        this.fragmentArrayList = fragmentArrayList;
     }
 
     @Override
@@ -29,16 +29,16 @@ public class TaskFragmentPagerAdapter extends FragmentPagerAdapter {
         return fragmentArrayList.size();
     }
 
-//    @Override
+
+    //    @Override
 //    public CharSequence getPageTitle(int position) {
-//        switch (position){
+//        switch (position) {
 //            case 0:
-//                return "由我创建";
+//                return "由我提交";
 //            case 1:
-//                return "由我执行";
+//                return "由我审核";
 //            default:
 //                return null;
 //        }
 //    }
-
 }

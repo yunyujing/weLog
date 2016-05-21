@@ -26,7 +26,7 @@ import com.zzia.graduation.ui.HelpActivity;
 import com.zzia.graduation.ui.HolidayListActivity;
 import com.zzia.graduation.ui.MyProfileActivity;
 import com.zzia.graduation.ui.OverTimeListActivity;
-import com.zzia.graduation.ui.PlanListActivity;
+import com.zzia.graduation.ui.PlanFragment;
 import com.zzia.graduation.ui.ProjectFragment;
 import com.zzia.graduation.ui.SearchFragment;
 import com.zzia.graduation.ui.SettingActivity;
@@ -93,11 +93,12 @@ public class MainActivity extends FragmentActivity
         findViewById(R.id.activity_main_above_view_add_holiday).setOnClickListener(this);
         findViewById(R.id.activity_main_above_view_add_claim).setOnClickListener(this);
 
-        fragments = new Fragment[4];
+        fragments = new Fragment[3];
         fragments[0] = new ProjectFragment();
         fragments[1] = new TaskFragment();
 //        fragments[1] = new ClockFragment();
         fragments[2] = new SearchFragment();
+
         Intent intent = getIntent();
         String show = intent.getStringExtra("show");
         if (intent!=null&&show!=null&&show.equals("task")) {
@@ -355,7 +356,7 @@ public class MainActivity extends FragmentActivity
             startActivity(new Intent(getApplicationContext(), MyProfileActivity.class));
 
         } else if (id == R.id.nav_plan) {//计划考核
-            startActivity(new Intent(getApplicationContext(), PlanListActivity.class));
+            startActivity(new Intent(getApplicationContext(), PlanFragment.class));
 
         } else if (id == R.id.nav_summary) {//总结考核
             startActivity(new Intent(getApplicationContext(), SummaryListActivity.class));

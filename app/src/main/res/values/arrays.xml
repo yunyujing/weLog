@@ -11,10 +11,16 @@
         <item>公共项目</item>
     </array>
 
-    <array name="taskState">
+    <array name="taskStates">
         <item>待处理</item>
         <item>进行中</item>
         <item>测试中</item>
         <item>已完成</item>
+    </array>
+
+    <array name="checkStates">
+        <item>待审核</item>
+        <item>通过</item>
+        <item>驳回</item>
     </array>
 </resources>

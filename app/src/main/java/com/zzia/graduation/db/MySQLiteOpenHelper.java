@@ -11,8 +11,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 
     public static final String DB_NAME = "welog.db"; // database name
-    public static final int DB_VERSION = 10;//database version
-    //1:test    2:建表    3:修改表结构  4:添加company表  5:user表添加tel字段,company表添加address字段  6:user表去掉company_id字段
+    public static final int DB_VERSION = 11;//database version
+    //1:test    2:建表    3:修改表结构  4:添加company表  5:user表添加tel字段,company表添加address字段  6:user表去掉company_id字段 11:添加审核表的评论字段
 
     public static final String TABLE_DEPARTMENT = "department";
     public static final String TABLE_USER = "user";
@@ -42,6 +42,8 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         db.execSQL(CreateTable.CHECKWORK);
         db.execSQL(CreateTable.COMMENT);
         db.execSQL(CreateTable.IMAGE);
+
+        db.execSQL("alter table checkwork add [check_comment] varchar(255);");
 
     }
 
@@ -93,9 +95,11 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
                 db.execSQL(CreateTable.COMMENT);
                 db.execSQL(CreateTable.IMAGE);
                 break;
+            case 11:
+                db.execSQL("alter table checkwork add [check_comment] varchar(255);");
+                break;
         }
     }
-
 
 
 }

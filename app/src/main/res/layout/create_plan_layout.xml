@@ -5,16 +5,16 @@
     android:layout_height="match_parent">
 
     <com.zzia.graduation.views.MyActionBar
-        android:id="@+id/check_plan_layout_actionbar"
+        android:id="@+id/create_plan_layout_actionbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/actionbar_height"
         app:titleName="工作计划" />
 
     <ScrollView
-        android:id="@+id/check_plan_layout_scroll"
+        android:id="@+id/create_plan_layout_scroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/check_plan_layout_actionbar">
+        android:layout_below="@+id/create_plan_layout_actionbar">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,7 +29,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/check_plan_layout_creater_txt"
+                    android:id="@+id/create_plan_layout_creater_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -38,17 +38,17 @@
                     android:textSize="@dimen/text_middle" />
 
                 <TextView
-                    android:id="@+id/check_plan_layout_creater"
+                    android:id="@+id/create_plan_layout_creater"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toLeftOf="@+id/check_plan_layout_createtime"
-                    android:layout_toRightOf="@+id/check_plan_layout_creater_txt"
+                    android:layout_toLeftOf="@+id/create_plan_layout_createtime"
+                    android:layout_toRightOf="@+id/create_plan_layout_creater_txt"
                     android:text="sadfasd"
                     android:textColor="@color/black"
                     android:textSize="@dimen/text_middle" />
 
                 <TextView
-                    android:id="@+id/check_plan_layout_createtime"
+                    android:id="@+id/create_plan_layout_createtime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -63,7 +63,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/check_plan_layout_checker_txt"
+                    android:id="@+id/create_plan_layout_checker_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -72,17 +72,17 @@
                     android:textSize="@dimen/text_middle" />
 
                 <TextView
-                    android:id="@+id/check_plan_layout_checker"
+                    android:id="@+id/create_plan_layout_checker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toLeftOf="@+id/check_plan_layout_checketime"
-                    android:layout_toRightOf="@+id/check_plan_layout_checker_txt"
+                    android:layout_toLeftOf="@+id/create_plan_layout_checketime"
+                    android:layout_toRightOf="@+id/create_plan_layout_checker_txt"
                     android:text="sdfsa"
                     android:textColor="@color/black"
                     android:textSize="@dimen/text_middle" />
 
                 <TextView
-                    android:id="@+id/check_plan_layout_checketime"
+                    android:id="@+id/create_plan_layout_checketime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -104,7 +104,7 @@
                     android:textSize="@dimen/text_middle" />
 
                 <TextView
-                    android:id="@+id/check_plan_layout_title"
+                    android:id="@+id/create_plan_layout_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/space_twelve"
@@ -127,7 +127,7 @@
                     android:textSize="@dimen/text_middle" />
 
                 <TextView
-                    android:id="@+id/check_plan_layout_content"
+                    android:id="@+id/create_plan_layout_content"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/space_twelve"
@@ -139,7 +139,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/check_plan_layout_extra"
+                android:id="@+id/create_plan_layout_extra"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/space_twelve"
@@ -149,7 +149,7 @@
                 android:text="附件：（图片）" />
 
             <GridView
-                android:id="@+id/check_plan_layout_grid"
+                android:id="@+id/create_plan_layout_grid"
                 android:layout_width="match_parent"
                 android:layout_height="96dp"
                 android:horizontalSpacing="20dp"
@@ -160,26 +160,51 @@
                 android:verticalSpacing="20dp"
                 android:visibility="gone" />
 
-            <Spinner
-                android:id="@+id/check_plan_layout_state"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/space_twelve"
-                android:entries="@array/checkStates" />
+                android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/check_plan_layout_comment"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="审核结果："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_middle" />
+
+                <TextView
+                    android:id="@+id/create_plan_layout_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="通过"
+                    android:textColor="@color/titlebar_background"
+                    android:textSize="@dimen/text_middle" />
+            </LinearLayout>
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/space_twelve"
-                android:background="@color/white"
-                android:gravity="top"
-                android:hint="审核评价~"
-                android:maxLines="5"
-                android:minLines="5"
-                android:textSize="@dimen/text_middle" />
+                android:orientation="horizontal">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="审核评价："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_middle" />
 
+                <TextView
+                    android:id="@+id/create_plan_layout_comment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="skjfhaskdfhalsk"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_middle"/>
+
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

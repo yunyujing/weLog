@@ -205,12 +205,13 @@ public class DetailTaskActivity extends AppCompatActivity implements View.OnClic
                     }
                     list.add(baseBean);
                     detailTaskAdapter.notifyDataSetChanged();
+                    //在数据清除之前添加到数据库
+                    addDataToSql(time, comment, imageList);
                     //清空上次的编辑信息
                     input.setText("");
                     imageList.clear();
                     gridView.setVisibility(View.GONE);
 
-                    addDataToSql(time, comment, imageList);
 
                 }
         }
@@ -230,6 +231,7 @@ public class DetailTaskActivity extends AppCompatActivity implements View.OnClic
         //插入到comment表
         sqLiteDatabase.execSQL("insert into comment (comment_creater,comment_createtime,comment_content,task_id) values (?,?,?,?) ",
                 new String[]{String.valueOf(SharedPreferenceUtils.get(getApplicationContext(), User.id, 0)), time, comment, String.valueOf(taskId)});
+
         //查询刚才插入的那条数据的ID
         Cursor cursor = sqLiteDatabase.rawQuery("select * from comment where comment_creater=? and comment_createtime=? and comment_content=? and task_id=?",
                 new String[]{String.valueOf(SharedPreferenceUtils.get(getApplicationContext(), User.id, 0)), time, comment, String.valueOf(taskId)});
@@ -237,6 +239,7 @@ public class DetailTaskActivity extends AppCompatActivity implements View.OnClic
         if (cursor.moveToFirst()) {
             commentId = cursor.getInt(cursor.getColumnIndex("comment_id"));
         }
+        cursor.close();
 
         //将评论的图片插入到image表中
         if (imageList != null && imageList.size() > 0) {
@@ -246,7 +249,6 @@ public class DetailTaskActivity extends AppCompatActivity implements View.OnClic
                         new String[]{imageList.get(i), String.valueOf(commentId)});
             }
         }
-        cursor.close();
     }
 
 

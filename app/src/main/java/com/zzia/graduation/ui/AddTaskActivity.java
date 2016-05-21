@@ -78,7 +78,7 @@ public class AddTaskActivity extends AppCompatActivity implements View.OnClickLi
         excuterIdList=new ArrayList<>();
         excuterList = new ArrayList<>();
         ArrayList<BaseBean> arrayList = Company.getUsers(getApplicationContext());
-        if (list == null || list.size() <= 0) {//当前还没有建立新项目
+        if (arrayList == null || arrayList.size() <= 0) {//当前还没有建立新项目
             ToastUtils.show(getApplicationContext(), "请先添加员工再指定执行者", Toast.LENGTH_LONG);
         } else {
             for (int i = 0; i < arrayList.size(); i++) {
@@ -113,6 +113,7 @@ public class AddTaskActivity extends AppCompatActivity implements View.OnClickLi
                 for(int i=0;i<projectList.size();i++){
                     if(project.equals(projectList.get(i))){
                         projectId=projectIdList.get(i);
+                        break;
                     }
                 }
 
@@ -121,6 +122,7 @@ public class AddTaskActivity extends AppCompatActivity implements View.OnClickLi
                 for(int i=0;i<excuterList.size();i++){
                     if(excuter.equals(excuterList.get(i))){
                         excuterId=excuterIdList.get(i);
+                        break;
                     }
                 }
 

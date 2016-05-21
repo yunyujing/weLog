@@ -3,8 +3,9 @@ package com.zzia.graduation.ui;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
@@ -12,13 +13,22 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.zzia.graduation.adapters.UploadImageGridAdapter;
+import com.zzia.graduation.bean.Company;
+import com.zzia.graduation.bean.User;
+import com.zzia.graduation.common.bean.BaseBean;
 import com.zzia.graduation.common.util.ToastUtils;
+import com.zzia.graduation.db.MySQLiteOpenHelper;
 import com.zzia.graduation.utils.ActivityUtils;
 import com.zzia.graduation.utils.Common;
+import com.zzia.graduation.utils.SharedPreferenceUtils;
 import com.zzia.graduation.views.MyActionBar;
 import com.zzia.graduation.welog.R;
 
@@ -38,10 +48,16 @@ public class AddPlanActivity extends AppCompatActivity implements View.OnClickLi
     public static final int REQUEST_IMAGE_ALBUM = 101;
 
     private MyActionBar myActionBar;
+    private EditText titleEdit, contentEdit;
+    private String title, content;
+    private Spinner checker;
+    private ArrayList<Integer> checkIdList;
+    private ArrayList<String> checkList;
+
     private TextView addImage;
     private GridView gridView;
     private UploadImageGridAdapter uploadImageGridAdapter;
-    private ArrayList<Uri> list = new ArrayList<>();
+    private ArrayList<String> list = new ArrayList<>();
     private String imageUrl;
 
 
@@ -54,7 +70,23 @@ public class AddPlanActivity extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_plan_layout);
+        initData();
         initView();
+    }
+
+    private void initData() {
+        checkIdList = new ArrayList<>();
+        checkList = new ArrayList<>();
+        ArrayList<BaseBean> arrayList = Company.getUsers(getApplicationContext());
+        if (arrayList == null || arrayList.size() <= 0) {//当前还没有建立新项目
+            ToastUtils.show(getApplicationContext(), "请先添加员工再指定执行者", Toast.LENGTH_LONG);
+        } else {
+            for (int i = 0; i < arrayList.size(); i++) {
+                checkIdList.add(arrayList.get(i).getInt("user_id"));
+                checkList.add(arrayList.get(i).getStr("user_name"));
+
+            }
+        }
     }
 
     private void initView() {
@@ -73,10 +105,39 @@ public class AddPlanActivity extends AppCompatActivity implements View.OnClickLi
 
             @Override
             public void performAction(View view) {
-                //上传
+                title=titleEdit.getText().toString();
+                content=contentEdit.getText().toString();
+                if (title != null && !title.isEmpty()) {
+                    if (content != null && !content.isEmpty()) {
+                        addDataToSql(title, content, list);
+                        //添加成功之后返回
+                        finish();
+                    }
+                }else {
+                    ToastUtils.show(getApplicationContext(),"请填写工作日志内容");
+                }
 
             }
         });
+
+        checker = (Spinner) findViewById(R.id.add_plan_layout_checker);
+        checker.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, checkList));
+        checker.setSelection(0);
+        checker.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                checker.setSelection(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                checker.setSelection(0);
+
+            }
+        });
+
+        titleEdit= (EditText) findViewById(R.id.add_plan_layout_title);
+        contentEdit= (EditText) findViewById(R.id.add_plan_layout_content);
 
         addImage = (TextView) findViewById(R.id.add_plan_layout_extra);
         addImage.setOnClickListener(this);
@@ -89,6 +150,61 @@ public class AddPlanActivity extends AppCompatActivity implements View.OnClickLi
                 deleteImage(position);
             }
         });
+
+    }
+
+    /**
+     * 将数据添加到数据库
+     *
+     * @param title
+     * @param content
+     * @param imageList
+     */
+    private void addDataToSql(String title, String content, ArrayList<String> imageList) {
+
+        int checkerId = 0;
+        for (int i = 0; i < checkList.size(); i++) {
+            if (checkList.get(i).equals(checker.getSelectedItem().toString())) {
+                checkerId = checkIdList.get(i);
+                break;
+            }
+        }
+
+        String time = Common.getNowTimeNoSecond();
+        SQLiteDatabase sqlDataBase = new MySQLiteOpenHelper(getApplicationContext()).getWritableDatabase();
+        sqlDataBase.execSQL("insert into checkwork (check_creater,check_createtime,check_checker,check_checktime,plan_title,plan_info,check_state,company_id) values (?,?,?,?,?,?,?,?);",
+                new String[]{String.valueOf(SharedPreferenceUtils.get(getApplicationContext(), User.id, 0))
+                        , time
+                        , String.valueOf(checkerId)
+                        , time
+                        , title
+                        , content
+                        , String.valueOf(0)
+                        , String.valueOf(SharedPreferenceUtils.get(getApplicationContext(), User.companyId, 0))});
+
+        //获取插入数据的id
+        Cursor cursor = sqlDataBase.rawQuery("select * from checkwork where check_creater=? and check_createtime=? and check_checker=? and check_checktime=? and plan_title=? and plan_info=?",
+                new String[]{String.valueOf(SharedPreferenceUtils.get(getApplicationContext(), User.id, 0))
+                        , time
+                        , String.valueOf(checkerId)
+                        , time
+                        , title
+                        , content});
+
+        int checkId = 0;
+        if (cursor.moveToFirst()) {
+            checkId = cursor.getInt(cursor.getColumnIndex("check_id"));
+        }
+        cursor.close();
+
+        //将相关的image插入到image
+        if (imageList != null && imageList.size() > 0) {
+
+            for (int i = 0; i < imageList.size(); i++) {
+
+                sqlDataBase.execSQL("insert into image (img_url,check_id) values (?,?);", new String[]{imageList.get(i), String.valueOf(checkId)});
+            }
+        }
 
     }
 
@@ -232,12 +348,12 @@ public class AddPlanActivity extends AppCompatActivity implements View.OnClickLi
                     imageUrl = Common.CACHEDIR_IMG + imageName + ".jpg";
                     //将图片保存到本地
                     saveImage(photo, imageUrl);
-                    list.add(Uri.parse(imageUrl));
+                    list.add(imageUrl);
                 }
             }
 
         } else if (way == REQUEST_IMAGE_ALBUM) {
-            list.add(data.getData());
+            list.add(data.getData().toString());
         }
         //显示图片
         uploadImageGridAdapter.notifyDataSetChanged();

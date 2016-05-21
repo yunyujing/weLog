@@ -185,13 +185,13 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginRight="@dimen/space_twelve"
-                    android:src="@mipmap/task_priority" />
+                    android:src="@mipmap/task_stage" />
 
                 <Spinner
                     android:id="@+id/edit_add_task_layout_state"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:entries="@array/taskState"/>
+                    android:entries="@array/taskStates"/>
             </LinearLayout>
 
         </LinearLayout>

@@ -21,19 +21,39 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/space_twelve"
+                    android:gravity="center"
+                    android:text="审核人："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_middle"/>
+
+                <Spinner
+                    android:id="@+id/add_plan_layout_checker"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/space_twelve"
+                    android:layout_marginRight="@dimen/space_twelve" />
+
+            </LinearLayout>
+
+
             <EditText
                 android:id="@+id/add_plan_layout_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/space_ten"
                 android:layout_marginLeft="@dimen/space_twelve"
                 android:layout_marginRight="@dimen/space_twelve"
-                android:layout_marginTop="@dimen/space_ten"
-                android:background="@color/white"
                 android:gravity="center"
-                android:hint="请在此处填写标题"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_big" />
+                android:hint="请在此处填写标题" />
+
 
             <EditText
                 android:id="@+id/add_plan_layout_content"
@@ -41,6 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/space_twelve"
                 android:layout_marginRight="@dimen/space_twelve"
+                android:layout_marginTop="@dimen/space_twelve"
                 android:background="@color/white"
                 android:gravity="top"
                 android:hint="  请填写内容——"
@@ -52,15 +73,15 @@
                 android:id="@+id/add_plan_layout_extra"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/comment_btn_selector"
                 android:layout_margin="@dimen/space_twelve"
-                android:padding="@dimen/space_five"
+                android:background="@drawable/comment_btn_selector"
                 android:drawableLeft="@mipmap/extra"
                 android:drawablePadding="@dimen/space_twelve"
                 android:gravity="left|center"
+                android:padding="@dimen/space_five"
                 android:text="添加附件（最多可上传8张图片）"
-                android:textSize="@dimen/text_default"
-                android:textColor="@color/text_detail"/>
+                android:textColor="@color/text_detail"
+                android:textSize="@dimen/text_default" />
 
             <GridView
                 android:id="@+id/add_plan_layout_grid"
@@ -71,8 +92,10 @@
                 android:paddingLeft="18dp"
                 android:paddingRight="18dp"
                 android:paddingTop="16dp"
-                android:verticalSpacing="20dp"
-                android:scrollbars="none"/>
+                android:scrollbars="none"
+                android:verticalSpacing="20dp" />
+
+
             <!--<LinearLayout-->
             <!--android:layout_width="match_parent"-->
             <!--android:layout_height="96dp"-->

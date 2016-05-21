@@ -91,16 +91,20 @@
             android:name="com.zzia.graduation.ui.MyProfileActivity"
             android:screenOrientation="portrait" />
 
-        <activity
-            android:name="com.zzia.graduation.ui.CheckPlanActivity"
-            android:screenOrientation="portrait" />
 
         <activity
             android:name="com.zzia.graduation.ui.CheckSummaryActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name="com.zzia.graduation.ui.PlanListActivity"
+            android:name="com.zzia.graduation.ui.PlanFragment"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.zzia.graduation.ui.CreatePlanActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.zzia.graduation.ui.CheckPlanActivity"
             android:screenOrientation="portrait" />
 
         <activity
@@ -131,11 +135,13 @@
             android:name="com.zzia.graduation.ui.CheckClaimActivity"
             android:screenOrientation="portrait" />
 
-        <activity android:name="com.zzia.graduation.ui.AddUserActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.zzia.graduation.ui.AddUserActivity"
+            android:screenOrientation="portrait" />
 
-        <activity android:name="com.zzia.graduation.ui.EditMyProfileActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.zzia.graduation.ui.EditMyProfileActivity"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name="com.zzia.graduation.ui.SettingActivity"
