@@ -113,9 +113,12 @@
             android:screenOrientation="portrait" />
 
 
+        <activity
+            android:name="com.zzia.graduation.ui.OverTimeFragment"
+            android:screenOrientation="portrait" />
 
         <activity
-            android:name="com.zzia.graduation.ui.OverTimeListActivity"
+            android:name="com.zzia.graduation.ui.CreateOverActivity"
             android:screenOrientation="portrait" />
 
         <activity

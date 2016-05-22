@@ -25,7 +25,7 @@ import com.zzia.graduation.ui.ClaimListActivity;
 import com.zzia.graduation.ui.HelpActivity;
 import com.zzia.graduation.ui.HolidayListActivity;
 import com.zzia.graduation.ui.MyProfileActivity;
-import com.zzia.graduation.ui.OverTimeListActivity;
+import com.zzia.graduation.ui.OverTimeFragment;
 import com.zzia.graduation.ui.PlanFragment;
 import com.zzia.graduation.ui.ProjectFragment;
 import com.zzia.graduation.ui.SearchFragment;
@@ -362,7 +362,7 @@ public class MainActivity extends FragmentActivity
             startActivity(new Intent(getApplicationContext(), SummaryFragment.class));
 
         } else if (id == R.id.nav_overtime) {//加班
-            startActivity(new Intent(getApplicationContext(), OverTimeListActivity.class));
+            startActivity(new Intent(getApplicationContext(), OverTimeFragment.class));
 
         } else if (id == R.id.nav_holiday) {//休假
             startActivity(new Intent(getApplicationContext(), HolidayListActivity.class));
