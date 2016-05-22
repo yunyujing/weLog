@@ -1,6 +1,5 @@
 package com.zzia.graduation.ui;
 
-
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.zzia.graduation.adapters.CheckPlanFragmentAdapter;
+import com.zzia.graduation.adapters.CheckSummaryFragmentAdapter;
 import com.zzia.graduation.bean.CheckWork;
 import com.zzia.graduation.common.bean.BaseBean;
 import com.zzia.graduation.welog.R;
@@ -18,12 +17,12 @@ import com.zzia.graduation.welog.R;
 import java.util.ArrayList;
 
 /**
- * Created by yunyujing on 16/5/21.
+ * Created by yunyujing on 16/5/22.
  */
-public class CheckPlanFragment extends Fragment {
+public class CheckSummaryFragment extends Fragment{
     private RecyclerView recyclerView;
     private ArrayList<BaseBean> plans;
-    private CheckPlanFragmentAdapter checkPlanFragmentAdapter;
+    private CheckSummaryFragmentAdapter checkSummaryFragmentAdapter;
 
 
     @Override
@@ -39,7 +38,7 @@ public class CheckPlanFragment extends Fragment {
 
     private void initData() {
         plans=new ArrayList<>();
-        plans = CheckWork.getCheckPlanList(getActivity());
+        plans = CheckWork.getCheckSummaryList(getActivity());
     }
 
     private void initView(View view) {
@@ -48,8 +47,8 @@ public class CheckPlanFragment extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.addItemDecoration(new DetailProjectActivity.MyListItemDecoration(30));
-        checkPlanFragmentAdapter =new CheckPlanFragmentAdapter(getContext(),plans);
-        recyclerView.setAdapter(checkPlanFragmentAdapter);
+        checkSummaryFragmentAdapter =new CheckSummaryFragmentAdapter(getContext(),plans);
+        recyclerView.setAdapter(checkSummaryFragmentAdapter);
 
     }
 }

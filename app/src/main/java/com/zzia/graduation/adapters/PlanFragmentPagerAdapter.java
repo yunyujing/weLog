@@ -30,15 +30,5 @@ public class PlanFragmentPagerAdapter extends FragmentPagerAdapter {
     }
 
 
-    //    @Override
-//    public CharSequence getPageTitle(int position) {
-//        switch (position) {
-//            case 0:
-//                return "由我提交";
-//            case 1:
-//                return "由我审核";
-//            default:
-//                return null;
-//        }
-//    }
+
 }

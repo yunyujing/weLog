@@ -2,29 +2,27 @@ package com.zzia.graduation.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.zzia.graduation.common.bean.BaseBean;
-import com.zzia.graduation.ui.CreatePlanActivity;
-import com.zzia.graduation.utils.Common;
+import com.zzia.graduation.ui.CheckSummaryActivity;
 import com.zzia.graduation.welog.R;
 
 import java.util.ArrayList;
 
 /**
- * Created by yunyujing on 16/5/21.
+ * Created by yunyujing on 16/5/22.
  */
-public class CreatePlanPlanFragmentAdapter extends RecyclerView.Adapter {
+public class CheckSummaryFragmentAdapter extends RecyclerView.Adapter{
+
     private Context context;
     private ArrayList<BaseBean> list;
-
-    public CreatePlanPlanFragmentAdapter(Context applicationContext, ArrayList<BaseBean> list) {
-        this.context = applicationContext;
-        this.list = list;
+    public CheckSummaryFragmentAdapter(Context context, ArrayList<BaseBean> plans) {
+        this.context = context;
+        this.list = plans;
 
     }
 
@@ -36,7 +34,6 @@ public class CreatePlanPlanFragmentAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-
         PlanListItemViewHOlder planListItemViewHolder = (PlanListItemViewHOlder) holder;
         BaseBean baseBean = list.get(position);
         planListItemViewHolder.position = position;
@@ -55,7 +52,7 @@ public class CreatePlanPlanFragmentAdapter extends RecyclerView.Adapter {
         }
         planListItemViewHolder.title.setText(checkState);
         planListItemViewHolder.time.setText(baseBean.getStr("check_checktime"));
-        planListItemViewHolder.content.setText(baseBean.getStr("plan_title"));
+        planListItemViewHolder.content.setText(baseBean.getStr("summary_title"));
 
     }
 
@@ -63,7 +60,6 @@ public class CreatePlanPlanFragmentAdapter extends RecyclerView.Adapter {
     public int getItemCount() {
         return list.size();
     }
-
     class PlanListItemViewHOlder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private TextView title, time, content;
@@ -81,7 +77,7 @@ public class CreatePlanPlanFragmentAdapter extends RecyclerView.Adapter {
 
         @Override
         public void onClick(View v) {
-            CreatePlanActivity.startCreatePlanActivity(context, list.get(position));
+            CheckSummaryActivity.startCheckSummaryActivity(context, list.get(position));
         }
     }
 }

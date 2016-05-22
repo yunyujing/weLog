@@ -20,81 +20,102 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/space_twelve"
+                    android:gravity="center"
+                    android:text="审核人："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_middle"/>
+
+                <Spinner
+                    android:id="@+id/add_summary_layout_checker"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/space_twelve"
+                    android:layout_marginRight="@dimen/space_twelve" />
+
+            </LinearLayout>
 
             <EditText
                 android:id="@+id/add_summary_layout_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/space_twelve"
                 android:layout_marginLeft="@dimen/space_twelve"
                 android:layout_marginRight="@dimen/space_twelve"
-                android:layout_marginTop="@dimen/space_ten"
-                android:background="@color/white"
                 android:gravity="center"
-                android:hint="请在此处填写标题"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_big" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:layout_marginBottom="@dimen/space_twelve"
-                android:layout_marginLeft="@dimen/space_twelve"
-                android:layout_marginRight="@dimen/space_twelve"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="工作概况：" />
-
-                <RadioGroup
-                    android:id="@+id/add_claim_layout_rgp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/space_twelve"
-                    android:layout_marginRight="@dimen/space_twelve">
-
-                    <android.support.v7.widget.AppCompatRadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="工作提前完成" />
-
-                    <android.support.v7.widget.AppCompatRadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="工作如期完成" />
-
-                    <android.support.v7.widget.AppCompatRadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="工作超时完成" />
-
-                    <android.support.v7.widget.AppCompatRadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="工作延后处理" />
-
-                    <android.support.v7.widget.AppCompatRadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="其他情况" />
-                </RadioGroup>
-            </LinearLayout>
-
+                android:hint="请在此处填写标题" />
             <EditText
                 android:id="@+id/add_summary_layout_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/space_twelve"
-                android:layout_marginRight="@dimen/space_twelve"
+                android:layout_margin="@dimen/space_twelve"
                 android:background="@color/white"
                 android:gravity="top"
                 android:hint="  请填写内容——"
                 android:maxLines="20"
                 android:minLines="10"
                 android:textSize="@dimen/text_middle" />
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginBottom="@dimen/space_twelve"-->
+                <!--android:layout_marginLeft="@dimen/space_twelve"-->
+                <!--android:layout_marginRight="@dimen/space_twelve"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="工作概况：" />-->
+
+                <!--<RadioGroup-->
+                    <!--android:id="@+id/add_summary_layout_rgp"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="@dimen/space_twelve"-->
+                    <!--android:layout_marginRight="@dimen/space_twelve">-->
+
+                    <!--<android.support.v7.widget.AppCompatRadioButton-->
+                        <!--android:id="@+id/add_summary_layout_rgp1"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="工作提前完成" />-->
+
+                    <!--<android.support.v7.widget.AppCompatRadioButton-->
+                        <!--android:id="@+id/add_summary_layout_rgp2"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="工作如期完成" />-->
+
+                    <!--<android.support.v7.widget.AppCompatRadioButton-->
+                        <!--android:id="@+id/add_summary_layout_rgp3"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="工作超时完成" />-->
+
+                    <!--<android.support.v7.widget.AppCompatRadioButton-->
+                        <!--android:id="@+id/add_summary_layout_rgp4"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="工作延后处理" />-->
+
+                    <!--<android.support.v7.widget.AppCompatRadioButton-->
+                        <!--android:id="@+id/add_summary_layout_rgp5"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="其他情况" />-->
+                <!--</RadioGroup>-->
+            <!--</LinearLayout>-->
+
+
 
             <TextView
                 android:id="@+id/add_summary_layout_extra"

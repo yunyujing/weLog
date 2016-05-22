@@ -6,15 +6,13 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.zzia.graduation.adapters.CreatePlanPlanFragmentAdapter;
+import com.zzia.graduation.adapters.CreatePlanFragmentAdapter;
 import com.zzia.graduation.bean.CheckWork;
 import com.zzia.graduation.common.bean.BaseBean;
-import com.zzia.graduation.utils.Common;
 import com.zzia.graduation.welog.R;
 
 import java.util.ArrayList;
@@ -26,7 +24,7 @@ public class CreatePlanFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private ArrayList<BaseBean> plans;
-    private CreatePlanPlanFragmentAdapter createPlanFragmentAdapter;
+    private CreatePlanFragmentAdapter createPlanFragmentAdapter;
 
 
     @Override
@@ -51,7 +49,7 @@ public class CreatePlanFragment extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.addItemDecoration(new DetailProjectActivity.MyListItemDecoration(30));
-        createPlanFragmentAdapter =new CreatePlanPlanFragmentAdapter(getContext(),plans);
+        createPlanFragmentAdapter =new CreatePlanFragmentAdapter(getContext(),plans);
         recyclerView.setAdapter(createPlanFragmentAdapter);
 
     }

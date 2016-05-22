@@ -15,10 +15,9 @@ import com.zzia.graduation.welog.R;
 import java.util.ArrayList;
 
 /**
- * Created by yunyujing on 16/5/21.
+ * Created by yunyujing on 16/5/22.
  */
-public class PlanFragment extends FragmentActivity implements View.OnClickListener {
-
+public class SummaryFragment extends FragmentActivity implements View.OnClickListener {
     private TextView allPlanText;
     private TextView minePlanText;
     private TextView allPlanTextLine;
@@ -27,9 +26,10 @@ public class PlanFragment extends FragmentActivity implements View.OnClickListen
     private PlanFragmentPagerAdapter pagerAdapter;
     private ArrayList<Fragment> fragmentArrayList;
 
-    private CreatePlanFragment createPlanFragment;
-    private CheckPlanFragment checkPlanFragment;
-
+    //    private CreatePlanFragment createPlanFragment;
+//    private CheckPlanFragment checkPlanFragment;
+    private CreateSummaryFragment createSummaryFragment;
+    private CheckSummaryFragment checkSummaryFragment;
     private MyActionBar myActionBar;
 
     @Override
@@ -42,8 +42,8 @@ public class PlanFragment extends FragmentActivity implements View.OnClickListen
 
     private void initView() {
         myActionBar = (MyActionBar) findViewById(R.id.plan_list_layout_actionbar);
-        myActionBar.setTitle("工作计划列表");
         myActionBar.setBackAction(new MyActionBar.BackAction(this));
+        myActionBar.setTitle("工作总结列表");
 
         allPlanText = (TextView) findViewById(R.id.plan_layout_allplan);
         allPlanText.setOnClickListener(this);
@@ -53,13 +53,13 @@ public class PlanFragment extends FragmentActivity implements View.OnClickListen
         minePlanTextLine = (TextView) findViewById(R.id.plan_layout_mineplan_line);
 
 
-        fragmentArrayList=new ArrayList<>();
-        createPlanFragment=new CreatePlanFragment();
-        checkPlanFragment=new CheckPlanFragment();
-        fragmentArrayList.add(createPlanFragment);
-        fragmentArrayList.add(checkPlanFragment);
-        pagerAdapter=new PlanFragmentPagerAdapter(getSupportFragmentManager(),fragmentArrayList);
-        pager= (ViewPager)findViewById(R.id.plan_layout_viewpager);
+        fragmentArrayList = new ArrayList<>();
+        createSummaryFragment = new CreateSummaryFragment();
+        checkSummaryFragment = new CheckSummaryFragment();
+        fragmentArrayList.add(createSummaryFragment);
+        fragmentArrayList.add(checkSummaryFragment);
+        pagerAdapter = new PlanFragmentPagerAdapter(getSupportFragmentManager(), fragmentArrayList);
+        pager = (ViewPager) findViewById(R.id.plan_layout_viewpager);
         pager.setAdapter(pagerAdapter);
         pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -69,7 +69,7 @@ public class PlanFragment extends FragmentActivity implements View.OnClickListen
 
             @Override
             public void onPageSelected(int position) {
-                switch (position){
+                switch (position) {
                     case 0:
                         setAllPlanTextSelected();
                         break;
@@ -78,6 +78,7 @@ public class PlanFragment extends FragmentActivity implements View.OnClickListen
                         break;
                 }
             }
+
             @Override
             public void onPageScrollStateChanged(int state) {
 
@@ -100,17 +101,16 @@ public class PlanFragment extends FragmentActivity implements View.OnClickListen
         minePlanTextLine.setBackgroundResource(R.color.colorPrimary);
 
 
-
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.plan_layout_allplan:
-                pager.setCurrentItem(0,true);
+                pager.setCurrentItem(0, true);
                 break;
             case R.id.plan_layout_mineplan:
-                pager.setCurrentItem(1,true);
+                pager.setCurrentItem(1, true);
                 break;
         }
     }

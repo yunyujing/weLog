@@ -3,6 +3,7 @@ package com.zzia.graduation.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.GridView;
@@ -17,10 +18,9 @@ import com.zzia.graduation.welog.R;
 import java.util.ArrayList;
 
 /**
- * Created by yunyujing on 16/5/21.
+ * Created by yunyujing on 16/5/22.
  */
-public class CreatePlanActivity extends AppCompatActivity {
-
+public class CreateSummaryActivity extends AppCompatActivity{
 
     private MyActionBar myActionBar;
     private TextView createrText, checkerText, createtimeText, checktimeText, titleText, contentText;
@@ -34,29 +34,27 @@ public class CreatePlanActivity extends AppCompatActivity {
     private CheckLargeImageGridAdapter checkLargeImageGridAdapter;
     private ArrayList<String> list;
 
-    public static void startCreatePlanActivity(Context context, BaseBean baseBean) {
-        Intent intent = new Intent(context, CreatePlanActivity.class);
+    public static void startCreateSummaryActivity(Context context, BaseBean baseBean) {
+        Intent intent=new Intent(context,CreateSummaryActivity.class);
         intent.putExtra("check_id", baseBean.getInt("check_id"));
         intent.putExtra("check_creater", baseBean.getStr("check_creater"));
         intent.putExtra("check_createtime", baseBean.getStr("check_createtime"));
         intent.putExtra("check_checker", baseBean.getStr("check_checker"));
         intent.putExtra("check_checktime", baseBean.getStr("check_checktime"));
-        intent.putExtra("plan_title", baseBean.getStr("plan_title"));
-        intent.putExtra("plan_info", baseBean.getStr("plan_info"));
+        intent.putExtra("summary_title", baseBean.getStr("summary_title"));
+        intent.putExtra("summary_info", baseBean.getStr("summary_info"));
         intent.putExtra("check_state", baseBean.getInt("check_state"));
-        intent.putExtra("check_comment", baseBean.getStr("check_comment"));
         context.startActivity(intent);
+
     }
-
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_plan_layout);
         initData();
         initView();
-    }
 
+    }
     private void initData() {
         Intent intent = getIntent();
         checkId = intent.getIntExtra("check_id", 0);
@@ -64,20 +62,20 @@ public class CreatePlanActivity extends AppCompatActivity {
         createtime = intent.getStringExtra("check_createtime");
         checker = intent.getStringExtra("check_checker");
         checktime = intent.getStringExtra("check_checktime");
-        title = intent.getStringExtra("plan_title");
-        content = intent.getStringExtra("plan_info");
+        title = intent.getStringExtra("summary_title");
+        content = intent.getStringExtra("summary_info");
         state = intent.getIntExtra("check_state", 0);
-        comment=intent.getStringExtra("check_comment");
 
         list = new ArrayList<>();
         list = CheckWork.getCheckImages(getApplicationContext(), checkId);
 
     }
 
+
     private void initView() {
         myActionBar = (MyActionBar) findViewById(R.id.create_plan_layout_actionbar);
         myActionBar.setBackAction(new MyActionBar.BackAction(this));
-        myActionBar.setTitle("工作计划");
+        myActionBar.setTitle("工作总结");
 
         createrText = (TextView) findViewById(R.id.create_plan_layout_creater);
         createrText.setText(creater);

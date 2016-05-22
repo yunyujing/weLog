@@ -80,6 +80,7 @@ public class CheckPlanActivity extends AppCompatActivity {
     private void initView() {
         myActionBar = (MyActionBar) findViewById(R.id.check_plan_layout_actionbar);
         myActionBar.setBackAction(new MyActionBar.BackAction(this));
+        myActionBar.setTitle("工作计划");
         myActionBar.setRight2Action(new MyActionBar.Action() {
             @Override
             public int getDrawable() {

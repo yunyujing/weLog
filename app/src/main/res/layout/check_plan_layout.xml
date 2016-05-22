@@ -7,8 +7,7 @@
     <com.zzia.graduation.views.MyActionBar
         android:id="@+id/check_plan_layout_actionbar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/actionbar_height"
-        app:titleName="工作计划" />
+        android:layout_height="@dimen/actionbar_height" />
 
     <ScrollView
         android:id="@+id/check_plan_layout_scroll"

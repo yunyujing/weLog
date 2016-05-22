@@ -30,7 +30,7 @@ import com.zzia.graduation.ui.PlanFragment;
 import com.zzia.graduation.ui.ProjectFragment;
 import com.zzia.graduation.ui.SearchFragment;
 import com.zzia.graduation.ui.SettingActivity;
-import com.zzia.graduation.ui.SummaryListActivity;
+import com.zzia.graduation.ui.SummaryFragment;
 import com.zzia.graduation.ui.TaskFragment;
 import com.zzia.graduation.utils.ActivityUtils;
 
@@ -359,7 +359,7 @@ public class MainActivity extends FragmentActivity
             startActivity(new Intent(getApplicationContext(), PlanFragment.class));
 
         } else if (id == R.id.nav_summary) {//总结考核
-            startActivity(new Intent(getApplicationContext(), SummaryListActivity.class));
+            startActivity(new Intent(getApplicationContext(), SummaryFragment.class));
 
         } else if (id == R.id.nav_overtime) {//加班
             startActivity(new Intent(getApplicationContext(), OverTimeListActivity.class));

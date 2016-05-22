@@ -91,7 +91,12 @@
             android:name="com.zzia.graduation.ui.MyProfileActivity"
             android:screenOrientation="portrait" />
 
-
+        <activity
+            android:name="com.zzia.graduation.ui.SummaryFragment"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.zzia.graduation.ui.CreateSummaryActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.zzia.graduation.ui.CheckSummaryActivity"
             android:screenOrientation="portrait" />
@@ -107,9 +112,7 @@
             android:name="com.zzia.graduation.ui.CheckPlanActivity"
             android:screenOrientation="portrait" />
 
-        <activity
-            android:name="com.zzia.graduation.ui.SummaryListActivity"
-            android:screenOrientation="portrait" />
+
 
         <activity
             android:name="com.zzia.graduation.ui.OverTimeListActivity"

@@ -2,7 +2,6 @@ package com.zzia.graduation.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +37,7 @@ public class SummaryListAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         SummaryListAdapterViewHolder summaryListAdapterViewHolder= (SummaryListAdapterViewHolder) holder;
         BaseBean baseBean=list.get(position);
+        summaryListAdapterViewHolder.position=position;
         summaryListAdapterViewHolder.title.setText(baseBean.getStr("title"));
         summaryListAdapterViewHolder.time.setText(baseBean.getStr("time"));
         summaryListAdapterViewHolder.content.setText(baseBean.getStr("content"));
@@ -53,6 +53,7 @@ public class SummaryListAdapter extends RecyclerView.Adapter {
 
         private TextView title,time,content;
         private View view;
+        private int position;
 
         public SummaryListAdapterViewHolder(View itemView) {
             super(itemView);
@@ -65,7 +66,7 @@ public class SummaryListAdapter extends RecyclerView.Adapter {
 
         @Override
         public void onClick(View v) {
-            CheckSummaryActivity.startCheckSummaryActivity(context);
+            CheckSummaryActivity.startCheckSummaryActivity(context,list.get(position));
         }
     }
 }

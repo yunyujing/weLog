@@ -53,8 +53,8 @@ public class CheckWork {
 
         ArrayList<BaseBean> planList = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase = new MySQLiteOpenHelper(context).getWritableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("select * from checkwork where check_creater=?",
-                new String[]{String.valueOf(SharedPreferenceUtils.get(context, User.id, 0))});
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from checkwork where plan_title!=? and check_creater=?",
+                new String[]{"NULL",String.valueOf(SharedPreferenceUtils.get(context, User.id, 0))});
         while (cursor.moveToNext()) {
             BaseBean plan = new BaseBean();
             plan.set("check_id", cursor.getInt(cursor.getColumnIndex("check_id")));
@@ -66,17 +66,7 @@ public class CheckWork {
             plan.set("plan_info", cursor.getString(cursor.getColumnIndex("plan_info")));
             plan.set("check_state", cursor.getInt(cursor.getColumnIndex("check_state")));
             plan.set("check_comment",cursor.getString(cursor.getColumnIndex("check_comment")));
-//            switch (state) {
-//                case 0:
-//                    plan.set("check_state", "待审核");
-//                    break;
-//                case 1:
-//                    plan.set("check_state", "通过");
-//                    break;
-//                case 2:
-//                    plan.set("check_state", "驳回");
-//            break;
-//            }
+
             planList.add(plan);
 
 
@@ -97,8 +87,8 @@ public class CheckWork {
 
         ArrayList<BaseBean> planList = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase = new MySQLiteOpenHelper(context).getWritableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("select * from checkwork where check_checker=?", new String[]{
-                String.valueOf(SharedPreferenceUtils.get(context, User.id, 0))});
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from checkwork where plan_title!=? and check_checker=?", new String[]{
+                "NULL",String.valueOf(SharedPreferenceUtils.get(context, User.id, 0))});
         while (cursor.moveToNext()) {
             BaseBean plan = new BaseBean();
             plan.set("check_id", cursor.getInt(cursor.getColumnIndex("check_id")));
@@ -111,18 +101,7 @@ public class CheckWork {
             plan.set("check_state", cursor.getInt(cursor.getColumnIndex("check_state")));
             plan.set("check_comment",cursor.getString(cursor.getColumnIndex("check_comment")));
 
-//            int state = cursor.getInt(cursor.getColumnIndex("check_state"));
-//            switch (state) {
-//                case 0:
-//                    plan.set("check_state", "待审核");
-//                    break;
-//                case 1:
-//                    plan.set("check_state", "通过");
-//                    break;
-//                case 2:
-//                    plan.set("check_state", "驳回");
-//            break;
-//            }
+
             planList.add(plan);
 
         }
@@ -141,8 +120,8 @@ public class CheckWork {
     public static ArrayList<BaseBean> getCompanyPlanList(Context context) {
         ArrayList<BaseBean> planList = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase = new MySQLiteOpenHelper(context).getWritableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("select * from checkwork where company_id=?", new String[]{
-                String.valueOf(SharedPreferenceUtils.get(context, User.companyId, 0))});
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from checkwork where plan_title!=? and company_id=?",
+                new String[]{"NULL",String.valueOf(SharedPreferenceUtils.get(context, User.companyId, 0))});
         while (cursor.moveToNext()) {
             BaseBean plan = new BaseBean();
             plan.set("check_id", cursor.getInt(cursor.getColumnIndex("task_id")));
@@ -155,18 +134,7 @@ public class CheckWork {
             plan.set("check_state", cursor.getInt(cursor.getColumnIndex("check_state")));
             plan.set("check_comment",cursor.getString(cursor.getColumnIndex("check_comment")));
 
-//            int state = cursor.getInt(cursor.getColumnIndex("check_state"));
-//            switch (state) {
-//                case 0:
-//                    plan.set("check_state", "待审核");
-//                    break;
-//                case 1:
-//                    plan.set("check_state", "通过");
-//                    break;
-//                case 2:
-//                    plan.set("check_state", "驳回");
-//            break;
-//            }
+
             planList.add(plan);
 
         }
@@ -175,4 +143,56 @@ public class CheckWork {
 
     }
 
+    public static ArrayList<BaseBean> getCreateSummaryList(Context context) {
+        ArrayList<BaseBean> planList = new ArrayList<>();
+        SQLiteDatabase sqLiteDatabase = new MySQLiteOpenHelper(context).getWritableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from checkwork where summary_title!=? and  check_creater=?",
+                new String[]{"NULL",String.valueOf(SharedPreferenceUtils.get(context, User.id, 0))});
+        while (cursor.moveToNext()) {
+            BaseBean plan = new BaseBean();
+            plan.set("check_id", cursor.getInt(cursor.getColumnIndex("check_id")));
+            plan.set("check_creater", String.valueOf(SharedPreferenceUtils.get(context, User.name, "")));
+            plan.set("check_checker", User.getBasicInfo(context, cursor.getInt(cursor.getColumnIndex("check_checker"))).get("user_name"));
+            plan.set("check_createtime", cursor.getString(cursor.getColumnIndex("check_createtime")));
+            plan.set("check_checktime", cursor.getString(cursor.getColumnIndex("check_checktime")));
+            plan.set("summary_title", cursor.getString(cursor.getColumnIndex("summary_title")));
+            plan.set("summary_info", cursor.getString(cursor.getColumnIndex("summary_info")));
+            plan.set("check_state", cursor.getInt(cursor.getColumnIndex("check_state")));
+            plan.set("check_comment",cursor.getString(cursor.getColumnIndex("check_comment")));
+
+            planList.add(plan);
+
+
+        }
+        cursor.close();
+
+        return planList;
+
+    }
+
+    public static ArrayList<BaseBean> getCheckSummaryList(Context context) {
+        ArrayList<BaseBean> planList = new ArrayList<>();
+        SQLiteDatabase sqLiteDatabase = new MySQLiteOpenHelper(context).getWritableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from checkwork where summary_title!=? and  check_checker=?",
+                new String[]{"NULL",String.valueOf(SharedPreferenceUtils.get(context, User.id, 0))});
+        while (cursor.moveToNext()) {
+            BaseBean plan = new BaseBean();
+            plan.set("check_id", cursor.getInt(cursor.getColumnIndex("check_id")));
+            plan.set("check_creater", User.getBasicInfo(context, cursor.getInt(cursor.getColumnIndex("check_creater"))).get("user_name"));
+            plan.set("check_checker", String.valueOf(SharedPreferenceUtils.get(context, User.name, "")));
+            plan.set("check_createtime", cursor.getString(cursor.getColumnIndex("check_createtime")));
+            plan.set("check_checktime", cursor.getString(cursor.getColumnIndex("check_checktime")));
+            plan.set("summary_title", cursor.getString(cursor.getColumnIndex("summary_title")));
+            plan.set("summary_info", cursor.getString(cursor.getColumnIndex("summary_info")));
+            plan.set("check_state", cursor.getInt(cursor.getColumnIndex("check_state")));
+            plan.set("check_comment",cursor.getString(cursor.getColumnIndex("check_comment")));
+
+            planList.add(plan);
+
+        }
+        cursor.close();
+
+        return planList;
+
+    }
 }
