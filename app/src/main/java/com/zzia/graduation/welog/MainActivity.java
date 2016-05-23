@@ -21,9 +21,9 @@ import com.zzia.graduation.ui.AddHolidayActivity;
 import com.zzia.graduation.ui.AddOverTimeActivity;
 import com.zzia.graduation.ui.AddPlanActivity;
 import com.zzia.graduation.ui.AddSummaryActivity;
-import com.zzia.graduation.ui.ClaimListActivity;
+import com.zzia.graduation.ui.ClaimFragment;
 import com.zzia.graduation.ui.HelpActivity;
-import com.zzia.graduation.ui.HolidayListActivity;
+import com.zzia.graduation.ui.HolidayFragment;
 import com.zzia.graduation.ui.MyProfileActivity;
 import com.zzia.graduation.ui.OverTimeFragment;
 import com.zzia.graduation.ui.PlanFragment;
@@ -365,10 +365,10 @@ public class MainActivity extends FragmentActivity
             startActivity(new Intent(getApplicationContext(), OverTimeFragment.class));
 
         } else if (id == R.id.nav_holiday) {//休假
-            startActivity(new Intent(getApplicationContext(), HolidayListActivity.class));
+            startActivity(new Intent(getApplicationContext(), HolidayFragment.class));
 
         } else if (id == R.id.nav_claim) {//报销
-            startActivity(new Intent(getApplicationContext(), ClaimListActivity.class));
+            startActivity(new Intent(getApplicationContext(), ClaimFragment.class));
 
         } else if (id == R.id.nav_manage) {//设置
             startActivity(new Intent(getApplicationContext(), SettingActivity.class));

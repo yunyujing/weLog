@@ -126,17 +126,22 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name="com.zzia.graduation.ui.HolidayListActivity"
+            android:name="com.zzia.graduation.ui.HolidayFragment"
             android:screenOrientation="portrait" />
 
         <activity
             android:name="com.zzia.graduation.ui.CheckHolidayActivity"
             android:screenOrientation="portrait" />
-
         <activity
-            android:name="com.zzia.graduation.ui.ClaimListActivity"
+            android:name="com.zzia.graduation.ui.CreateHolidayActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name="com.zzia.graduation.ui.ClaimFragment"
+            android:screenOrientation="portrait" />
+
+        <activity android:name="com.zzia.graduation.ui.CreateClaimActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.zzia.graduation.ui.CheckClaimActivity"
             android:screenOrientation="portrait" />

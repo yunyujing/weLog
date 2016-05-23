@@ -27,6 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="加班表"
+                android:layout_marginBottom="@dimen/space_twelve"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_big" />
 

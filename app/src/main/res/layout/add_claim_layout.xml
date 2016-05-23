@@ -1,174 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <com.zzia.graduation.views.MyActionBar
-        android:id="@+id/edit_add_claim_layout_actionbar"
+        android:id="@+id/add_claim_layout_actionbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/actionbar_height"
-        app:titleName="差旅报销"/>
+        app:titleName="差旅报销" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="@dimen/space_twelve"
-        android:text="报销单"
-        android:textColor="@color/black"
-        android:textSize="@dimen/text_big" />
-
-    <TextView
-        android:id="@+id/add_claim_layout_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginRight="@dimen/space_twelve"
-        android:text="2016-05-05" />
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="申请人" />
-
-        <EditText
-            android:id="@+id/add_claim_layout_user"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/space_twelve"
-            android:layout_marginRight="@dimen/space_twelve" />
-    </LinearLayout>
+            android:layout_margin="@dimen/space_twelve"
+            android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="报销事项" />
-
-        <RadioGroup
-            android:id="@+id/add_claim_layout_rgp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/space_twelve"
-            android:layout_marginRight="@dimen/space_twelve">
-
-            <RadioButton
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="出差报销" />
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/space_twelve"
+                android:text="报销单"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_big" />
 
-            <RadioButton
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="设备购买" />
+                android:orientation="horizontal">
 
-            <RadioButton
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="审核人："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_middle" />
+
+                <Spinner
+                    android:id="@+id/add_claim_layout_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="产品测试" />
+                android:orientation="horizontal">
 
-            <RadioButton
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="消费时间" />
+
+
+                <TextView
+                    android:id="@+id/add_claim_layout_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/space_twelve"
+                    android:layout_marginRight="@dimen/space_twelve"
+                    android:background="@color/white"
+                    android:drawableLeft="@mipmap/iconfont_xiujia"
+                    android:drawablePadding="@dimen/space_twelve"
+                    android:hint="请选择日期"
+                    android:padding="@dimen/space_five"
+                    android:textSize="@dimen/text_big" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="活动宣传" />
+                android:layout_marginTop="@dimen/space_twelve"
+                android:orientation="horizontal">
 
-            <RadioButton
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="报销事项" />
+
+                <RadioGroup
+                    android:id="@+id/add_claim_layout_rgp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/space_twelve"
+                    android:layout_marginRight="@dimen/space_twelve">
+
+                    <RadioButton
+                        android:id="@+id/add_claim_layout_rgp1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="出差报销" />
+
+                    <RadioButton
+                        android:id="@+id/add_claim_layout_rgp2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="设备购买" />
+
+                    <RadioButton
+                        android:id="@+id/add_claim_layout_rgp3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="产品测试" />
+
+                    <RadioButton
+                        android:id="@+id/add_claim_layout_rgp4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="活动宣传" />
+
+                    <RadioButton
+                        android:id="@+id/add_claim_layout_rgp5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="加班餐" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="加班餐" />
-        </RadioGroup>
-    </LinearLayout>
+                android:layout_marginTop="@dimen/space_twelve"
+                android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="报销金额（￥）" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="报销金额" />
+                <EditText
+                    android:id="@+id/add_claim_layout_money"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:hint="0.00"/>
+            </LinearLayout>
 
-        <EditText
-            android:id="@+id/add_claim_layout_money"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/space_twelve"
-            android:layout_marginRight="@dimen/space_twelve" />
-    </LinearLayout>
+        </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+    </ScrollView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="事件时间" />
 
-        <TextView
-            android:id="@+id/add_claim_layout_claim_time"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:drawableLeft="@mipmap/task_time"
-            android:drawablePadding="@dimen/space_twelve"
-            android:layout_marginLeft="@dimen/space_twelve"
-            android:layout_marginRight="@dimen/space_twelve"
-            android:hint="请选择日期"
-            android:padding="@dimen/space_five"
-            android:textSize="@dimen/text_big"/>
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="审批人" />
 
-        <EditText
-            android:id="@+id/add_claim_layout_approval"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/space_twelve"
-            android:layout_marginRight="@dimen/space_twelve" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_twelve"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="审批状态" />
-
-        <TextView
-            android:id="@+id/add_claim_layout_state"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/space_twelve"
-            android:text="待审批"
-            android:textSize="@dimen/text_big"
-            android:textColor="@color/titlebar_background"/>
-    </LinearLayout>
 
 </LinearLayout>

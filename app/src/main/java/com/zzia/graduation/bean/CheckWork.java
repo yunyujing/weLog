@@ -144,6 +144,11 @@ public class CheckWork {
 
     }
 
+    /**
+     * 获取总结
+     * @param context
+     * @return
+     */
     public static ArrayList<BaseBean> getCreateSummaryList(Context context) {
         ArrayList<BaseBean> planList = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase = new MySQLiteOpenHelper(context).getWritableDatabase();
@@ -197,10 +202,16 @@ public class CheckWork {
 
     }
 
+    /**
+     * 获取加班
+     * @param context
+     * @return
+     */
+
     public static ArrayList<BaseBean> getCreateOverTimeList(FragmentActivity context) {
         ArrayList<BaseBean> planList = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase = new MySQLiteOpenHelper(context).getWritableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("select * from checkwork where over_content!=? and  check_checker=?",
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from checkwork where over_content!=? and  check_creater=?",
                 new String[]{"NULL",String.valueOf(SharedPreferenceUtils.get(context, User.id, 0))});
         while (cursor.moveToNext()) {
             BaseBean plan = new BaseBean();
@@ -237,6 +248,119 @@ public class CheckWork {
             plan.set("over_starttime", cursor.getString(cursor.getColumnIndex("over_starttime")));
             plan.set("over_endtime",cursor.getString(cursor.getColumnIndex("over_endtime")));
             plan.set("over_content", cursor.getString(cursor.getColumnIndex("over_content")));
+            plan.set("check_state", cursor.getInt(cursor.getColumnIndex("check_state")));
+
+            planList.add(plan);
+
+        }
+        cursor.close();
+
+        return planList;
+
+    }
+
+    /**
+     * 获取休假
+     * @param context
+     * @return
+     */
+    public static ArrayList<BaseBean> getCreateHolidayList(FragmentActivity context) {
+        ArrayList<BaseBean> planList = new ArrayList<>();
+        SQLiteDatabase sqLiteDatabase = new MySQLiteOpenHelper(context).getWritableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from checkwork where leave_reason!=? and  check_creater=?",
+                new String[]{"NULL",String.valueOf(SharedPreferenceUtils.get(context, User.id, 0))});
+        while (cursor.moveToNext()) {
+            BaseBean plan = new BaseBean();
+            plan.set("check_id", cursor.getInt(cursor.getColumnIndex("check_id")));
+            plan.set("check_creater", String.valueOf(SharedPreferenceUtils.get(context, User.name, "")));
+            plan.set("check_checker", User.getBasicInfo(context, cursor.getInt(cursor.getColumnIndex("check_checker"))).get("user_name"));
+            plan.set("check_createtime", cursor.getString(cursor.getColumnIndex("check_createtime")));
+            plan.set("check_checktime", cursor.getString(cursor.getColumnIndex("check_checktime")));
+            plan.set("leave_starttime", cursor.getString(cursor.getColumnIndex("leave_starttime")));
+            plan.set("leave_endtime",cursor.getString(cursor.getColumnIndex("leave_endtime")));
+            plan.set("leave_reason", cursor.getString(cursor.getColumnIndex("leave_reason")));
+            plan.set("check_state", cursor.getInt(cursor.getColumnIndex("check_state")));
+
+            planList.add(plan);
+
+        }
+        cursor.close();
+
+        return planList;
+    }
+
+    public static ArrayList<BaseBean> getCheckHolidayList(Context context) {
+        ArrayList<BaseBean> planList = new ArrayList<>();
+        SQLiteDatabase sqLiteDatabase = new MySQLiteOpenHelper(context).getWritableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from checkwork where leave_reason!=? and  check_checker=?",
+                new String[]{"NULL",String.valueOf(SharedPreferenceUtils.get(context, User.id, 0))});
+        while (cursor.moveToNext()) {
+            BaseBean plan = new BaseBean();
+            plan.set("check_id", cursor.getInt(cursor.getColumnIndex("check_id")));
+            plan.set("check_creater", User.getBasicInfo(context, cursor.getInt(cursor.getColumnIndex("check_creater"))).get("user_name"));
+            plan.set("check_checker", String.valueOf(SharedPreferenceUtils.get(context, User.name, "")));
+            plan.set("check_createtime", cursor.getString(cursor.getColumnIndex("check_createtime")));
+            plan.set("check_checktime", cursor.getString(cursor.getColumnIndex("check_checktime")));
+            plan.set("leave_starttime", cursor.getString(cursor.getColumnIndex("leave_starttime")));
+            plan.set("leave_endtime",cursor.getString(cursor.getColumnIndex("leave_endtime")));
+            plan.set("leave_reason", cursor.getString(cursor.getColumnIndex("leave_reason")));
+            plan.set("check_state", cursor.getInt(cursor.getColumnIndex("check_state")));
+
+            planList.add(plan);
+
+        }
+        cursor.close();
+
+        return planList;
+
+    }
+
+
+    /**
+     * 获取报销
+     * @param context
+     * @return
+     */
+    public static ArrayList<BaseBean> getCreateClaimList(FragmentActivity context) {
+        ArrayList<BaseBean> planList = new ArrayList<>();
+        SQLiteDatabase sqLiteDatabase = new MySQLiteOpenHelper(context).getWritableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from checkwork where claim_reason!=? and  check_creater=?",
+                new String[]{"NULL",String.valueOf(SharedPreferenceUtils.get(context, User.id, 0))});
+        while (cursor.moveToNext()) {
+            BaseBean plan = new BaseBean();
+            plan.set("check_id", cursor.getInt(cursor.getColumnIndex("check_id")));
+            plan.set("check_creater", String.valueOf(SharedPreferenceUtils.get(context, User.name, "")));
+            plan.set("check_checker", User.getBasicInfo(context, cursor.getInt(cursor.getColumnIndex("check_checker"))).get("user_name"));
+            plan.set("check_createtime", cursor.getString(cursor.getColumnIndex("check_createtime")));
+            plan.set("check_checktime", cursor.getString(cursor.getColumnIndex("check_checktime")));
+            plan.set("claim_time", cursor.getString(cursor.getColumnIndex("claim_time")));
+            plan.set("claim_money",cursor.getString(cursor.getColumnIndex("claim_money")));
+            plan.set("claim_reason", cursor.getString(cursor.getColumnIndex("claim_reason")));
+            plan.set("check_state", cursor.getInt(cursor.getColumnIndex("check_state")));
+
+            planList.add(plan);
+
+        }
+        cursor.close();
+
+        return planList;
+    }
+
+    public static ArrayList<BaseBean> getCheckClaimList(Context context) {
+        ArrayList<BaseBean> planList = new ArrayList<>();
+        SQLiteDatabase sqLiteDatabase = new MySQLiteOpenHelper(context).getWritableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from checkwork where claim_reason!=? and  check_checker=?",
+                new String[]{"NULL",String.valueOf(SharedPreferenceUtils.get(context, User.id, 0))});
+        while (cursor.moveToNext()) {
+            BaseBean plan = new BaseBean();
+            plan.set("check_id", cursor.getInt(cursor.getColumnIndex("check_id")));
+            plan.set("check_creater", User.getBasicInfo(context, cursor.getInt(cursor.getColumnIndex("check_creater"))).get("user_name"));
+            plan.set("check_checker", String.valueOf(SharedPreferenceUtils.get(context, User.name, "")));
+            plan.set("check_createtime", cursor.getString(cursor.getColumnIndex("check_createtime")));
+            plan.set("check_checktime", cursor.getString(cursor.getColumnIndex("check_checktime")));
+            plan.set("claim_time", cursor.getString(cursor.getColumnIndex("claim_time")));
+            plan.set("claim_money",cursor.getString(cursor.getColumnIndex("claim_money")));
+            plan.set("claim_reason", cursor.getString(cursor.getColumnIndex("claim_reason")));
             plan.set("check_state", cursor.getInt(cursor.getColumnIndex("check_state")));
 
             planList.add(plan);

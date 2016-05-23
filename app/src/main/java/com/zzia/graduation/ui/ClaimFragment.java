@@ -15,9 +15,9 @@ import com.zzia.graduation.welog.R;
 import java.util.ArrayList;
 
 /**
- * Created by yunyujing on 16/5/22.
+ * Created by yunyujing on 16/5/23.
  */
-public class OverTimeFragment extends FragmentActivity implements View.OnClickListener{
+public class ClaimFragment extends FragmentActivity implements View.OnClickListener{
     private TextView allPlanText;
     private TextView minePlanText;
     private TextView allPlanTextLine;
@@ -26,8 +26,8 @@ public class OverTimeFragment extends FragmentActivity implements View.OnClickLi
     private PlanFragmentPagerAdapter pagerAdapter;
     private ArrayList<Fragment> fragmentArrayList;
 
-    private CreateOverFragment createPlanFragment;
-    private CheckOverFragment checkPlanFragment;
+    private CreateClaimFragment createPlanFragment;
+    private CheckClaimFragment checkPlanFragment;
 
     private MyActionBar myActionBar;
 
@@ -41,7 +41,7 @@ public class OverTimeFragment extends FragmentActivity implements View.OnClickLi
 
     private void initView() {
         myActionBar = (MyActionBar) findViewById(R.id.plan_list_layout_actionbar);
-        myActionBar.setTitle("加班列表");
+        myActionBar.setTitle("工作计划列表");
         myActionBar.setBackAction(new MyActionBar.BackAction(this));
 
         allPlanText = (TextView) findViewById(R.id.plan_layout_allplan);
@@ -53,8 +53,8 @@ public class OverTimeFragment extends FragmentActivity implements View.OnClickLi
 
 
         fragmentArrayList=new ArrayList<>();
-        createPlanFragment=new CreateOverFragment();
-        checkPlanFragment=new CheckOverFragment();
+        createPlanFragment=new CreateClaimFragment();
+        checkPlanFragment=new CheckClaimFragment();
         fragmentArrayList.add(createPlanFragment);
         fragmentArrayList.add(checkPlanFragment);
         pagerAdapter=new PlanFragmentPagerAdapter(getSupportFragmentManager(),fragmentArrayList);

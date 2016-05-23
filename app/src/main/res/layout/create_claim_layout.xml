@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <com.zzia.graduation.views.MyActionBar
-        android:id="@+id/check_claim_layout_actionbar"
+        android:id="@+id/create_claim_layout_actionbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/actionbar_height"
         app:titleName="差旅报销" />
@@ -36,7 +36,7 @@
                 android:layout_margin="@dimen/space_twelve">
 
                 <TextView
-                    android:id="@+id/check_claim_layout_checkr_txt"
+                    android:id="@+id/create_claim_layout_creater_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -45,17 +45,17 @@
                     android:textSize="@dimen/text_middle" />
 
                 <TextView
-                    android:id="@+id/check_claim_layout_creater"
+                    android:id="@+id/create_claim_layout_creater"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toLeftOf="@+id/check_claim_layout_createtime"
-                    android:layout_toRightOf="@+id/check_claim_layout_checkr_txt"
+                    android:layout_toLeftOf="@+id/create_claim_layout_createtime"
+                    android:layout_toRightOf="@+id/create_claim_layout_creater_txt"
                     android:text="sadfasd"
                     android:textColor="@color/black"
                     android:textSize="@dimen/text_middle" />
 
                 <TextView
-                    android:id="@+id/check_claim_layout_createtime"
+                    android:id="@+id/create_claim_layout_createtime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -69,7 +69,7 @@
                 android:layout_margin="@dimen/space_twelve">
 
                 <TextView
-                    android:id="@+id/check_claim_layout_checker_txt"
+                    android:id="@+id/create_claim_layout_createer_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -78,17 +78,17 @@
                     android:textSize="@dimen/text_middle" />
 
                 <TextView
-                    android:id="@+id/check_claim_layout_checker"
+                    android:id="@+id/create_claim_layout_checker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toLeftOf="@+id/check_claim_layout_checktime"
-                    android:layout_toRightOf="@+id/check_claim_layout_checker_txt"
+                    android:layout_toLeftOf="@+id/create_claim_layout_checktime"
+                    android:layout_toRightOf="@+id/create_claim_layout_createer_txt"
                     android:text="sdfsa"
                     android:textColor="@color/black"
                     android:textSize="@dimen/text_middle" />
 
                 <TextView
-                    android:id="@+id/check_claim_layout_checktime"
+                    android:id="@+id/create_claim_layout_checktime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -103,7 +103,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/check_claim_layout_reason_text"
+                    android:id="@+id/create_claim_layout_reason_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="报销事项："
@@ -111,7 +111,7 @@
                     android:textSize="@dimen/text_middle" />
 
                 <TextView
-                    android:id="@+id/check_claim_layout_reason"
+                    android:id="@+id/create_claim_layout_reason"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="修复线上 BUG-1200"
@@ -132,13 +132,14 @@
                     android:textSize="@dimen/text_middle" />
 
                 <TextView
-                    android:id="@+id/check_claim_layout_time"
+                    android:id="@+id/create_claim_layout_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2015-03-09"
                     android:textSize="@dimen/text_middle" />
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -152,16 +153,13 @@
                     android:textSize="@dimen/text_middle" />
 
                 <TextView
-                    android:id="@+id/check_claim_layout_money"
+                    android:id="@+id/create_claim_layout_money"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="34.55"
+                    android:text="237.234"
                     android:textSize="@dimen/text_middle" />
 
             </LinearLayout>
-
-
-
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -171,15 +169,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="请审核："
+                    android:text="审核状态："
                     android:textColor="@color/black"
                     android:textSize="@dimen/text_middle" />
 
-                <Spinner
-                    android:id="@+id/check_claim_layout_state"
+                <TextView
+                    android:id="@+id/create_claim_layout_state"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:entries="@array/checkStates"/>
+                    android:text="通过"
+                    android:textSize="@dimen/text_middle"
+                    android:textColor="@color/titlebar_background"/>
 
             </LinearLayout>
 

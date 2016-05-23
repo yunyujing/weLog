@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.zzia.graduation.bean.Company;
 import com.zzia.graduation.bean.User;
 import com.zzia.graduation.common.bean.BaseBean;
+import com.zzia.graduation.common.util.StringUtils;
 import com.zzia.graduation.common.util.ToastUtils;
 import com.zzia.graduation.db.MySQLiteOpenHelper;
 import com.zzia.graduation.utils.Common;
@@ -105,7 +106,7 @@ public class AddOverTimeActivity extends AppCompatActivity implements View.OnCli
                 String start = startDate.getText().toString()+" "+startTime.getText().toString();
                 String end = endDate.getText().toString()+" "+endTime.getText().toString();
                 String content = contentText.getText().toString();
-                if (checkerName != null && start != null && end != null && content != null) {
+                if (checkerName != null && !StringUtils.isEmpty(start) && !StringUtils.isEmpty(end) && !StringUtils.isEmpty(content)) {
                     addDataToSql(checkerName, start, end, content);
                     //添加成功之后返回
                     finish();
