@@ -20,6 +20,7 @@ public class EditMyProfileActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        myActionBar= (MyActionBar) findViewById(R.id.edit_my_profile_actionbar);
         myActionBar.setBackAction(new MyActionBar.BackAction(this));
 
     }

@@ -9,7 +9,7 @@
         android:layout_height="50dp"
         android:background="@color/bg_default">
 
-        <android.support.v7.widget.SearchView
+        <SearchView
             android:id="@+id/search_layout_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -20,29 +20,52 @@
             android:imeOptions="actionSearch"
             android:paddingLeft="@dimen/space_ten" />
 
-
     </RelativeLayout>
-
-    <!--历史查询记录-->
+    <!--当前搜索内容-->
     <LinearLayout
-        android:id="@+id/search_layout_history_ll"
-        android:layout_below="@+id/search_layout_edit_rl"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-    </LinearLayout>
-    <TextView
-        android:layout_below="@+id/search_layout_history_ll"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/text_detail"
-        android:layout_marginTop="20dp"
-        android:text="清空历史纪录"/>
-
-    <com.zzia.graduation.views.TipsLayout
-        android:id="@+id/tips"
+        android:id="@+id/search_layout_content_ll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/search_layout_edit_rl"/>
+        android:layout_below="@+id/search_layout_edit_rl"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/text_dimiss" />
+
+        <TextView
+            android:id="@+id/search_layout_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_ten"
+            android:layout_marginLeft="@dimen/space_twenty"
+            android:layout_marginTop="@dimen/space_ten"
+            android:text="当前搜索内容"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/text_dimiss" />
+    </LinearLayout>
+
+    <!--历史查询记录-->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/search_layout_history"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/search_layout_edit_rl"
+        android:orientation="vertical"
+        android:visibility="gone"/>
+
+
+    <com.zzia.graduation.views.TipsLayout
+        android:id="@+id/search_layout_tips"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/search_layout_edit_rl"
+        android:visibility="gone" />
 </RelativeLayout>

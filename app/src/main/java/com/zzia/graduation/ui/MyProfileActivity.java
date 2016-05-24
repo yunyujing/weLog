@@ -117,12 +117,11 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
             if (!StringUtils.isEmpty(address)) {
                 addressText.setVisibility(View.VISIBLE);
                 addressText.setText("住址：" + address);
-            }else{
+            } else {
                 addressText.setVisibility(View.GONE);
             }
 
         }
-
 
 
         if (isCompany) {
@@ -135,13 +134,18 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onClick(View v) {
-        if (isCompany) {
-            //添加新员工
-            startActivity(new Intent(MyProfileActivity.this, AddUserActivity.class));
-        } else {
-            //编辑资料
-            startActivity(new Intent(MyProfileActivity.this, EditMyProfileActivity.class));
+        switch (v.getId()) {
+            case R.id.my_profile_add_user:
 
+                if (isCompany) {
+                    //添加新员工
+                    startActivity(new Intent(MyProfileActivity.this, AddUserActivity.class));
+                } else {
+                    //编辑资料
+                    startActivity(new Intent(MyProfileActivity.this, EditMyProfileActivity.class));
+
+                }
+                break;
         }
     }
 }

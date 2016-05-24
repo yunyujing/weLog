@@ -24,7 +24,7 @@ public class CreateClaimActivity extends AppCompatActivity {
     private int state;
     private TextView stateSpinner;
 
-    public static void startCreateOverActivity(Context context, BaseBean baseBean) {
+    public static void startCreateClaimActivity(Context context, BaseBean baseBean) {
         Intent intent = new Intent(context, CreateClaimActivity.class);
         intent.putExtra("create_id", baseBean.getInt("create_id"));
         intent.putExtra("check_creater", baseBean.getStr("check_creater"));

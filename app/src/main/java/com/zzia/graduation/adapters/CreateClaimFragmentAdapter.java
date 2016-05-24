@@ -77,7 +77,7 @@ public class CreateClaimFragmentAdapter extends RecyclerView.Adapter{
 
         @Override
         public void onClick(View v) {
-            CreateClaimActivity.startCreateOverActivity(context, list.get(position));
+            CreateClaimActivity.startCreateClaimActivity(context, list.get(position));
         }
     }
 }

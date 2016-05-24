@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
@@ -200,13 +201,14 @@ public class DetailTaskActivity extends AppCompatActivity implements View.OnClic
                     }
                     if (imageList != null && imageList.size() > 0) {
 //
-                        baseBean.set("comment_image",imageList);
+                        baseBean.set("comment_image", imageList);
 
                     }
                     list.add(baseBean);
                     detailTaskAdapter.notifyDataSetChanged();
                     //在数据清除之前添加到数据库
                     addDataToSql(time, comment, imageList);
+                    hideSoftInput();
                     //清空上次的编辑信息
                     input.setText("");
                     imageList.clear();
@@ -216,6 +218,24 @@ public class DetailTaskActivity extends AppCompatActivity implements View.OnClic
                 }
         }
 
+    }
+
+    /**
+     * 隐藏键盘
+     */
+    private void hideSoftInput() {
+        InputMethodManager inputMethodManager;
+        inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        if (inputMethodManager != null) {
+            View v = DetailTaskActivity.this.getCurrentFocus();
+            if (v == null) {
+                return;
+            }
+
+            inputMethodManager.hideSoftInputFromWindow(v.getWindowToken(),
+                    InputMethodManager.HIDE_NOT_ALWAYS);
+        }
     }
 
     /**
