@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
@@ -330,11 +331,13 @@ public class AddPlanActivity extends AppCompatActivity implements View.OnClickLi
             //android把拍摄的图片封装到bundle中传递回来
             Bundle extras = data.getExtras();
             if (extras != null) {
+                //系统自动压缩图片
                 final Bitmap photo = extras.getParcelable("data");
                 if (photo != null) {
+                    //手动压缩图片
+                    //由于Bitmap内存占用较大，这里需要回收内存，否则会报out of memory异常
 //                    Bitmap bitmap = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + "/image.jpg");
 //                    Bitmap newBitmap = ImageTools.zoomBitmap(bitmap, bitmap.getWidth() / SCALE, bitmap.getHeight() / SCALE);
-//                    //由于Bitmap内存占用较大，这里需要回收内存，否则会报out of memory异常
 //                    bitmap.recycle();
 
 
@@ -347,6 +350,9 @@ public class AddPlanActivity extends AppCompatActivity implements View.OnClickLi
                     String imageName = String.valueOf(System.currentTimeMillis());
                     imageUrl = Common.CACHEDIR_IMG + imageName + ".jpg";
                     //将图片保存到本地
+                    File file1 = new File(imageUrl);
+                    BitmapFactory.decodeFile(file1.getPath());
+
                     saveImage(photo, imageUrl);
                     list.add(imageUrl);
                 }

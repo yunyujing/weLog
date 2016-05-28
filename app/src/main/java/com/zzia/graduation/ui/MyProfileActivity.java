@@ -143,7 +143,6 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
                 } else {
                     //编辑资料
                     startActivity(new Intent(MyProfileActivity.this, EditMyProfileActivity.class));
-
                 }
                 break;
         }
